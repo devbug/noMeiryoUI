@@ -31,6 +31,7 @@ BaseDialog::BaseDialog() : TwrWnd()
 	parentWindow = NULL;
 	// dialogResource = resource;
 	isModeless = false;
+	controlFont = NULL;
 }
 
 
@@ -45,6 +46,7 @@ BaseDialog::BaseDialog(HWND parent, int resource) : TwrWnd()
 	parentWindow = parent;
 	dialogResource = resource;
 	isModeless = false;
+	controlFont = NULL;
 }
 
 /**
@@ -68,6 +70,9 @@ BaseDialog::~BaseDialog()
 			}
 		}
 	}
+
+	if (controlFont)
+		DeleteObject(controlFont);
 }
 
 /**

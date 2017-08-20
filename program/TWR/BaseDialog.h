@@ -18,6 +18,7 @@ protected:
 	virtual INT_PTR OnShowWindow(WPARAM wParam, LPARAM lParam);
 	virtual INT_PTR OnCommand(WPARAM wParam);
 	TCHAR ddx_buf[512];
+	HFONT controlFont;
 public:
 	BaseDialog();
 	BaseDialog(HWND parent, int resource);

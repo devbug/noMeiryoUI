@@ -675,7 +675,7 @@ void NoMeiryoUI::applyResource()
 {
 	HDC hDC = GetDC(this->hWnd);
 
-	HFONT newFont = CreateFont(
+	controlFont = CreateFont(
 		-MulDiv(9, GetDeviceCaps(hDC, LOGPIXELSY), 72),
 		0,
 		0,
@@ -714,48 +714,45 @@ void NoMeiryoUI::applyResource()
 	appMenu->setText(IDM_ABOUT, langResource[15].c_str(), FALSE);
 
 	setChildText(IDC_STATIC_ALL_FONT, langResource[16].c_str());
-	setChildFont(IDC_STATIC_ALL_FONT, newFont);
+	setChildFont(IDC_STATIC_ALL_FONT, controlFont);
 	setChildText(IDC_STATIC_TITLE_BAR, langResource[17].c_str());
-	setChildFont(IDC_STATIC_TITLE_BAR, newFont);
+	setChildFont(IDC_STATIC_TITLE_BAR, controlFont);
 	setChildText(IDC_STATIC_ICON, langResource[18].c_str());
-	setChildFont(IDC_STATIC_ICON, newFont);
+	setChildFont(IDC_STATIC_ICON, controlFont);
 	setChildText(IDC_STATIC_PALETTE_TITLE, langResource[19].c_str());
-	setChildFont(IDC_STATIC_PALETTE_TITLE, newFont);
+	setChildFont(IDC_STATIC_PALETTE_TITLE, controlFont);
 	setChildText(IDC_STATIC_HINT, langResource[20].c_str());
-	setChildFont(IDC_STATIC_HINT, newFont);
+	setChildFont(IDC_STATIC_HINT, controlFont);
 	setChildText(IDC_STATIC_MESSAGE, langResource[21].c_str());
-	setChildFont(IDC_STATIC_MESSAGE, newFont);
+	setChildFont(IDC_STATIC_MESSAGE, controlFont);
 	setChildText(IDC_STATIC_MENU, langResource[22].c_str());
-	setChildFont(IDC_STATIC_MENU, newFont);
+	setChildFont(IDC_STATIC_MENU, controlFont);
 
 	setChildText(ID_SEL_ALL, langResource[23].c_str());
-	setChildFont(ID_SEL_ALL, newFont);
+	setChildFont(ID_SEL_ALL, controlFont);
 	setChildText(ID_SEL_TITLE, langResource[23].c_str());
-	setChildFont(ID_SEL_TITLE, newFont);
+	setChildFont(ID_SEL_TITLE, controlFont);
 	setChildText(ID_SEL_ICON, langResource[23].c_str());
-	setChildFont(ID_SEL_ICON, newFont);
+	setChildFont(ID_SEL_ICON, controlFont);
 	setChildText(ID_SEL_PALETTE, langResource[23].c_str());
-	setChildFont(ID_SEL_PALETTE, newFont);
+	setChildFont(ID_SEL_PALETTE, controlFont);
 	setChildText(ID_SEL_HINT, langResource[23].c_str());
-	setChildFont(ID_SEL_HINT, newFont);
+	setChildFont(ID_SEL_HINT, controlFont);
 	setChildText(ID_SEL_MESSAGE, langResource[23].c_str());
-	setChildFont(ID_SEL_MESSAGE, newFont);
+	setChildFont(ID_SEL_MESSAGE, controlFont);
 	setChildText(ID_SEL_MENU, langResource[23].c_str());
-	setChildFont(ID_SEL_MENU, newFont);
+	setChildFont(ID_SEL_MENU, controlFont);
 	setChildText(ID_SET_ALL, langResource[24].c_str());
-	setChildFont(ID_SET_ALL, newFont);
+	setChildFont(ID_SET_ALL, controlFont);
 	setChildText(IDOK, langResource[25].c_str());
-	setChildFont(IDOK, newFont);
+	setChildFont(IDOK, controlFont);
 	setChildText(IDCANCEL, langResource[26].c_str());
-	setChildFont(IDCANCEL, newFont);
+	setChildFont(IDCANCEL, controlFont);
 
-	setChildFont(IDC_STATIC_APP_TITLE, newFont);
+	setChildFont(IDC_STATIC_APP_TITLE, controlFont);
 
-	setChildFont(IDC_STATIC_VERNO, newFont);
-	setChildFont(IDC_STATIC_AUTHOR, newFont);
-
-
-	DeleteObject(newFont);
+	setChildFont(IDC_STATIC_VERNO, controlFont);
+	setChildFont(IDC_STATIC_AUTHOR, controlFont);
 }
 
 

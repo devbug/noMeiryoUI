@@ -295,7 +295,7 @@ void FontSel::applyResource()
 {
 	HDC hDC = GetDC(this->hWnd);
 
-	HFONT newFont = CreateFont(
+	controlFont = CreateFont(
 		-MulDiv(9, GetDeviceCaps(hDC, LOGPIXELSY), 72),
 		0,
 		0,
@@ -318,29 +318,28 @@ void FontSel::applyResource()
 	setText(langResource[27].c_str());
 
 	setChildText(IDC_STATIC_NAME, langResource[28].c_str());
-	setChildFont(IDC_STATIC_NAME, newFont);
+	setChildFont(IDC_STATIC_NAME, controlFont);
 	setChildText(IDC_STATIC_STYLE, langResource[29].c_str());
-	setChildFont(IDC_STATIC_STYLE, newFont);
+	setChildFont(IDC_STATIC_STYLE, controlFont);
 	setChildText(IDC_STATIC_SIZE, langResource[30].c_str());
-	setChildFont(IDC_STATIC_SIZE, newFont);
+	setChildFont(IDC_STATIC_SIZE, controlFont);
 
 	setChildText(IDC_CHECK_UNDERLINE, langResource[31].c_str());
-	setChildFont(IDC_CHECK_UNDERLINE, newFont);
+	setChildFont(IDC_CHECK_UNDERLINE, controlFont);
 	setChildText(IDC_CHECK_STRIKE, langResource[32].c_str());
-	setChildFont(IDC_CHECK_STRIKE, newFont);
+	setChildFont(IDC_CHECK_STRIKE, controlFont);
 	setChildText(IDC_STATIC_CHARSET, langResource[33].c_str());
-	setChildFont(IDC_STATIC_CHARSET, newFont);
+	setChildFont(IDC_STATIC_CHARSET, controlFont);
 
 	setChildText(IDOK, langResource[34].c_str());
-	setChildFont(IDOK, newFont);
+	setChildFont(IDOK, controlFont);
 	setChildText(IDCANCEL, langResource[35].c_str());
-	setChildFont(IDCANCEL, newFont);
+	setChildFont(IDCANCEL, controlFont);
 
-	setChildFont(IDC_COMBO_NAME, newFont);
-	setChildFont(IDC_COMBO_STYLE, newFont);
-	setChildFont(IDC_COMBO_SIZE, newFont);
-	setChildFont(IDC_COMBO_CHARSET, newFont);
-
+	setChildFont(IDC_COMBO_NAME, controlFont);
+	setChildFont(IDC_COMBO_STYLE, controlFont);
+	setChildFont(IDC_COMBO_SIZE, controlFont);
+	setChildFont(IDC_COMBO_CHARSET, controlFont);
 }
 
 /**

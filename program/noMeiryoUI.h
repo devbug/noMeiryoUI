@@ -90,7 +90,7 @@ private:
 	void OnSet8();
 	void OnSet10(void);
 	void SetWinVer(void);
-	void getWin10Ver(TCHAR *buf, DWORD major, DWORD minor);
+	void getWin10Ver(TCHAR *buf, size_t len, DWORD major, DWORD minor);
 	int getDPI(void);
 
 	void setFont(

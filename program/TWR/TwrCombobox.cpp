@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 noMeiryoUI (C) 2005,2012,2013 Tatsuhiko Shoji
 The sources for noMeiryoUI are distributed under the MIT open source license
 */
@@ -7,7 +7,7 @@ The sources for noMeiryoUI are distributed under the MIT open source license
 #include "TwrCombobox.h"
 
 /**
- * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+ * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
  */
 TwrCombobox::TwrCombobox() : TwrWnd()
 {
@@ -15,9 +15,9 @@ TwrCombobox::TwrCombobox() : TwrWnd()
 }
 
 /**
- * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+ * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
  *
- * @param ƒIƒuƒWƒFƒNƒg‚ÉŒ‹‚Ñ•t‚¯‚éƒEƒCƒ“ƒhƒE‚Ìƒnƒ“ƒhƒ‹
+ * @param ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«çµã³ä»˜ã‘ã‚‹ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ãƒãƒ³ãƒ‰ãƒ«
  */
 TwrCombobox::TwrCombobox(HWND newHwnd) : TwrWnd()
 {
@@ -25,7 +25,7 @@ TwrCombobox::TwrCombobox(HWND newHwnd) : TwrWnd()
 }
 
 /**
- * ƒRƒ“ƒ{ƒ{ƒbƒNƒX‚ğì¬‚µ‚Ü‚·B
+ * ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚’ä½œæˆã—ã¾ã™ã€‚
  */
 HWND TwrCombobox::create(void)
 {
@@ -47,9 +47,9 @@ HWND TwrCombobox::create(void)
 }
 
 /**
- * ƒRƒ“ƒ{ƒ{ƒbƒNƒX‚ğì¬‚µ‚Ü‚·B
+ * ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚’ä½œæˆã—ã¾ã™ã€‚
  *
- * @param parent eƒEƒCƒ“ƒhƒEƒnƒ“ƒhƒ‹
+ * @param parent è¦ªã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«
  */
 HWND TwrCombobox::create(HWND parent)
 {
@@ -71,9 +71,9 @@ HWND TwrCombobox::create(HWND parent)
 }
 
 /**
- * ƒRƒ“ƒ{ƒ{ƒbƒNƒX‚É—v‘f‚ğ’Ç‰Á‚µ‚Ü‚·B
+ * ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã«è¦ç´ ã‚’è¿½åŠ ã—ã¾ã™ã€‚
  *
- * @param item ’Ç‰Á‚·‚é•¶š—ñ
+ * @param item è¿½åŠ ã™ã‚‹æ–‡å­—åˆ—
  */
 void TwrCombobox::addItem(const TCHAR *item)
 {
@@ -81,9 +81,9 @@ void TwrCombobox::addItem(const TCHAR *item)
 }
 
 /**
- * ‘I‘ğ‚³‚ê‚½—v‘f‚ÌˆÊ’u‚ğæ“¾‚µ‚Ü‚·B
+ * é¸æŠã•ã‚ŒãŸè¦ç´ ã®ä½ç½®ã‚’å–å¾—ã—ã¾ã™ã€‚
  *
- * @return -1:‘I‘ğ‚³‚ê‚Ä‚¢‚È‚¢ -1ˆÈŠO:‘I‘ğ‚³‚ê‚½êŠ
+ * @return -1:é¸æŠã•ã‚Œã¦ã„ãªã„ -1ä»¥å¤–:é¸æŠã•ã‚ŒãŸå ´æ‰€
  */
 int TwrCombobox::getSelectedIndex(void)
 {
@@ -96,9 +96,9 @@ int TwrCombobox::getSelectedIndex(void)
 }
 
 /**
- * —v‘f‚Ì”‚ğæ“¾‚µ‚Ü‚·B
+ * è¦ç´ ã®æ•°ã‚’å–å¾—ã—ã¾ã™ã€‚
  *
- * @return -1:‘I‘ğ‚³‚ê‚Ä‚¢‚È‚¢ -1ˆÈŠO:‘I‘ğ‚³‚ê‚½êŠ
+ * @return -1:é¸æŠã•ã‚Œã¦ã„ãªã„ -1ä»¥å¤–:é¸æŠã•ã‚ŒãŸå ´æ‰€
  */
 int TwrCombobox::getCount(void)
 {
@@ -111,7 +111,7 @@ int TwrCombobox::getCount(void)
 }
 
 /**
- * ƒRƒ“ƒ{ƒ{ƒbƒNƒX‚ğƒNƒŠƒA‚µ‚Ü‚·B
+ * ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã‚’ã‚¯ãƒªã‚¢ã—ã¾ã™ã€‚
  */
 void TwrCombobox::clear(void)
 {
@@ -119,9 +119,9 @@ void TwrCombobox::clear(void)
 }
 
 /**
- * w’è‚µ‚½ˆÊ’u‚Ì—v‘f‚ğ‘I‘ğ‚µ‚Ü‚·B
+ * æŒ‡å®šã—ãŸä½ç½®ã®è¦ç´ ã‚’é¸æŠã—ã¾ã™ã€‚
  *
- * @param index ‘I‘ğ‚·‚éˆÊ’u
+ * @param index é¸æŠã™ã‚‹ä½ç½®
  */
 void TwrCombobox::setSelectedIndex(int index)
 {
@@ -129,9 +129,9 @@ void TwrCombobox::setSelectedIndex(int index)
 }
 
 /**
- * ‘I‘ğ‚µ‚½ˆÊ’u‚Ì•¶š—ñ‚ğ•Ô‚µ‚Ü‚·B
+ * é¸æŠã—ãŸä½ç½®ã®æ–‡å­—åˆ—ã‚’è¿”ã—ã¾ã™ã€‚
  *
- * @return ‘I‘ğ‚µ‚½ˆÊ’u‚Ì•¶š—ñ(‘I‘ğ‚³‚ê‚Ä‚È‚¢ê‡‚Í‹ó)
+ * @return é¸æŠã—ãŸä½ç½®ã®æ–‡å­—åˆ—(é¸æŠã•ã‚Œã¦ãªã„å ´åˆã¯ç©º)
  */
 tstring TwrCombobox::getSelectedText(void)
 {
@@ -158,10 +158,10 @@ tstring TwrCombobox::getSelectedText(void)
 }
 
 /**
- * w’è‚µ‚½ˆÊ’u‚Ì•¶š—ñ‚ğ•Ô‚µ‚Ü‚·B
+ * æŒ‡å®šã—ãŸä½ç½®ã®æ–‡å­—åˆ—ã‚’è¿”ã—ã¾ã™ã€‚
  *
- * @param index æ“¾‚·‚é€–Ú‚ÌˆÊ’u
- * @return •¶š—ñ(‘I‘ğ‚³‚ê‚Ä‚È‚¢ê‡‚Í‹ó)
+ * @param index å–å¾—ã™ã‚‹é …ç›®ã®ä½ç½®
+ * @return æ–‡å­—åˆ—(é¸æŠã•ã‚Œã¦ãªã„å ´åˆã¯ç©º)
  */
 tstring TwrCombobox::getItem(int index)
 {

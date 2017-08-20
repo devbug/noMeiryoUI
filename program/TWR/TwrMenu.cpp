@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 noMeiryoUI (C) 2005,2012-2016 Tatsuhiko Shoji
 The sources for noMeiryoUI are distributed under the MIT open source license
 */
@@ -8,13 +8,13 @@ The sources for noMeiryoUI are distributed under the MIT open source license
 #include "TwrMenu.h"
 
 /**
- * ƒƒjƒ…[‚ğˆµ‚¤ƒNƒ‰ƒX
+ * ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’æ‰±ã†ã‚¯ãƒ©ã‚¹
  */
 
 /**
- * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+ * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
  *
- * @param ƒIƒuƒWƒFƒNƒg‚ÉŒ‹‚Ñ•t‚¯‚éƒEƒCƒ“ƒhƒE‚Ìƒnƒ“ƒhƒ‹
+ * @param ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«çµã³ä»˜ã‘ã‚‹ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ãƒãƒ³ãƒ‰ãƒ«
  */
 TwrMenu::TwrMenu(HWND wnd)
 {
@@ -22,9 +22,9 @@ TwrMenu::TwrMenu(HWND wnd)
 }
 
 /**
- * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+ * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
  *
- * @param ƒIƒuƒWƒFƒNƒg‚ÉŒ‹‚Ñ•t‚¯‚éƒEƒCƒ“ƒhƒE‚Ìƒnƒ“ƒhƒ‹
+ * @param ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«çµã³ä»˜ã‘ã‚‹ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ãƒãƒ³ãƒ‰ãƒ«
  */
 TwrMenu::TwrMenu(HMENU menu)
 {
@@ -32,10 +32,10 @@ TwrMenu::TwrMenu(HMENU menu)
 }
 
 /**
- * ƒƒjƒ…[‚Ìƒ`ƒFƒbƒNó‘Ô‚ğİ’è‚·‚éB
+ * ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®ãƒã‚§ãƒƒã‚¯çŠ¶æ…‹ã‚’è¨­å®šã™ã‚‹ã€‚
  *
- * @param id ƒƒjƒ…[ID
- * @param true:ƒ`ƒFƒbƒN‚·‚é false:ƒ`ƒFƒbƒN‚µ‚È‚¢
+ * @param id ãƒ¡ãƒ‹ãƒ¥ãƒ¼ID
+ * @param true:ãƒã‚§ãƒƒã‚¯ã™ã‚‹ false:ãƒã‚§ãƒƒã‚¯ã—ãªã„
  */
 void TwrMenu::CheckMenuItem(int id, bool checked)
 {
@@ -57,10 +57,10 @@ void TwrMenu::CheckMenuItem(int id, bool checked)
 }
 
 /**
- * ƒƒjƒ…[‚Ìƒ`ƒFƒbƒNó‘Ô‚ğİ’è‚·‚éB
+ * ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®ãƒã‚§ãƒƒã‚¯çŠ¶æ…‹ã‚’è¨­å®šã™ã‚‹ã€‚
  *
- * @param item ƒƒjƒ…[ID
- * @return true:ƒ`ƒFƒbƒN‚·‚é false:ƒ`ƒFƒbƒN‚µ‚È‚¢
+ * @param item ãƒ¡ãƒ‹ãƒ¥ãƒ¼ID
+ * @return true:ãƒã‚§ãƒƒã‚¯ã™ã‚‹ false:ãƒã‚§ãƒƒã‚¯ã—ãªã„
  */
 bool TwrMenu::isChecked(int item)
 {
@@ -79,10 +79,10 @@ bool TwrMenu::isChecked(int item)
 }
 
 /**
- * ƒƒjƒ…[‚Ì—LŒøó‘Ô‚ğİ’è‚·‚éB
+ * ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®æœ‰åŠ¹çŠ¶æ…‹ã‚’è¨­å®šã™ã‚‹ã€‚
  *
- * @param id ƒƒjƒ…[ID
- * @param true:—LŒø‚É‚·‚é false:—LŒø‚É‚µ‚È‚¢
+ * @param id ãƒ¡ãƒ‹ãƒ¥ãƒ¼ID
+ * @param true:æœ‰åŠ¹ã«ã™ã‚‹ false:æœ‰åŠ¹ã«ã—ãªã„
  */
 void TwrMenu::setEnabled(int id, bool enabled)
 {
@@ -104,11 +104,11 @@ void TwrMenu::setEnabled(int id, bool enabled)
 }
 
 /**
- * ƒƒjƒ…[‚Ì•¶Œ¾‚ğİ’è‚·‚éB
+ * ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®æ–‡è¨€ã‚’è¨­å®šã™ã‚‹ã€‚
  *
- * @param position ƒƒjƒ…[‚ÌˆÊ’u/ƒƒjƒ…[€–Ú‚ÌID
- * @param message İ’è‚·‚éƒƒbƒZ[ƒW
- * @param byPosition w’è•û–@(TRUE:ƒƒjƒ…[‚ÌˆÊ’u FALSE:ƒƒjƒ…[€–Ú‚ÌID)
+ * @param position ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®ä½ç½®/ãƒ¡ãƒ‹ãƒ¥ãƒ¼é …ç›®ã®ID
+ * @param message è¨­å®šã™ã‚‹ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+ * @param byPosition æŒ‡å®šæ–¹æ³•(TRUE:ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®ä½ç½® FALSE:ãƒ¡ãƒ‹ãƒ¥ãƒ¼é …ç›®ã®ID)
  */
 void TwrMenu::setText(int position, const TCHAR *message, BOOL byPosition)
 {

@@ -1,8 +1,8 @@
-/*
+ï»¿/*
 noMeiryoUI (C) 2005,2012,2013 Tatsuhiko Shoji
 The sources for noMeiryoUI are distributed under the MIT open source license
 */
-// AppliBase.cpp : ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ÌƒGƒ“ƒgƒŠ ƒ|ƒCƒ“ƒg‚ð’è‹`‚µ‚Ü‚·B
+// AppliBase.cpp : ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®ã‚¨ãƒ³ãƒˆãƒª ãƒã‚¤ãƒ³ãƒˆã‚’å®šç¾©ã—ã¾ã™ã€‚
 //
 
 #include "stdafx.h"
@@ -12,25 +12,25 @@ The sources for noMeiryoUI are distributed under the MIT open source license
 
 #define MAX_LOADSTRING 100
 
-// ƒOƒ[ƒoƒ‹•Ï”:
-TCHAR szTitle[MAX_LOADSTRING];					// ƒ^ƒCƒgƒ‹ ƒo[‚ÌƒeƒLƒXƒg
-TCHAR szWindowClass[MAX_LOADSTRING];			// ƒƒCƒ“ ƒEƒBƒ“ƒhƒE ƒNƒ‰ƒX–¼
+// ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°:
+TCHAR szTitle[MAX_LOADSTRING];					// ã‚¿ã‚¤ãƒˆãƒ« ãƒãƒ¼ã®ãƒ†ã‚­ã‚¹ãƒˆ
+TCHAR szWindowClass[MAX_LOADSTRING];			// ãƒ¡ã‚¤ãƒ³ ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ ã‚¯ãƒ©ã‚¹å
 
 BaseDialog *baseDialog;
 
-// ƒAƒvƒŠƒP[ƒVƒ‡ƒ“ŒÅ—L‚ÌƒOƒ[ƒoƒ‹•Ï”
+// ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³å›ºæœ‰ã®ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°
 DialogAppliBase *appObj;
 
-// ‚±‚ÌƒR[ƒh ƒ‚ƒWƒ…[ƒ‹‚ÉŠÜ‚Ü‚ê‚éŠÖ”‚ÌéŒ¾‚ð“]‘—‚µ‚Ü‚·:
+// ã“ã®ã‚³ãƒ¼ãƒ‰ ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã«å«ã¾ã‚Œã‚‹é–¢æ•°ã®å®£è¨€ã‚’è»¢é€ã—ã¾ã™:
 
 /**
- * ƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒƒCƒ“ƒ‹[ƒ`ƒ“
+ * ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ãƒ¡ã‚¤ãƒ³ãƒ«ãƒ¼ãƒãƒ³
  *
- * @param hInstance ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ÌƒCƒ“ƒXƒ^ƒ“ƒXƒnƒ“ƒhƒ‹
- * @param hPrevInstance –¢Žg—p
- * @param lpCmdLine ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“
- * @param nCmdShow •\Ž¦ó‘Ô
- * @return ƒvƒƒOƒ‰ƒ€I—¹ƒR[ƒh
+ * @param hInstance ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãƒãƒ³ãƒ‰ãƒ«
+ * @param hPrevInstance æœªä½¿ç”¨
+ * @param lpCmdLine ã‚³ãƒžãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³
+ * @param nCmdShow è¡¨ç¤ºçŠ¶æ…‹
+ * @return ãƒ—ãƒ­ã‚°ãƒ©ãƒ çµ‚äº†ã‚³ãƒ¼ãƒ‰
  */
 int APIENTRY _tWinMain(HINSTANCE hInstance,
                      HINSTANCE hPrevInstance,
@@ -49,17 +49,17 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 
 	// initModelessCallback();
 
-	// ‚±‚±‚ÅƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ðÝ’è‚µ‚Ü‚·B
+	// ã“ã“ã§ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’è¨­å®šã—ã¾ã™ã€‚
 	appObj = createAppli();
 	baseDialog = appObj->createBaseDialog();
 
-	// ƒEƒCƒ“ƒhƒE•\Ž¦‘O‚ÌƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚Ì‰Šú‰»‚ðs‚¤B
+	// ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦è¡¨ç¤ºå‰ã®ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®åˆæœŸåŒ–ã‚’è¡Œã†ã€‚
 	appObj->OnAppliStart(lpCmdLine);
 
-	// ƒ_ƒCƒAƒƒO‚ð•\Ž¦‚·‚éB
+	// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’è¡¨ç¤ºã™ã‚‹ã€‚
 	result = DialogBox(hInstance,MAKEINTRESOURCE(IDD_MAIN_DIALOG),NULL,(DLGPROC)MainDialogProc);
 
-	// ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ÌŒãŽn––‚ðs‚¤B
+	// ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®å¾Œå§‹æœ«ã‚’è¡Œã†ã€‚
 	appObj->OnAppliEnd();
 
 	delete appObj;
@@ -67,16 +67,16 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 }
 
 /**
- * ƒfƒXƒgƒ‰ƒNƒ^
+ * ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
  */
 DialogAppliBase::~DialogAppliBase()
 {
 }
 
 /**
- * ƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒEƒCƒ“ƒhƒEƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ð¶¬‚µ‚Ü‚·B
+ * ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
  *
- * @return ƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒEƒCƒ“ƒhƒEƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX
+ * @return ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
  */
 BaseDialog *DialogAppliBase::createBaseDialog()
 {
@@ -84,51 +84,51 @@ BaseDialog *DialogAppliBase::createBaseDialog()
 }
 
 /**
- * ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ÌŠJŽnˆ—‚ðŽÀs‚µ‚Ü‚·B
+ * ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®é–‹å§‹å‡¦ç†ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
  *
- * @return —\”õ
+ * @return äºˆå‚™
  */
 int DialogAppliBase::OnAppliStart(TCHAR *lpCmdLine)
 {
-	// ‚±‚ÌŠÖ”‚ðƒI[ƒo[ƒ‰ƒCƒh‚µ‚ÄƒAƒvƒŠŒÅ—L‚Ì‰Šú‰»‚ðs‚¢‚Ü‚·B
+	// ã“ã®é–¢æ•°ã‚’ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã—ã¦ã‚¢ãƒ—ãƒªå›ºæœ‰ã®åˆæœŸåŒ–ã‚’è¡Œã„ã¾ã™ã€‚
 	return 0;
 }
 
 /**
- * ƒEƒCƒ“ƒhƒE‚ª•\Ž¦‚³‚ê‚½‚Æ‚«‚Ìˆ—‚ðŽÀs‚µ‚Ü‚·B<br>
- * ƒEƒCƒ“ƒhƒEƒx[ƒXƒAƒvƒŠ‚ÆƒCƒ“ƒ^ƒtƒF[ƒX‚ð‡‚í‚¹‚é‚½‚ß‚É—pˆÓ‚µ‚Ä‚¢‚Ü‚·B
+ * ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãŒè¡¨ç¤ºã•ã‚ŒãŸã¨ãã®å‡¦ç†ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚<br>
+ * ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒ™ãƒ¼ã‚¹ã‚¢ãƒ—ãƒªã¨ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’åˆã‚ã›ã‚‹ãŸã‚ã«ç”¨æ„ã—ã¦ã„ã¾ã™ã€‚
  *
- * @return —\”õ
+ * @return äºˆå‚™
  */
 int DialogAppliBase::OnWindowShow()
 {
 
-	// ‚±‚ÌŠÖ”‚ðƒI[ƒo[ƒ‰ƒCƒh‚µ‚ÄA‰‰ñ‚Ì•\Ž¦Žž‚Ìˆ—‚ðs‚¢‚Ü‚·B
-	// ‚±‚Ìƒ^ƒCƒ~ƒ“ƒO‚Åƒ_ƒCƒAƒƒO‚ª‘¶Ý‚·‚é‚Ì‚ÅA‚±‚±‚Éˆ—‚ð“ü‚ê‚é‚±‚Æ‚Å
-	// ƒ_ƒCƒAƒƒO‚ª‚ ‚éó‘Ô‚Å‹N“®Žž‚Ì‰Šú‰»ˆ—‚ðs‚¤‚±‚Æ‚ª‚Å‚«‚Ü‚·B
+	// ã“ã®é–¢æ•°ã‚’ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã—ã¦ã€åˆå›žã®è¡¨ç¤ºæ™‚ã®å‡¦ç†ã‚’è¡Œã„ã¾ã™ã€‚
+	// ã“ã®ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã§ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãŒå­˜åœ¨ã™ã‚‹ã®ã§ã€ã“ã“ã«å‡¦ç†ã‚’å…¥ã‚Œã‚‹ã“ã¨ã§
+	// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãŒã‚ã‚‹çŠ¶æ…‹ã§èµ·å‹•æ™‚ã®åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã“ã¨ãŒã§ãã¾ã™ã€‚
 
 	return 0;
 }
 
 /**
- * ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ÌI—¹ˆ—‚ðŽÀs‚µ‚Ü‚·B
+ * ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®çµ‚äº†å‡¦ç†ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
  *
- * @return —\”õ
+ * @return äºˆå‚™
  */
 int DialogAppliBase::OnAppliEnd()
 {
-	// ‚±‚ÌŠÖ”‚ðƒI[ƒo[ƒ‰ƒCƒh‚µ‚ÄƒAƒvƒŠŒÅ—L‚ÌŒãˆ—‚ðs‚¢‚Ü‚·B
+	// ã“ã®é–¢æ•°ã‚’ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã—ã¦ã‚¢ãƒ—ãƒªå›ºæœ‰ã®å¾Œå‡¦ç†ã‚’è¡Œã„ã¾ã™ã€‚
 	return 0;
 }
 
 /**
- * ƒ_ƒCƒAƒƒO‚Ì‰Šú‰»ˆ—‚ðs‚¢‚Ü‚·B
+ * ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã„ã¾ã™ã€‚
  *
- * @return TRUE:ƒtƒH[ƒJƒX‚ðÝ’è‚µ‚½ FALSE:ƒtƒH[ƒJƒX‚ðÝ’è‚µ‚È‚¢
+ * @return TRUE:ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãŸ FALSE:ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„
  */
 INT_PTR DialogAppliBase::OnInitDialog()
 {
-	// ƒ_ƒCƒAƒƒO•\Ž¦Žž‚Ì‰Šú‰»ˆ—‚ðs‚¤B
+	// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°è¡¨ç¤ºæ™‚ã®åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã€‚
 	OnWindowShow();
 
 	return (INT_PTR)FALSE;

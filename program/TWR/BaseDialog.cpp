@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 noMeiryoUI (C) 2005,2012,2013 Tatsuhiko Shoji
 The sources for noMeiryoUI are distributed under the MIT open source license
 */
@@ -13,7 +13,7 @@ static BaseDialog *modelessCallback[10];
 static int modelessCallbacks = 0;
 
 /**
- * ƒ‚[ƒhƒŒƒXƒ_ƒCƒAƒƒO‚ÌƒR[ƒ‹ƒoƒbƒN‚ğ‰Šú‰»‚·‚éB
+ * ãƒ¢ãƒ¼ãƒ‰ãƒ¬ã‚¹ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
  *
  */
 void initModelessCallback(void)
@@ -24,7 +24,7 @@ void initModelessCallback(void)
 }
 
 /**
- * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+ * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
  */
 BaseDialog::BaseDialog() : TwrWnd()
 {
@@ -35,10 +35,10 @@ BaseDialog::BaseDialog() : TwrWnd()
 
 
 /**
- * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+ * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
  *
- * @param parent eƒEƒCƒ“ƒhƒEƒnƒ“ƒhƒ‹
- * @param resource ƒ_ƒCƒAƒƒOƒŠƒ\[ƒX”Ô†
+ * @param parent è¦ªã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«
+ * @param resource ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãƒªã‚½ãƒ¼ã‚¹ç•ªå·
  */
 BaseDialog::BaseDialog(HWND parent, int resource) : TwrWnd()
 {
@@ -48,7 +48,7 @@ BaseDialog::BaseDialog(HWND parent, int resource) : TwrWnd()
 }
 
 /**
- * ƒfƒXƒgƒ‰ƒNƒ^
+ * ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
  */
 BaseDialog::~BaseDialog()
 {
@@ -71,9 +71,9 @@ BaseDialog::~BaseDialog()
 }
 
 /**
- * ƒ‚[ƒ_ƒ‹ƒ_ƒCƒAƒƒO‚ğ•\¦‚·‚éB
+ * ãƒ¢ãƒ¼ãƒ€ãƒ«ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’è¡¨ç¤ºã™ã‚‹ã€‚
  *
- * @return ƒ_ƒCƒAƒƒO‚Ì–ß‚è’l
+ * @return ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®æˆ»ã‚Šå€¤
  */
 INT_PTR BaseDialog::showModal()
 {
@@ -86,9 +86,9 @@ INT_PTR BaseDialog::showModal()
 }
 
 /**
- * ƒ‚[ƒhƒŒƒXƒ_ƒCƒAƒƒO‚ğ•\¦‚·‚éB
+ * ãƒ¢ãƒ¼ãƒ‰ãƒ¬ã‚¹ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’è¡¨ç¤ºã™ã‚‹ã€‚
  *
- * @return ƒ_ƒCƒAƒƒO‚Ì–ß‚è’l
+ * @return ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®æˆ»ã‚Šå€¤
  */
 HWND BaseDialog::showModeless()
 {
@@ -127,13 +127,13 @@ HWND BaseDialog::showModeless()
 }
 
 /**
- * ƒ‚[ƒ_ƒ‹ƒ_ƒCƒAƒƒO‚Ìƒ_ƒCƒAƒƒOƒvƒ[ƒVƒWƒƒ
+ * ãƒ¢ãƒ¼ãƒ€ãƒ«ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãƒ—ãƒ­ãƒ¼ã‚·ã‚¸ãƒ£
  *
- * @param hDlg ƒ_ƒCƒAƒƒO‚ÌƒEƒCƒ“ƒhƒEƒnƒ“ƒhƒ‹
- * @param message ƒƒbƒZ[ƒW
+ * @param hDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«
+ * @param message ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
  * @param wParam WPARAM
  * @param lParam LPARAM
- * @return ˆ—Œ‹‰Ê
+ * @return å‡¦ç†çµæœ
  */
 INT_PTR CALLBACK BaseDialog::modalDialogProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -141,13 +141,13 @@ INT_PTR CALLBACK BaseDialog::modalDialogProc(HWND hDlg, UINT message, WPARAM wPa
 }
 
 /**
- * ƒ‚[ƒhƒŒƒXƒ_ƒCƒAƒƒO‚Ìƒ_ƒCƒAƒƒOƒvƒ[ƒVƒWƒƒ
+ * ãƒ¢ãƒ¼ãƒ‰ãƒ¬ã‚¹ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãƒ—ãƒ­ãƒ¼ã‚·ã‚¸ãƒ£
  *
- * @param hDlg ƒ_ƒCƒAƒƒO‚ÌƒEƒCƒ“ƒhƒEƒnƒ“ƒhƒ‹
- * @param message ƒƒbƒZ[ƒW
+ * @param hDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«
+ * @param message ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
  * @param wParam WPARAM
  * @param lParam LPARAM
- * @return ˆ—Œ‹‰Ê
+ * @return å‡¦ç†çµæœ
  */
 INT_PTR CALLBACK BaseDialog::modelessDialogProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -163,13 +163,13 @@ INT_PTR CALLBACK BaseDialog::modelessDialogProc(HWND hDlg, UINT message, WPARAM 
 }
 
 /**
- * ƒ_ƒCƒAƒƒO‚Ìƒ_ƒCƒAƒƒOƒvƒ[ƒVƒWƒƒ
+ * ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãƒ—ãƒ­ãƒ¼ã‚·ã‚¸ãƒ£
  *
- * @param hDlg ƒ_ƒCƒAƒƒO‚ÌƒEƒCƒ“ƒhƒEƒnƒ“ƒhƒ‹
- * @param message ƒƒbƒZ[ƒW
+ * @param hDlg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«
+ * @param message ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
  * @param wParam WPARAM
  * @param lParam LPARAM
- * @return ˆ—Œ‹‰Ê TRUE:ƒƒbƒZ[ƒW‚ğˆ—‚µ‚½B FALSE:ƒƒbƒZ[ƒW‚ğˆ—‚µ‚È‚¢
+ * @return å‡¦ç†çµæœ TRUE:ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å‡¦ç†ã—ãŸã€‚ FALSE:ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å‡¦ç†ã—ãªã„
  */
 INT_PTR CALLBACK BaseDialog::dialogProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -199,10 +199,10 @@ INT_PTR CALLBACK BaseDialog::dialogProc(HWND hDlg, UINT message, WPARAM wParam, 
 }
 
 /**
- * ƒ_ƒCƒAƒƒO‚Æƒ_ƒCƒAƒƒOƒIƒuƒWƒFƒNƒg‚Ìƒf[ƒ^‚Ì“¯Šú‚ğ‚Æ‚è‚Ü‚·B
+ * ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã¨ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ãƒ‡ãƒ¼ã‚¿ã®åŒæœŸã‚’ã¨ã‚Šã¾ã™ã€‚
  *
- * @param toObj true:ƒ_ƒCƒAƒƒO‚Ì“à—e‚ğƒIƒuƒWƒFƒNƒg‚ÉŠi”[‚·‚éB
- *              false:ƒIƒuƒWƒFƒNƒg‚Ì“à—e‚ğƒ_ƒCƒAƒƒO‚ÉŠi”[‚·‚éB
+ * @param toObj true:ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®å†…å®¹ã‚’ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«æ ¼ç´ã™ã‚‹ã€‚
+ *              false:ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å†…å®¹ã‚’ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã«æ ¼ç´ã™ã‚‹ã€‚
  */
 void BaseDialog::UpdateData(bool toObj)
 {
@@ -210,9 +210,9 @@ void BaseDialog::UpdateData(bool toObj)
 
 
 /**
- * ƒ_ƒCƒAƒƒO‚Ì‰Šú‰»‚ÉŒÄ‚Ño‚³‚ê‚Ü‚·B
+ * ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®åˆæœŸåŒ–æ™‚ã«å‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
  *
- * @return ˆ—Œ‹‰Ê
+ * @return å‡¦ç†çµæœ
  */
 INT_PTR BaseDialog::OnInitDialog()
 {
@@ -223,11 +223,11 @@ INT_PTR BaseDialog::OnInitDialog()
 }
 
 /**
- * WM_SHOWWINDOWƒƒbƒZ[ƒW‚É‚æ‚é•\¦ó‘Ô•ÏX‚Ìˆ—
+ * WM_SHOWWINDOWãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã«ã‚ˆã‚‹è¡¨ç¤ºçŠ¶æ…‹å¤‰æ›´æ™‚ã®å‡¦ç†
  *
  * @param wParam WPARAM
  * @param lParam lParam
- * @return 0:ˆ—‚µ‚½ ”ñ0:ˆ—‚µ‚È‚¢
+ * @return 0:å‡¦ç†ã—ãŸ é0:å‡¦ç†ã—ãªã„
  */
 INT_PTR BaseDialog::OnShowWindow(WPARAM wParam, LPARAM lParam)
 {
@@ -236,9 +236,9 @@ INT_PTR BaseDialog::OnShowWindow(WPARAM wParam, LPARAM lParam)
 }
 
 /**
- * ƒ_ƒCƒAƒƒO‘€ì‚ªs‚í‚ê‚½‚ÉŒÄ‚Ño‚³‚ê‚Ü‚·B
+ * ãƒ€ã‚¤ã‚¢ãƒ­ã‚°æ“ä½œãŒè¡Œã‚ã‚ŒãŸæ™‚ã«å‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
  *
- * @return ˆ—Œ‹‰Ê 0:ˆ—‚ğs‚Á‚½ ”ñ0:ˆ—‚ğs‚í‚È‚¢
+ * @return å‡¦ç†çµæœ 0:å‡¦ç†ã‚’è¡Œã£ãŸ é0:å‡¦ç†ã‚’è¡Œã‚ãªã„
  */
 INT_PTR BaseDialog::OnCommand(WPARAM wParam)
 {
@@ -253,10 +253,10 @@ INT_PTR BaseDialog::OnCommand(WPARAM wParam)
 }
 
 /**
- * ƒ_ƒCƒAƒƒOƒŠƒ\[ƒXã‚ÌƒEƒCƒ“ƒhƒE‚ğæ“¾‚µ‚Ü‚·B
+ * ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãƒªã‚½ãƒ¼ã‚¹ä¸Šã®ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã‚’å–å¾—ã—ã¾ã™ã€‚
  *
- * @param item ƒŠƒ\[ƒXID
- * @return ƒ_ƒCƒAƒƒOã‚ÌƒIƒuƒWƒFƒNƒg
+ * @param item ãƒªã‚½ãƒ¼ã‚¹ID
+ * @return ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ä¸Šã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
  */
 TwrWnd *BaseDialog::GetDlgItem(int item)
 {
@@ -279,10 +279,10 @@ TwrWnd *BaseDialog::GetDlgItem(int item)
 }
 
 /**
- * ƒ_ƒCƒAƒƒOƒŠƒ\[ƒXã‚ÌƒEƒCƒ“ƒhƒEƒnƒ“ƒhƒ‹‚ğæ“¾‚µ‚Ü‚·B
+ * ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãƒªã‚½ãƒ¼ã‚¹ä¸Šã®ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«ã‚’å–å¾—ã—ã¾ã™ã€‚
  *
- * @param ƒŠƒ\[ƒXID
- * @return ƒ_ƒCƒAƒƒOã‚ÌƒEƒCƒ“ƒhƒE‚Ìƒnƒ“ƒhƒ‹
+ * @param ãƒªã‚½ãƒ¼ã‚¹ID
+ * @return ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ä¸Šã®ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ãƒãƒ³ãƒ‰ãƒ«
  */
 HWND BaseDialog::GetDlgItemRaw(int item)
 {
@@ -290,10 +290,10 @@ HWND BaseDialog::GetDlgItemRaw(int item)
 }
 
 /**
- * q€–Ú‚ÌƒeƒLƒXƒg‚ğİ’è‚·‚éB
+ * å­é …ç›®ã®ãƒ†ã‚­ã‚¹ãƒˆã‚’è¨­å®šã™ã‚‹ã€‚
  *
- * @param id q€–Ú‚ÌID
- * @param message İ’è‚·‚éƒeƒLƒXƒg
+ * @param id å­é …ç›®ã®ID
+ * @param message è¨­å®šã™ã‚‹ãƒ†ã‚­ã‚¹ãƒˆ
  */
 void BaseDialog::setChildText(int id, const TCHAR *message)
 {
@@ -304,10 +304,10 @@ void BaseDialog::setChildText(int id, const TCHAR *message)
 }
 
 /**
-* q€–Ú‚ÌƒtƒHƒ“ƒg‚ğİ’è‚·‚éB
+* å­é …ç›®ã®ãƒ•ã‚©ãƒ³ãƒˆã‚’è¨­å®šã™ã‚‹ã€‚
 *
-* @param id q€–Ú‚ÌID
-* @param font İ’è‚·‚éƒtƒHƒ“ƒg
+* @param id å­é …ç›®ã®ID
+* @param font è¨­å®šã™ã‚‹ãƒ•ã‚©ãƒ³ãƒˆ
 */
 void BaseDialog::setChildFont(int id, HFONT font)
 {

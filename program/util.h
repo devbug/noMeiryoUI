@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 noMeiryoUI (C) 2005,2012-2017 Tatsuhiko Shoji
 The sources for noMeiryoUI are distributed under the MIT open source license
 */
@@ -15,17 +15,17 @@ The sources for noMeiryoUI are distributed under the MIT open source license
 
 extern bool WIN8_SIZE;
 extern std::vector<tstring> langResource;
-/** ƒtƒHƒ“ƒg–¼(Windows 8.x) */
+/** ãƒ•ã‚©ãƒ³ãƒˆå(Windows 8.x) */
 extern std::vector<tstring> fontFaces8;
-/** ƒtƒHƒ“ƒgƒTƒCƒY(Windows 8.x) */
+/** ãƒ•ã‚©ãƒ³ãƒˆã‚µã‚¤ã‚º(Windows 8.x) */
 extern std::vector<int> fontSizes8;
-/** ƒtƒHƒ“ƒg•¶šƒZƒbƒg(Windows 8.x) */
+/** ãƒ•ã‚©ãƒ³ãƒˆæ–‡å­—ã‚»ãƒƒãƒˆ(Windows 8.x) */
 extern std::vector<int> fontCharset8;
-/** ƒtƒHƒ“ƒg–¼(Windows 10) */
+/** ãƒ•ã‚©ãƒ³ãƒˆå(Windows 10) */
 extern std::vector<tstring> fontFaces10;
-/** ƒtƒHƒ“ƒgƒTƒCƒY(Windows 8.x) */
+/** ãƒ•ã‚©ãƒ³ãƒˆã‚µã‚¤ã‚º(Windows 8.x) */
 extern std::vector<int> fontSizes10;
-/** ƒtƒHƒ“ƒg•¶šƒZƒbƒg(Windows 10) */
+/** ãƒ•ã‚©ãƒ³ãƒˆæ–‡å­—ã‚»ãƒƒãƒˆ(Windows 10) */
 extern std::vector<int> fontCharset10;
 
 

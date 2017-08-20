@@ -1,9 +1,9 @@
-// noMeiryoUI (C) 2005,2012-2017 Tatsuhiko Shoji
+ï»¿// noMeiryoUI (C) 2005,2012-2017 Tatsuhiko Shoji
 // The sources for noMeiryoUI are distributed under the MIT open source license
 
 //{{NO_DEPENDENCIES}}
-// Microsoft Visual C++ ‚Å¶¬‚³‚ê‚½ƒCƒ“ƒNƒ‹[ƒh ƒtƒ@ƒCƒ‹B
-// noMeiryoUI.rc ‚Åg—p
+// Microsoft Visual C++ ã§ç”Ÿæˆã•ã‚ŒãŸã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ ãƒ•ã‚¡ã‚¤ãƒ«ã€‚
+// noMeiryoUI.rc ã§ä½¿ç”¨
 //
 #define IDC_MYICON                      2
 #define ID_SEL_ALL                      3

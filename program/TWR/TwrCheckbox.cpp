@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 noMeiryoUI (C) 2005,2012,2013 Tatsuhiko Shoji
 The sources for noMeiryoUI are distributed under the MIT open source license
 */
@@ -7,16 +7,16 @@ The sources for noMeiryoUI are distributed under the MIT open source license
 #include "TwrCheckbox.h"
 
 /**
- * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+ * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
  */
 TwrCheckbox::TwrCheckbox() : TwrWnd()
 {
 }
 
 /**
- * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+ * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
  *
- * @param ƒIƒuƒWƒFƒNƒg‚ÉŒ‹‚Ñ•t‚¯‚éƒEƒCƒ“ƒhƒE‚Ìƒnƒ“ƒhƒ‹
+ * @param ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«çµã³ä»˜ã‘ã‚‹ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ãƒãƒ³ãƒ‰ãƒ«
  */
 TwrCheckbox::TwrCheckbox(HWND newHwnd) : TwrWnd()
 {
@@ -24,7 +24,7 @@ TwrCheckbox::TwrCheckbox(HWND newHwnd) : TwrWnd()
 }
 
 /**
- * ƒ`ƒFƒbƒNƒ{ƒbƒNƒX‚ğì¬‚µ‚Ü‚·B
+ * ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ã‚’ä½œæˆã—ã¾ã™ã€‚
  */
 HWND TwrCheckbox::create(void)
 {
@@ -45,9 +45,9 @@ HWND TwrCheckbox::create(void)
 }
 
 /**
- * ƒ`ƒFƒbƒNƒ{ƒbƒNƒX‚ğì¬‚µ‚Ü‚·B
+ * ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ã‚’ä½œæˆã—ã¾ã™ã€‚
  *
- * @param parent eƒEƒCƒ“ƒhƒEƒnƒ“ƒhƒ‹
+ * @param parent è¦ªã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«
  */
 HWND TwrCheckbox::create(HWND parent)
 {
@@ -68,9 +68,9 @@ HWND TwrCheckbox::create(HWND parent)
 }
 
 /**
- * ƒ`ƒFƒbƒNó‘Ô‚ğ•Ô‚µ‚Ü‚·B
+ * ãƒã‚§ãƒƒã‚¯çŠ¶æ…‹ã‚’è¿”ã—ã¾ã™ã€‚
  *
- * @return true:ƒ`ƒFƒbƒN‚³‚ê‚½ false:ƒ`ƒFƒbƒN‚³‚ê‚Ä‚¢‚È‚¢
+ * @return true:ãƒã‚§ãƒƒã‚¯ã•ã‚ŒãŸ false:ãƒã‚§ãƒƒã‚¯ã•ã‚Œã¦ã„ãªã„
  */
 bool TwrCheckbox::isChecked(void)
 {
@@ -83,9 +83,9 @@ bool TwrCheckbox::isChecked(void)
 }
 
 /**
- * ƒ`ƒFƒbƒNó‘Ô‚ğİ’è‚µ‚Ü‚·B
+ * ãƒã‚§ãƒƒã‚¯çŠ¶æ…‹ã‚’è¨­å®šã—ã¾ã™ã€‚
  *
- * @param checked true:ƒ`ƒFƒbƒN‚³‚ê‚½ false:ƒ`ƒFƒbƒN‚³‚ê‚Ä‚¢‚È‚¢
+ * @param checked true:ãƒã‚§ãƒƒã‚¯ã•ã‚ŒãŸ false:ãƒã‚§ãƒƒã‚¯ã•ã‚Œã¦ã„ãªã„
  */
 void TwrCheckbox::setChecked(bool checked)
 {

@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 noMeiryoUI (C) 2005,2012-2015 Tatsuhiko Shoji
 The sources for noMeiryoUI are distributed under the MIT open source license
 */
@@ -10,16 +10,16 @@ The sources for noMeiryoUI are distributed under the MIT open source license
 #include	"NCFileDialog.h"
 
 /**
- * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+ * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
  *
- * @param bOpenFileDialog \’z‚·‚éƒ_ƒCƒAƒƒOƒ{ƒbƒNƒX‚Ìí—Ş<br>
- * TRUE:[ƒtƒ@ƒCƒ‹‚ğŠJ‚­] ƒ_ƒCƒAƒƒOƒ{ƒbƒNƒX FALSE:[ƒtƒ@ƒCƒ‹–¼‚ğ‚Â‚¯‚Ä•Û‘¶]ƒ_ƒCƒAƒƒOƒ{ƒbƒNƒX
- * @param lpszDefExt Šù’è‚ÌŠg’£q
- * @param lpszFileName ‰Šú•\¦‚³‚ê‚éƒtƒ@ƒCƒ‹–¼
- * @param dwFlags ƒ_ƒCƒAƒƒOƒ{ƒbƒNƒX‚Ìİ’è—pƒtƒ‰ƒO
- * @param lpszFilter ƒtƒBƒ‹ƒ^•¶š—ñ
- * @param pParentWnd eƒEƒCƒ“ƒhƒE‚Ìƒnƒ“ƒhƒ‹
- * @param dwSize OPENFILENAME\‘¢‘Ì‚ÌƒTƒCƒY
+ * @param bOpenFileDialog æ§‹ç¯‰ã™ã‚‹ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãƒœãƒƒã‚¯ã‚¹ã®ç¨®é¡<br>
+ * TRUE:[ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã] ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãƒœãƒƒã‚¯ã‚¹ FALSE:[ãƒ•ã‚¡ã‚¤ãƒ«åã‚’ã¤ã‘ã¦ä¿å­˜]ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãƒœãƒƒã‚¯ã‚¹
+ * @param lpszDefExt æ—¢å®šã®æ‹¡å¼µå­
+ * @param lpszFileName åˆæœŸè¡¨ç¤ºã•ã‚Œã‚‹ãƒ•ã‚¡ã‚¤ãƒ«å
+ * @param dwFlags ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãƒœãƒƒã‚¯ã‚¹ã®è¨­å®šç”¨ãƒ•ãƒ©ã‚°
+ * @param lpszFilter ãƒ•ã‚£ãƒ«ã‚¿æ–‡å­—åˆ—
+ * @param pParentWnd è¦ªã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ãƒãƒ³ãƒ‰ãƒ«
+ * @param dwSize OPENFILENAMEæ§‹é€ ä½“ã®ã‚µã‚¤ã‚º
  */
 NCFileDialog::NCFileDialog(
 	BOOL bOpenFileDialog,
@@ -31,40 +31,40 @@ NCFileDialog::NCFileDialog(
 	DWORD dwSize
 )
 {
-	// ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚©‚çm_OpenFileDialog‚Éî•ñ‚ğİ’è‚·‚éB
-	// í•Ê
+	// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã‹ã‚‰m_OpenFileDialogã«æƒ…å ±ã‚’è¨­å®šã™ã‚‹ã€‚
+	// ç¨®åˆ¥
 	m_OpenFileDialog = bOpenFileDialog;
 
-	// \‘¢‘Ì‚ÌƒTƒCƒY
+	// æ§‹é€ ä½“ã®ã‚µã‚¤ã‚º
 	memset(&m_ofn,0x00,sizeof(OPENFILENAME));
 	if (dwSize > 0) {
 		m_ofn.lStructSize = dwSize;
 	}else{
 		m_ofn.lStructSize = sizeof(OPENFILENAME);
 	}
-	// Šù’è‚ÌŠg’£q(–¢g—p)
+	// æ—¢å®šã®æ‹¡å¼µå­(æœªä½¿ç”¨)
 	m_defExt = lpszDefExt;
-	// eƒEƒCƒ“ƒhƒE
+	// è¦ªã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦
 	m_ofn.hwndOwner = pParentWnd;
-	// ƒtƒBƒ‹ƒ^
+	// ãƒ•ã‚£ãƒ«ã‚¿
 	m_ofn.lpstrFilter = lpszFilter;
 	m_ofn.nFilterIndex = 1;
-	// ƒtƒ‰ƒO
+	// ãƒ•ãƒ©ã‚°
 	m_ofn.Flags = dwFlags;
-	// ‰Šúƒtƒ@ƒCƒ‹–¼
+	// åˆæœŸãƒ•ã‚¡ã‚¤ãƒ«å
 	memset(gotFileName,0x00,sizeof(TCHAR) * _MAX_PATH);
 	if (lpszFileName != NULL) {
 		_tcscpy(gotFileName,lpszFileName);
 	}
 	m_ofn.lpstrFile = gotFileName;
 	m_ofn.nMaxFile = _MAX_PATH;
-	// m_ofn.lpstrTitle = "İ’èƒtƒ@ƒCƒ‹‚Ìw’è";
+	// m_ofn.lpstrTitle = "è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã®æŒ‡å®š";
 }
 
 /**
- * ƒ_ƒCƒAƒƒO‚ğ•\¦‚µ‚Ü‚·B
+ * ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’è¡¨ç¤ºã—ã¾ã™ã€‚
  *
- * @return IDOK:OKƒ{ƒ^ƒ“‰Ÿ‰º IDCANCEL:ƒLƒƒƒ“ƒZƒ‹ƒ{ƒ^ƒ“‰Ÿ‰º
+ * @return IDOK:OKãƒœã‚¿ãƒ³æŠ¼ä¸‹ IDCANCEL:ã‚­ãƒ£ãƒ³ã‚»ãƒ«ãƒœã‚¿ãƒ³æŠ¼ä¸‹
  */
 int NCFileDialog::DoModal()
 {

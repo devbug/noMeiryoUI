@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 noMeiryoUI (C) 2005,2012-2017 Tatsuhiko Shoji
 The sources for noMeiryoUI are distributed under the MIT open source license
 */
@@ -46,10 +46,10 @@ public:
 
 };
 
-// MFC‚ÌDDX‚à‚Ç‚«Form Data eXchangeƒ}ƒNƒ
-// UpdateDataŠÖ”‚Ìˆø”Aƒ_ƒCƒAƒƒOƒRƒ“ƒgƒ[ƒ‹IDAİ’è‘ÎÛ‚Ì•Ï”
+// MFCã®DDXã‚‚ã©ãForm Data eXchangeãƒã‚¯ãƒ­
+// UpdateDataé–¢æ•°ã®å¼•æ•°ã€ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«IDã€è¨­å®šå¯¾è±¡ã®å¤‰æ•°
 
-// ƒRƒ“ƒgƒ[ƒ‹‚ÌƒeƒLƒXƒg
+// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã®ãƒ†ã‚­ã‚¹ãƒˆ
 #define DDX_Text(toObj, ctl, str) \
 	if (toObj) { \
 		GetDlgItemText(hWnd,ctl,ddx_buf,512); \
@@ -58,7 +58,7 @@ public:
 		SetDlgItemText(hWnd,ctl,str.c_str()); \
 	}
 
-// ƒ`ƒFƒbƒNƒ{ƒbƒNƒX‚Ìƒ`ƒFƒbƒNó‘Ô
+// ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹ã®ãƒã‚§ãƒƒã‚¯çŠ¶æ…‹
 #define DDX_Check(toObj, ctl, stat) \
 	if (toObj) { \
 		stat = SendMessage(::GetDlgItem(hWnd,ctl),BM_GETCHECK,0,0); \
@@ -66,7 +66,7 @@ public:
 		SendMessage(::GetDlgItem(hWnd,ctl),BM_SETCHECK,(WPARAM)stat,0); \
 	}
 
-// ƒRƒ“ƒ{ƒ{ƒbƒNƒX‚ÌƒCƒ“ƒfƒbƒNƒX
+// ã‚³ãƒ³ãƒœãƒœãƒƒã‚¯ã‚¹ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
 #define DDX_CBIndex(toObj, ctl, index) \
 	if (toObj) { \
 		index = SendMessage(::GetDlgItem(hWnd,ctl),CB_GETCURSEL,0,0); \

@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 noMeiryoUI (C) 2005,2012-2017 Tatsuhiko Shoji
 The sources for noMeiryoUI are distributed under the MIT open source license
 */
@@ -24,20 +24,20 @@ bool operator>(const FontInfo& left, const FontInfo& right)
 }
 
 /**
- * EnumFontFamiliesEx‚ÌƒR[ƒ‹ƒoƒbƒN
+ * EnumFontFamiliesExã®ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯
  *
  *
- * @param lpelfe ˜_—“I‚ÈƒtƒHƒ“ƒgƒf[ƒ^
- * @param lpntme •¨—“I‚ÈƒtƒHƒ“ƒgƒf[ƒ^
- * @param FontType ƒtƒHƒ“ƒg‚Ìí—Ş
- * @param lParam ƒAƒvƒŠƒP[ƒVƒ‡ƒ“’è‹`‚Ìƒf[ƒ^
- * @return 0:—ñ‹“‚ğ’†~‚·‚é 1:Ÿ‚ÌƒtƒHƒ“ƒg‚ğ—ñ‹“‚·‚éB
+ * @param lpelfe è«–ç†çš„ãªãƒ•ã‚©ãƒ³ãƒˆãƒ‡ãƒ¼ã‚¿
+ * @param lpntme ç‰©ç†çš„ãªãƒ•ã‚©ãƒ³ãƒˆãƒ‡ãƒ¼ã‚¿
+ * @param FontType ãƒ•ã‚©ãƒ³ãƒˆã®ç¨®é¡
+ * @param lParam ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³å®šç¾©ã®ãƒ‡ãƒ¼ã‚¿
+ * @return 0:åˆ—æŒ™ã‚’ä¸­æ­¢ã™ã‚‹ 1:æ¬¡ã®ãƒ•ã‚©ãƒ³ãƒˆã‚’åˆ—æŒ™ã™ã‚‹ã€‚
  */
 int CALLBACK EnumFontFamExProc(
-  ENUMLOGFONTEX *lpelfe,    // ˜_—“I‚ÈƒtƒHƒ“ƒgƒf[ƒ^
-  NEWTEXTMETRICEX *lpntme,  // •¨—“I‚ÈƒtƒHƒ“ƒgƒf[ƒ^
-  DWORD FontType,           // ƒtƒHƒ“ƒg‚Ìí—Ş
-  LPARAM lParam             // ƒAƒvƒŠƒP[ƒVƒ‡ƒ“’è‹`‚Ìƒf[ƒ^
+  ENUMLOGFONTEX *lpelfe,    // è«–ç†çš„ãªãƒ•ã‚©ãƒ³ãƒˆãƒ‡ãƒ¼ã‚¿
+  NEWTEXTMETRICEX *lpntme,  // ç‰©ç†çš„ãªãƒ•ã‚©ãƒ³ãƒˆãƒ‡ãƒ¼ã‚¿
+  DWORD FontType,           // ãƒ•ã‚©ãƒ³ãƒˆã®ç¨®é¡
+  LPARAM lParam             // ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³å®šç¾©ã®ãƒ‡ãƒ¼ã‚¿
 )
 {
 	std::vector<int> charset;
@@ -45,7 +45,7 @@ int CALLBACK EnumFontFamExProc(
 	struct FontInfo fontInfo;
 
 	if (lpelfe->elfLogFont.lfFaceName[0] == _T('@')) {
-		// c‘‚«ƒtƒHƒ“ƒg‚Í”ò‚Î‚·B
+		// ç¸¦æ›¸ããƒ•ã‚©ãƒ³ãƒˆã¯é£›ã°ã™ã€‚
 		return 1;
 	}
 	if (noMeiryoUI) {
@@ -62,14 +62,14 @@ int CALLBACK EnumFontFamExProc(
 
 	fonts = fontList.size();
 	for (int i = 0; i < fonts; i++) {
-		// “¯‚¶–¼‘O‚Ì•¶šƒZƒbƒgˆá‚¢
+		// åŒã˜åå‰ã®æ–‡å­—ã‚»ãƒƒãƒˆé•ã„
 		if (!_tcscmp(fontList[i].logFont.lfFaceName, lpelfe->elfLogFont.lfFaceName)) {
 			fontList[i].charsetList.push_back(lpelfe->elfLogFont.lfCharSet);
 			return 1;
 		}
 	}
 
-	// Œ©‚Â‚©‚ç‚È‚¢ê‡‚Í’Ç‰Á‚·‚éB
+	// è¦‹ã¤ã‹ã‚‰ãªã„å ´åˆã¯è¿½åŠ ã™ã‚‹ã€‚
 	fontInfo.logFont = lpelfe->elfLogFont;
 	fontInfo.charsetList.clear();
 	fontInfo.charsetList.push_back(lpelfe->elfLogFont.lfCharSet);
@@ -79,7 +79,7 @@ int CALLBACK EnumFontFamExProc(
 }
 
 /**
- * ƒtƒHƒ“ƒg‚ğæ“¾‚·‚éB
+ * ãƒ•ã‚©ãƒ³ãƒˆã‚’å–å¾—ã™ã‚‹ã€‚
  */
 int getFont()
 {
@@ -105,7 +105,7 @@ int getFont()
 }
 
 /**
- * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+ * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
  */
 FontSel::FontSel(HWND parent, int resource) : BaseDialog(parent, resource)
 {
@@ -118,7 +118,7 @@ FontSel::FontSel(HWND parent, int resource) : BaseDialog(parent, resource)
 }
 
 /**
- * ƒfƒXƒgƒ‰ƒNƒ^
+ * ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
  */
 FontSel::~FontSel(void)
 {
@@ -140,7 +140,7 @@ FontSel::~FontSel(void)
 }
 
 /**
- * ƒ_ƒCƒAƒƒO‰Šú‰»ˆ—
+ * ãƒ€ã‚¤ã‚¢ãƒ­ã‚°åˆæœŸåŒ–å‡¦ç†
  */
 INT_PTR FontSel::OnInitDialog()
 {
@@ -184,9 +184,9 @@ INT_PTR FontSel::OnInitDialog()
 	m_fontSizeList->addItem(_T("48"));
 	m_fontSizeList->addItem(_T("72"));
 
-	// ‘I‘ğ‚·‚éB
+	// é¸æŠã™ã‚‹ã€‚
 	if (previousFont != NULL) {
-		// ƒtƒHƒ“ƒgƒTƒCƒY
+		// ãƒ•ã‚©ãƒ³ãƒˆã‚µã‚¤ã‚º
 		int count = m_fontSizeList->getCount();
 		int point = getFontPointInt(previousFont, this->getHwnd());
 		int selection = 0;
@@ -200,12 +200,12 @@ INT_PTR FontSel::OnInitDialog()
 			m_fontSizeList->setSelectedIndex(selection);
 		}
 
-		// ƒtƒHƒ“ƒgƒtƒFƒCƒX
+		// ãƒ•ã‚©ãƒ³ãƒˆãƒ•ã‚§ã‚¤ã‚¹
 		for (int i = 0; i < fonts; i++) {
 			if (!_tcscmp(fontList[i].logFont.lfFaceName, previousFont->lfFaceName)) {
 				m_fontNameList->setSelectedIndex(i);
 
-				// ƒtƒHƒ“ƒg‚É‡‚Á‚½•¶šƒR[ƒhƒZƒbƒg‚ğİ’è‚·‚éB
+				// ãƒ•ã‚©ãƒ³ãƒˆã«åˆã£ãŸæ–‡å­—ã‚³ãƒ¼ãƒ‰ã‚»ãƒƒãƒˆã‚’è¨­å®šã™ã‚‹ã€‚
 				setCharset();
 				int charsetCount = fontList[i].charsetList.size();
 				for (int j = 0; j < charsetCount; j++) {
@@ -214,24 +214,24 @@ INT_PTR FontSel::OnInitDialog()
 					}
 				}
 
-				// ƒtƒHƒ“ƒg‚É‡‚Á‚½ƒXƒ^ƒCƒ‹(‘¾šEƒCƒ^ƒŠƒbƒN)‚ğİ’è‚·‚éB
+				// ãƒ•ã‚©ãƒ³ãƒˆã«åˆã£ãŸã‚¹ã‚¿ã‚¤ãƒ«(å¤ªå­—ãƒ»ã‚¤ã‚¿ãƒªãƒƒã‚¯)ã‚’è¨­å®šã™ã‚‹ã€‚
 				setStyle();
 				int style = 0;
-				// ƒCƒ^ƒŠƒbƒN
+				// ã‚¤ã‚¿ãƒªãƒƒã‚¯
 				if (previousFont->lfItalic) {
 					style |= 1;
 				}
-				// ‘¾š
+				// å¤ªå­—
 				if (previousFont->lfWeight > 400) {
 					style |= 2;
 				}
 				m_styleList->setSelectedIndex(style);
 
-				// ‰ºü
+				// ä¸‹ç·š
 				if (previousFont->lfUnderline) {
 					m_underline->setChecked(true);
 				}
-				// æ‚èÁ‚µü
+				// å–ã‚Šæ¶ˆã—ç·š
 				if (previousFont->lfStrikeOut) {
 					m_strike->setChecked(true);
 				}
@@ -250,7 +250,7 @@ INT_PTR FontSel::OnInitDialog()
 }
 
 /**
- * ƒEƒCƒ“ƒhƒEˆÊ’u‚ğeƒEƒCƒ“ƒhƒE‚Ì’†‰›‚É’²®‚·‚éB
+ * ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ä½ç½®ã‚’è¦ªã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ä¸­å¤®ã«èª¿æ•´ã™ã‚‹ã€‚
  */
 void FontSel::adjustPosition(void)
 {
@@ -262,10 +262,10 @@ void FontSel::adjustPosition(void)
 }
 
 /**
- * Še‘€ì‚É‘Î‚·‚éˆ—‚Ì•ªŠò
+ * å„æ“ä½œã«å¯¾ã™ã‚‹å‡¦ç†ã®åˆ†å²
  *
  * @param wParam WPARAM
- * @return 0:ƒƒbƒZ[ƒW‚ğˆ—‚µ‚½B 0ˆÈŠO:ƒƒbƒZ[ƒW‚ğˆ—‚µ‚È‚©‚Á‚½B
+ * @return 0:ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å‡¦ç†ã—ãŸã€‚ 0ä»¥å¤–:ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å‡¦ç†ã—ãªã‹ã£ãŸã€‚
  */
 INT_PTR FontSel::OnCommand(WPARAM wParam)
 {
@@ -289,7 +289,7 @@ INT_PTR FontSel::OnCommand(WPARAM wParam)
 }
 
 /**
- * ƒŠƒ\[ƒX‚ğŠe€–Ú‚Éİ’è‚·‚éB
+ * ãƒªã‚½ãƒ¼ã‚¹ã‚’å„é …ç›®ã«è¨­å®šã™ã‚‹ã€‚
  */
 void FontSel::applyResource()
 {
@@ -314,7 +314,7 @@ void FontSel::applyResource()
 	ReleaseDC(this->hWnd, hDC);
 
 
-	// ƒAƒvƒŠƒ^ƒCƒgƒ‹
+	// ã‚¢ãƒ—ãƒªã‚¿ã‚¤ãƒˆãƒ«
 	setText(langResource[27].c_str());
 
 	setChildText(IDC_STATIC_NAME, langResource[28].c_str());
@@ -344,12 +344,12 @@ void FontSel::applyResource()
 }
 
 /**
- * ‘I‘ğ‚µ‚½ƒtƒHƒ“ƒg‚É‡‚Á‚½•¶šƒZƒbƒg‚Ì‘I‘ğˆ‚ğİ’è‚µ‚Ü‚·B
+ * é¸æŠã—ãŸãƒ•ã‚©ãƒ³ãƒˆã«åˆã£ãŸæ–‡å­—ã‚»ãƒƒãƒˆã®é¸æŠè‚¢ã‚’è¨­å®šã—ã¾ã™ã€‚
  */
 void FontSel::setCharset(void)
 {
 	int selected = m_fontNameList->getSelectedIndex();
-	int initialIndex = 0;	// ‰Šú‘I‘ğ
+	int initialIndex = 0;	// åˆæœŸé¸æŠ
 
 	if (selected > -1) {
 		m_ChersetList->clear();
@@ -360,84 +360,84 @@ void FontSel::setCharset(void)
 					if (useResource) {
 						m_ChersetList->addItem(langResource[36].c_str());
 					} else {
-						m_ChersetList->addItem(_T("‰¢•¶"));
+						m_ChersetList->addItem(_T("æ¬§æ–‡"));
 					}
 					break;
 				case BALTIC_CHARSET:
 					if (useResource) {
 						m_ChersetList->addItem(langResource[37].c_str());
 					} else {
-						m_ChersetList->addItem(_T("ƒoƒ‹ƒg”‘Œ¾Œê"));
+						m_ChersetList->addItem(_T("ãƒãƒ«ãƒˆè«¸å›½è¨€èª"));
 					}
 					break;
 				case CHINESEBIG5_CHARSET:
 					if (useResource) {
 						m_ChersetList->addItem(langResource[38].c_str());
 					} else {
-						m_ChersetList->addItem(_T("”É‘Ìš"));
+						m_ChersetList->addItem(_T("ç¹ä½“å­—"));
 					}
 					break;
 				case DEFAULT_CHARSET:
 					if (useResource) {
 						m_ChersetList->addItem(langResource[39].c_str());
 					} else {
-						m_ChersetList->addItem(_T("ƒfƒtƒHƒ‹ƒgŒ¾Œê"));
+						m_ChersetList->addItem(_T("ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆè¨€èª"));
 					}
 					break;
 				case EASTEUROPE_CHARSET:
 					if (useResource) {
 						m_ChersetList->addItem(langResource[40].c_str());
 					} else {
-						m_ChersetList->addItem(_T("“Œƒˆ[ƒƒbƒpŒ¾Œê"));
+						m_ChersetList->addItem(_T("æ±ãƒ¨ãƒ¼ãƒ­ãƒƒãƒ‘è¨€èª"));
 					}
 					break;
 				case GB2312_CHARSET:
 					if (useResource) {
 						m_ChersetList->addItem(langResource[41].c_str());
 					} else {
-						m_ChersetList->addItem(_T("ŠÈ‘Ìš"));
+						m_ChersetList->addItem(_T("ç°¡ä½“å­—"));
 					}
 					break;
 				case GREEK_CHARSET:
 					if (useResource) {
 						m_ChersetList->addItem(langResource[42].c_str());
 					} else {
-						m_ChersetList->addItem(_T("ƒMƒŠƒVƒƒ•¶š"));
+						m_ChersetList->addItem(_T("ã‚®ãƒªã‚·ãƒ£æ–‡å­—"));
 					}
 					break;
 				case HANGUL_CHARSET:
 					if (useResource) {
 						m_ChersetList->addItem(langResource[43].c_str());
 					} else {
-						m_ChersetList->addItem(_T("ŠØ‘Œê"));
+						m_ChersetList->addItem(_T("éŸ“å›½èª"));
 					}
 					break;
 				case MAC_CHARSET:
 					if (useResource) {
 						m_ChersetList->addItem(langResource[44].c_str());
 					} else {
-						m_ChersetList->addItem(_T("Mac•¶šƒZƒbƒg"));
+						m_ChersetList->addItem(_T("Macæ–‡å­—ã‚»ãƒƒãƒˆ"));
 					}
 					break;
 				case OEM_CHARSET:
 					if (useResource) {
 						m_ChersetList->addItem(langResource[45].c_str());
 					} else {
-						m_ChersetList->addItem(_T("OEM•¶šƒZƒbƒg"));
+						m_ChersetList->addItem(_T("OEMæ–‡å­—ã‚»ãƒƒãƒˆ"));
 					}
 					break;
 				case RUSSIAN_CHARSET:
 					if (useResource) {
 						m_ChersetList->addItem(langResource[46].c_str());
 					} else {
-						m_ChersetList->addItem(_T("ƒƒVƒAŒê"));
+						m_ChersetList->addItem(_T("ãƒ­ã‚·ã‚¢èª"));
 					}
 					break;
 				case SHIFTJIS_CHARSET:
 					if (useResource) {
 						m_ChersetList->addItem(langResource[47].c_str());
 					} else {
-						m_ChersetList->addItem(_T("“ú–{Œê"));
+						m_ChersetList->addItem(_T("æ—¥æœ¬èª"));
 					}
 					initialIndex = i;
 					break;
@@ -445,49 +445,49 @@ void FontSel::setCharset(void)
 					if (useResource) {
 						m_ChersetList->addItem(langResource[48].c_str());
 					} else {
-						m_ChersetList->addItem(_T("ƒVƒ“ƒ{ƒ‹"));
+						m_ChersetList->addItem(_T("ã‚·ãƒ³ãƒœãƒ«"));
 					}
 					break;
 				case TURKISH_CHARSET:
 					if (useResource) {
 						m_ChersetList->addItem(langResource[49].c_str());
 					} else {
-						m_ChersetList->addItem(_T("ƒgƒ‹ƒRŒê"));
+						m_ChersetList->addItem(_T("ãƒˆãƒ«ã‚³èª"));
 					}
 					break;
 				case VIETNAMESE_CHARSET:
 					if (useResource) {
 						m_ChersetList->addItem(langResource[50].c_str());
 					} else {
-						m_ChersetList->addItem(_T("ƒxƒgƒiƒ€Œê"));
+						m_ChersetList->addItem(_T("ãƒ™ãƒˆãƒŠãƒ èª"));
 					}
 					break;
 				case JOHAB_CHARSET:
 					if (useResource) {
 						m_ChersetList->addItem(langResource[51].c_str());
 					} else {
-						m_ChersetList->addItem(_T("ŠØ‘Œê(‘g‡Œ^)"));
+						m_ChersetList->addItem(_T("éŸ“å›½èª(çµ„åˆå‹)"));
 					}
 					break;
 				case ARABIC_CHARSET:
 					if (useResource) {
 						m_ChersetList->addItem(langResource[52].c_str());
 					} else {
-						m_ChersetList->addItem(_T("ƒAƒ‰ƒrƒAŒê"));
+						m_ChersetList->addItem(_T("ã‚¢ãƒ©ãƒ“ã‚¢èª"));
 					}
 					break;
 				case HEBREW_CHARSET:
 					if (useResource) {
 						m_ChersetList->addItem(langResource[53].c_str());
 					} else {
-						m_ChersetList->addItem(_T("ƒwƒuƒ‰ƒCŒê"));
+						m_ChersetList->addItem(_T("ãƒ˜ãƒ–ãƒ©ã‚¤èª"));
 					}
 					break;
 				case THAI_CHARSET:
 					if (useResource) {
 						m_ChersetList->addItem(langResource[54].c_str());
 					} else {
-						m_ChersetList->addItem(_T("ƒ^ƒCŒê"));
+						m_ChersetList->addItem(_T("ã‚¿ã‚¤èª"));
 					}
 					break;
 				default:
@@ -496,38 +496,38 @@ void FontSel::setCharset(void)
 			}
 		}
 	}
-	// ©•ª‚ÌŒ¾Œê‚ğ—Dæ‚µ‚Ä‘I‘ğ‚·‚éB
+	// è‡ªåˆ†ã®è¨€èªã‚’å„ªå…ˆã—ã¦é¸æŠã™ã‚‹ã€‚
 	m_ChersetList->setSelectedIndex(initialIndex);
 }
 
 /**
- * ‘I‘ğ‚µ‚½ƒtƒHƒ“ƒg‚É‡‚Á‚½ƒXƒ^ƒCƒ‹‚Ì‘I‘ğˆ‚ğİ’è‚µ‚Ü‚·B
+ * é¸æŠã—ãŸãƒ•ã‚©ãƒ³ãƒˆã«åˆã£ãŸã‚¹ã‚¿ã‚¤ãƒ«ã®é¸æŠè‚¢ã‚’è¨­å®šã—ã¾ã™ã€‚
  */
 void FontSel::setStyle(void)
 {
 	int selected = m_fontNameList->getSelectedIndex();
 /*
 	int weight = fontList[selected].logFont.lfWeight;
-	TCHAR *p = _T("Šù’è‚Ì‘¾‚³");
+	TCHAR *p = _T("æ—¢å®šã®å¤ªã•");
 
 	if (weight < 200) {
-		p = _T("‹É×");
+		p = _T("æ¥µç´°");
 	} else if (weight < 300) {
-		p = _T("“Á×");
+		p = _T("ç‰¹ç´°");
 	} else if (weight < 400) {
-		p = _T("×");
+		p = _T("ç´°");
 	} else if (weight < 500) {
-		p = _T("•W€");	// Normal
+		p = _T("æ¨™æº–");	// Normal
 	} else if (weight < 600) {
-		p = _T("’†ŠÔ");	// Medium
+		p = _T("ä¸­é–“");	// Medium
 	} else if (weight < 700) {
-		p = _T("‘¾–Ú");	// Semi Bold
+		p = _T("å¤ªç›®");	// Semi Bold
 	} else if (weight < 800) {
-		p = _T("‘¾");	// Bold
+		p = _T("å¤ª");	// Bold
 	} else if (weight < 900) {
-		p = _T("“Á‘¾");	// Ultra Bold
+		p = _T("ç‰¹å¤ª");	// Ultra Bold
 	} else {
-		p = _T("‹É‘¾");	// Heavy
+		p = _T("æ¥µå¤ª");	// Heavy
 	}
 */
 	m_styleList->clear();
@@ -536,7 +536,7 @@ void FontSel::setStyle(void)
 	if (useResource) {
 		styleName = langResource[55].c_str();
 	} else {
-		styleName = _T("•W€");
+		styleName = _T("æ¨™æº–");
 	}
 	m_styleList->addItem(styleName.c_str());
 
@@ -544,21 +544,21 @@ void FontSel::setStyle(void)
 	if (useResource) {
 		styleName = langResource[56].c_str();
 	} else {
-		styleName = _T("Î‘Ì");
+		styleName = _T("æ–œä½“");
 	}
 	m_styleList->addItem(styleName.c_str());
 
 	if (useResource) {
 		styleName = langResource[57].c_str();
 	} else {
-		styleName = _T("‘¾š");
+		styleName = _T("å¤ªå­—");
 	}
 	m_styleList->addItem(styleName.c_str());
 
 	if (useResource) {
 		styleName = langResource[58].c_str();
 	} else {
-		styleName = _T("‘¾š Î‘Ì");
+		styleName = _T("å¤ªå­— æ–œä½“");
 
 	}
 	m_styleList->addItem(styleName.c_str());
@@ -567,7 +567,7 @@ void FontSel::setStyle(void)
 }
 
 /**
- * OKƒ{ƒ^ƒ“‚ğ‰Ÿ‰º‚µ‚½‚Ì“®ì
+ * OKãƒœã‚¿ãƒ³ã‚’æŠ¼ä¸‹ã—ãŸæ™‚ã®å‹•ä½œ
  */
 INT_PTR FontSel::onOK(void)
 {
@@ -581,14 +581,14 @@ INT_PTR FontSel::onOK(void)
 	if (useResource) {
 		error = langResource[63].c_str();
 	} else {
-		error = _T("ƒGƒ‰[");
+		error = _T("ã‚¨ãƒ©ãƒ¼");
 	}
 
 	if (selectedFontIndex < 0) {
 		if (useResource) {
 			message = langResource[65].c_str();
 		} else {
-			message = _T("ƒtƒHƒ“ƒg‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢B");
+			message = _T("ãƒ•ã‚©ãƒ³ãƒˆã‚’é¸æŠã—ã¦ãã ã•ã„ã€‚");
 		}
 		MessageBox(this->hWnd,
 			message.c_str(),
@@ -601,7 +601,7 @@ INT_PTR FontSel::onOK(void)
 		if (useResource) {
 			message = langResource[66].c_str();
 		} else {
-			message = _T("ƒXƒ^ƒCƒ‹‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢B");
+			message = _T("ã‚¹ã‚¿ã‚¤ãƒ«ã‚’é¸æŠã—ã¦ãã ã•ã„ã€‚");
 		}
 		MessageBox(this->hWnd,
 			message.c_str(),
@@ -614,7 +614,7 @@ INT_PTR FontSel::onOK(void)
 		if (useResource) {
 			message = langResource[67].c_str();
 		} else {
-			message = _T("•¶šƒZƒbƒg‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢B");
+			message = _T("æ–‡å­—ã‚»ãƒƒãƒˆã‚’é¸æŠã—ã¦ãã ã•ã„ã€‚");
 		}
 		MessageBox(this->hWnd,
 			message.c_str(),
@@ -628,7 +628,7 @@ INT_PTR FontSel::onOK(void)
 		if (useResource) {
 			message = langResource[68].c_str();
 		} else {
-			message = _T("•¶šƒZƒbƒg‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢B");
+			message = _T("æ–‡å­—ã‚»ãƒƒãƒˆã‚’é¸æŠã—ã¦ãã ã•ã„ã€‚");
 		}
 		MessageBox(this->hWnd,
 			message.c_str(),
@@ -654,17 +654,17 @@ INT_PTR FontSel::onOK(void)
 
 	int point = _tstoi(size.c_str());
 
-	// ƒTƒCƒY‚Ìİ’è
+	// ã‚µã‚¤ã‚ºã®è¨­å®š
 	HDC hDC = GetDC(this->hWnd);
 	selectedFont.lfHeight = -MulDiv(point, GetDeviceCaps(hDC, LOGPIXELSY), 72);
 	selectedFont.lfWidth = 0;
 	ReleaseDC(this->hWnd, hDC);
 
-	// Windows 8ŒİŠ·‚Ìê‡‚ÍƒsƒNƒZƒ‹”‚©‚çŒvZ‚µ‚½ƒ|ƒCƒ“ƒg‚ªw’è‚µ‚½ƒ|ƒCƒ“ƒg‚æ‚è¬‚³‚¢ê‡A
-	// ƒtƒHƒ“ƒg‚Ì‚‚³‚ÌƒsƒNƒZƒ‹”‚Ìâ‘Î’l‚ğ‘‚â‚·B
+	// Windows 8äº’æ›ã®å ´åˆã¯ãƒ”ã‚¯ã‚»ãƒ«æ•°ã‹ã‚‰è¨ˆç®—ã—ãŸãƒã‚¤ãƒ³ãƒˆãŒæŒ‡å®šã—ãŸãƒã‚¤ãƒ³ãƒˆã‚ˆã‚Šå°ã•ã„å ´åˆã€
+	// ãƒ•ã‚©ãƒ³ãƒˆã®é«˜ã•ã®ãƒ”ã‚¯ã‚»ãƒ«æ•°ã®çµ¶å¯¾å€¤ã‚’å¢—ã‚„ã™ã€‚
 	if (WIN8_SIZE) {
 		if (abs(getFontPointInt(&selectedFont, this->getHwnd())) < point) {
-			// ƒsƒNƒZƒ‹”‚Íƒ}ƒCƒiƒX‚Åw’è‚·‚é‚Ì‚Å1Œ¸‚ç‚µ‚Äâ‘Î’l‚ğ‘‚â‚·B
+			// ãƒ”ã‚¯ã‚»ãƒ«æ•°ã¯ãƒã‚¤ãƒŠã‚¹ã§æŒ‡å®šã™ã‚‹ã®ã§1æ¸›ã‚‰ã—ã¦çµ¶å¯¾å€¤ã‚’å¢—ã‚„ã™ã€‚
 			selectedFont.lfHeight--;
 		}
 	}
@@ -681,11 +681,11 @@ INT_PTR FontSel::onOK(void)
 		selectedFont.lfStrikeOut = FALSE;
 	}
 
-	// ‚»‚Ì‘¼‚ÍƒfƒtƒHƒ‹ƒg‚Éİ’è‚·‚éB
+	// ãã®ä»–ã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã«è¨­å®šã™ã‚‹ã€‚
 	selectedFont.lfOutPrecision = 0;
 	selectedFont.lfClipPrecision = 0;
 	selectedFont.lfQuality = 0;
-	// lfPitchAndFamily‚ÍƒtƒHƒ“ƒg‚ª•Ô‚µ‚½‚à‚Ì‚ğİ’è‚·‚éB
+	// lfPitchAndFamilyã¯ãƒ•ã‚©ãƒ³ãƒˆãŒè¿”ã—ãŸã‚‚ã®ã‚’è¨­å®šã™ã‚‹ã€‚
 	// selectedFont.lfPitchAndFamily = 50;
 
 	return (INT_PTR)1;

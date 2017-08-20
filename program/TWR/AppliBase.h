@@ -1,4 +1,4 @@
-/*
+Ôªø/*
 noMeiryoUI (C) 2005,2012,2013 Tatsuhiko Shoji
 The sources for noMeiryoUI are distributed under the MIT open source license
 */
@@ -7,7 +7,7 @@ The sources for noMeiryoUI are distributed under the MIT open source license
 #include <windows.h>
 #include "../resource.h"
 
-extern HINSTANCE hInst;								// åªç›ÇÃÉCÉìÉ^Å[ÉtÉFÉCÉX
+extern HINSTANCE hInst;								// ÁèæÂú®„ÅÆ„Ç§„É≥„Çø„Éº„Éï„Çß„Ç§„Çπ
 
 void addModelessDialog(HWND dialog);
 void delModelessDialog(HWND dialog);

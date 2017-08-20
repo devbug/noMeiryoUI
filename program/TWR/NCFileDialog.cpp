@@ -7,6 +7,7 @@ The sources for noMeiryoUI are distributed under the MIT open source license
 #include	<ctype.h>
 #include	<tchar.h>
 #include	<windows.h>
+#include	<strsafe.h>
 #include	"NCFileDialog.h"
 
 /**
@@ -54,7 +55,7 @@ NCFileDialog::NCFileDialog(
 	// 初期ファイル名
 	memset(gotFileName,0x00,sizeof(TCHAR) * _MAX_PATH);
 	if (lpszFileName != NULL) {
-		_tcscpy(gotFileName,lpszFileName);
+		StringCchCopy(gotFileName, _MAX_PATH, lpszFileName);
 	}
 	m_ofn.lpstrFile = gotFileName;
 	m_ofn.nMaxFile = _MAX_PATH;

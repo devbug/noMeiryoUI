@@ -15,6 +15,7 @@ The sources for noMeiryoUI are distributed under the MIT open source license
 #include <shellapi.h>
 #include <locale.h>
 #include <mbctype.h>
+#include <strsafe.h>
 #include "noMeiryoUI.h"
 #include "FontSel.h"
 #include "NCFileDialog.h"
@@ -80,7 +81,8 @@ void initializeLocale(void)
 		_setmbcp(_MB_CP_LOCALE);
 		codePageDelim = 0;
 	}
-	mbstowcs(langWork, localeName, 64);
+	size_t len = 0;
+	mbstowcs_s(&len, langWork, 64, localeName, strlen(localeName) + 1);
 
 	//localeName = "aaa";
 	int readResult;
@@ -88,7 +90,7 @@ void initializeLocale(void)
 		useResource = false;
 		setFontResourceJa8();
 		setFontResourceJa10();
-		_tcscpy(helpFileName, _T("Japanese.chm"));
+		StringCchCopy(helpFileName, _countof(helpFileName), _T("Japanese.chm"));
 	} else {
 		// Language detection
 		useResource = true;
@@ -97,40 +99,40 @@ void initializeLocale(void)
 			isKorean = true;
 		}
 
-		_tcscpy(findPath, iniPath);
+		StringCchCopy(findPath, _countof(findPath), iniPath);
 		p = _tcsrchr(langWork, _T('.'));
 		if (p != NULL) {
 			*p = _T('\0');
 		}
-		_tcscat(findPath, langWork);
-		_tcscat(findPath, _T(".lng"));
+		StringCchCat(findPath, _countof(findPath), langWork);
+		StringCchCat(findPath, _countof(findPath), _T(".lng"));
 		WIN32_FIND_DATA fileInfo;
 		
 		HANDLE found = FindFirstFile(findPath, &fileInfo);
 		if (found != INVALID_HANDLE_VALUE) {
 			// 言語_地域形式のファイルがある場合
-			_tcscpy(iniPath, findPath);
-			_tcscpy(helpFileName, langWork);
-			_tcscat(helpFileName, _T(".chm"));
+			StringCchCopy(iniPath, _countof(iniPath), findPath);
+			StringCchCopy(helpFileName, _countof(helpFileName), langWork);
+			StringCchCat(helpFileName, _countof(helpFileName), _T(".chm"));
 		}
 		else {
-			_tcscpy(findPath, iniPath);
+			StringCchCopy(findPath, _countof(findPath), iniPath);
 			p = _tcsrchr(langWork, _T('_'));
 			if (p != NULL) {
 				*p = _T('\0');
 			}
-			_tcscat(findPath, langWork);
-			_tcscat(findPath, _T(".lng"));
+			StringCchCat(findPath, _countof(findPath), langWork);
+			StringCchCat(findPath, _countof(findPath), _T(".lng"));
 			found = FindFirstFile(findPath, &fileInfo);
 			if (found != INVALID_HANDLE_VALUE) {
 				// 言語のファイルがある場合
-				_tcscpy(iniPath, findPath);
-				_tcscpy(helpFileName, langWork);
-				_tcscat(helpFileName, _T(".chm"));
+				StringCchCopy(iniPath, _countof(iniPath), findPath);
+				StringCchCopy(helpFileName, _countof(helpFileName), langWork);
+				StringCchCat(helpFileName, _countof(helpFileName), _T(".chm"));
 			} else {
 				// 言語ファイルが存在しない場合
-				_tcscat(iniPath, _T("Default.lng"));
-				_tcscpy(helpFileName, _T("English.chm"));
+				StringCchCat(iniPath, _countof(iniPath), _T("Default.lng"));
+				StringCchCopy(helpFileName, _countof(helpFileName), _T("English.chm"));
 			}
 		}
 		// Language support routine ends here.
@@ -189,7 +191,7 @@ int NoMeiryoUI::OnAppliStart(TCHAR *lpCmdLine)
 	noMeiryoUI = false;
 	noTahoma = false;
 	setOnStart = false;
-	_tcscpy(settingFile, _T(""));
+	StringCchCopy(settingFile, _countof(settingFile), _T(""));
 	verInfo = NULL;
 
 	displayFont = NULL;
@@ -401,7 +403,7 @@ INT_PTR NoMeiryoUI::OnInitDialog()
 	} else {
 		appName = _T("Meiryo UIも大っきらい!!");
 	}
-	_stprintf(buf, verString, appName);
+	StringCchPrintf(buf, _countof(buf), verString, appName);
 	setChildText(IDC_STATIC_APP_TITLE, buf);
 
 
@@ -568,7 +570,7 @@ void NoMeiryoUI::parseOption(TCHAR *param, int argCount)
 		case 1:
 			// 設定ファイル名
 			if (_tcscmp(_T("--"), param)) {
-				_tcscpy(settingFile, param);
+				StringCchCopy(settingFile, _countof(settingFile), param);
 			}
 			break;
 		default:
@@ -787,7 +789,7 @@ void NoMeiryoUI::updateDisplay(void)
 		allFontName = dispName;
 	}
 	point = getFontPointInt(&(metricsAll.lfMenuFont), this->getHwnd());
-	_stprintf(buf, _T(" %3dpt"), point);
+	StringCchPrintf(buf, _countof(buf), _T(" %3dpt"), point);
 	allFontName = allFontName + buf;
 
 	titleFontName = metrics.lfCaptionFont.lfFaceName;
@@ -797,7 +799,7 @@ void NoMeiryoUI::updateDisplay(void)
 		titleFontName = dispName;
 	}
 	point = getFontPointInt(&(metrics.lfCaptionFont), this->getHwnd());
-	_stprintf(buf, _T(" %3dpt"), point);
+	StringCchPrintf(buf, _countof(buf), _T(" %3dpt"), point);
 	titleFontName = titleFontName + buf;
 
 	iconFontName = iconFont.lfFaceName;
@@ -807,7 +809,7 @@ void NoMeiryoUI::updateDisplay(void)
 		iconFontName = dispName;
 	}
 	point = getFontPointInt(&iconFont, this->getHwnd());
-	_stprintf(buf, _T(" %3dpt"), point);
+	StringCchPrintf(buf, _countof(buf), _T(" %3dpt"), point);
 	iconFontName = iconFontName + buf;
 
 	paletteFontName = metrics.lfSmCaptionFont.lfFaceName;
@@ -817,7 +819,7 @@ void NoMeiryoUI::updateDisplay(void)
 		paletteFontName = dispName;
 	}
 	point = getFontPointInt(&metrics.lfSmCaptionFont, this->getHwnd());
-	_stprintf(buf, _T(" %3dpt"), point);
+	StringCchPrintf(buf, _countof(buf), _T(" %3dpt"), point);
 	paletteFontName = paletteFontName + buf;
 
 	hintFontName = metrics.lfStatusFont.lfFaceName;
@@ -827,7 +829,7 @@ void NoMeiryoUI::updateDisplay(void)
 		hintFontName = dispName;
 	}
 	point = getFontPointInt(&metrics.lfStatusFont, this->getHwnd());
-	_stprintf(buf, _T(" %3dpt"), point);
+	StringCchPrintf(buf, _countof(buf), _T(" %3dpt"), point);
 	hintFontName = hintFontName + buf;
 
 	messageFontName = metrics.lfMessageFont.lfFaceName;
@@ -837,7 +839,7 @@ void NoMeiryoUI::updateDisplay(void)
 		messageFontName = dispName;
 	}
 	point = getFontPointInt(&metrics.lfMessageFont, this->getHwnd());
-	_stprintf(buf, _T(" %3dpt"), point);
+	StringCchPrintf(buf, _countof(buf), _T(" %3dpt"), point);
 	messageFontName = messageFontName + buf;
 
 	// メニューと選択項目
@@ -848,7 +850,7 @@ void NoMeiryoUI::updateDisplay(void)
 		menuFontName = dispName;
 	}
 	point = getFontPointInt(&metrics.lfMenuFont, this->getHwnd());
-	_stprintf(buf, _T(" %3dpt"), point);
+	StringCchPrintf(buf, _countof(buf), _T(" %3dpt"), point);
 	menuFontName = menuFontName + buf;
 
 	UpdateData(false);
@@ -1156,7 +1158,7 @@ void setFileMask(
 	TCHAR *pDst = buf;
 	int len;
 
-	len = _tcslen(fileMsg);
+	len = static_cast<int>(_tcslen(fileMsg));
 	for (int i = 0; i < len; i++) {
 		*pDst = fileMsg[i];
 		pDst++;
@@ -1164,7 +1166,7 @@ void setFileMask(
 	*pDst = _T('\0');
 	pDst++;
 
-	len = _tcslen(fileExt);
+	len = static_cast<int>(_tcslen(fileExt));
 	for (int i = 0; i < len; i++) {
 		*pDst = fileExt[i];
 		pDst++;
@@ -1172,7 +1174,7 @@ void setFileMask(
 	*pDst = _T('\0');
 	pDst++;
 
-	len = _tcslen(allMsg);
+	len = static_cast<int>(_tcslen(allMsg));
 	for (int i = 0; i < len; i++) {
 		*pDst = allMsg[i];
 		pDst++;
@@ -1180,7 +1182,7 @@ void setFileMask(
 	*pDst = _T('\0');
 	pDst++;
 
-	len = _tcslen(allExt);
+	len = static_cast<int>(_tcslen(allExt));
 	for (int i = 0; i < len; i++) {
 		*pDst = allExt[i];
 		pDst++;
@@ -1604,7 +1606,7 @@ BOOL NoMeiryoUI::saveFont(TCHAR *filename, TCHAR *section, LOGFONT *font)
 		return FALSE;
 	}
 
-	_stprintf(buf, _T("%ld"), font->lfHeight);
+	StringCchPrintf(buf, _countof(buf), _T("%ld"), font->lfHeight);
 	result = WritePrivateProfileString(section,
 		_T("Height"),
 		buf,
@@ -1613,7 +1615,7 @@ BOOL NoMeiryoUI::saveFont(TCHAR *filename, TCHAR *section, LOGFONT *font)
 		return FALSE;
 	}
 
-	_stprintf(buf, _T("%ld"), font->lfWidth);
+	StringCchPrintf(buf, _countof(buf), _T("%ld"), font->lfWidth);
 	result = WritePrivateProfileString(section,
 		_T("Width"),
 		buf,
@@ -1622,7 +1624,7 @@ BOOL NoMeiryoUI::saveFont(TCHAR *filename, TCHAR *section, LOGFONT *font)
 		return FALSE;
 	}
 
-	_stprintf(buf, _T("%ld"), font->lfEscapement);
+	StringCchPrintf(buf, _countof(buf), _T("%ld"), font->lfEscapement);
 	result = WritePrivateProfileString(section,
 		_T("Escapement"),
 		buf,
@@ -1631,7 +1633,7 @@ BOOL NoMeiryoUI::saveFont(TCHAR *filename, TCHAR *section, LOGFONT *font)
 		return FALSE;
 	}
 
-	_stprintf(buf, _T("%ld"), font->lfOrientation);
+	StringCchPrintf(buf, _countof(buf), _T("%ld"), font->lfOrientation);
 	result = WritePrivateProfileString(section,
 		_T("Orientation"),
 		buf,
@@ -1640,7 +1642,7 @@ BOOL NoMeiryoUI::saveFont(TCHAR *filename, TCHAR *section, LOGFONT *font)
 		return FALSE;
 	}
 
-	_stprintf(buf, _T("%ld"), font->lfWeight);
+	StringCchPrintf(buf, _countof(buf), _T("%ld"), font->lfWeight);
 	result = WritePrivateProfileString(section,
 		_T("Weight"),
 		buf,
@@ -1649,7 +1651,7 @@ BOOL NoMeiryoUI::saveFont(TCHAR *filename, TCHAR *section, LOGFONT *font)
 		return FALSE;
 	}
 
-	_stprintf(buf, _T("%ld"), font->lfItalic);
+	StringCchPrintf(buf, _countof(buf), _T("%ld"), font->lfItalic);
 	result = WritePrivateProfileString(section,
 		_T("Italic"),
 		buf,
@@ -1658,7 +1660,7 @@ BOOL NoMeiryoUI::saveFont(TCHAR *filename, TCHAR *section, LOGFONT *font)
 		return FALSE;
 	}
 
-	_stprintf(buf, _T("%ld"), font->lfUnderline);
+	StringCchPrintf(buf, _countof(buf), _T("%ld"), font->lfUnderline);
 	result = WritePrivateProfileString(section,
 		_T("Underline"),
 		buf,
@@ -1667,7 +1669,7 @@ BOOL NoMeiryoUI::saveFont(TCHAR *filename, TCHAR *section, LOGFONT *font)
 		return FALSE;
 	}
 
-	_stprintf(buf, _T("%ld"), font->lfStrikeOut);
+	StringCchPrintf(buf, _countof(buf), _T("%ld"), font->lfStrikeOut);
 	result = WritePrivateProfileString(section,
 		_T("StrikeOut"),
 		buf,
@@ -1676,7 +1678,7 @@ BOOL NoMeiryoUI::saveFont(TCHAR *filename, TCHAR *section, LOGFONT *font)
 		return FALSE;
 	}
 
-	_stprintf(buf, _T("%ld"), font->lfCharSet);
+	StringCchPrintf(buf, _countof(buf), _T("%ld"), font->lfCharSet);
 	result = WritePrivateProfileString(section,
 		_T("CharSet"),
 		buf,
@@ -1685,7 +1687,7 @@ BOOL NoMeiryoUI::saveFont(TCHAR *filename, TCHAR *section, LOGFONT *font)
 		return FALSE;
 	}
 
-	_stprintf(buf, _T("%ld"), font->lfOutPrecision);
+	StringCchPrintf(buf, _countof(buf), _T("%ld"), font->lfOutPrecision);
 	result = WritePrivateProfileString(section,
 		_T("OutPrecision"),
 		buf,
@@ -1694,7 +1696,7 @@ BOOL NoMeiryoUI::saveFont(TCHAR *filename, TCHAR *section, LOGFONT *font)
 		return FALSE;
 	}
 
-	_stprintf(buf, _T("%ld"), font->lfClipPrecision);
+	StringCchPrintf(buf, _countof(buf), _T("%ld"), font->lfClipPrecision);
 	result = WritePrivateProfileString(section,
 		_T("ClipPrecision"),
 		buf,
@@ -1703,7 +1705,7 @@ BOOL NoMeiryoUI::saveFont(TCHAR *filename, TCHAR *section, LOGFONT *font)
 		return FALSE;
 	}
 
-	_stprintf(buf, _T("%ld"), font->lfQuality);
+	StringCchPrintf(buf, _countof(buf), _T("%ld"), font->lfQuality);
 	result = WritePrivateProfileString(section,
 		_T("Quality"),
 		buf,
@@ -1712,7 +1714,7 @@ BOOL NoMeiryoUI::saveFont(TCHAR *filename, TCHAR *section, LOGFONT *font)
 		return FALSE;
 	}
 
-	_stprintf(buf, _T("%ld"), font->lfPitchAndFamily);
+	StringCchPrintf(buf, _countof(buf), _T("%ld"), font->lfPitchAndFamily);
 	result = WritePrivateProfileString(section,
 		_T("PitchAndFamily"),
 		buf,
@@ -1836,42 +1838,42 @@ void NoMeiryoUI::OnSet8(void)
 		0);
 
 	memset(&metrics.lfCaptionFont, 0, sizeof(LOGFONTW));
-	_tcscpy(metrics.lfCaptionFont.lfFaceName, fontFaces8[0].c_str());
+	StringCchCopy(metrics.lfCaptionFont.lfFaceName, _countof(metrics.lfCaptionFont.lfFaceName), fontFaces8[0].c_str());
 	metrics.lfCaptionFont.lfHeight = -MulDiv(fontSizes8[0],dpiY,72);
 	metrics.lfCaptionFont.lfWeight = 400;
 	metrics.lfCaptionFont.lfCharSet = fontCharset8[0];
 	metrics.lfCaptionFont.lfQuality = 5;
 
 	memset(&iconFont, 0, sizeof(LOGFONTW));
-	_tcscpy(iconFont.lfFaceName, fontFaces8[1].c_str());
+	StringCchCopy(iconFont.lfFaceName, _countof(iconFont.lfFaceName), fontFaces8[1].c_str());
 	iconFont.lfHeight = -MulDiv(fontSizes8[1], dpiY, 72);
 	iconFont.lfWeight = 400;
 	iconFont.lfCharSet = fontCharset8[1];
 	iconFont.lfQuality = 5;
 
 	memset(&metrics.lfSmCaptionFont, 0, sizeof(LOGFONTW));
-	_tcscpy(metrics.lfSmCaptionFont.lfFaceName, fontFaces8[2].c_str());
+	StringCchCopy(metrics.lfSmCaptionFont.lfFaceName, _countof(metrics.lfSmCaptionFont.lfFaceName), fontFaces8[2].c_str());
 	metrics.lfSmCaptionFont.lfHeight = -MulDiv(fontSizes8[2], dpiY, 72);
 	metrics.lfSmCaptionFont.lfWeight = 400;
 	metrics.lfSmCaptionFont.lfCharSet = fontCharset8[2];
 	metrics.lfSmCaptionFont.lfQuality = 5;
 
 	memset(&metrics.lfStatusFont, 0, sizeof(LOGFONTW));
-	_tcscpy(metrics.lfStatusFont.lfFaceName, fontFaces8[3].c_str());
+	StringCchCopy(metrics.lfStatusFont.lfFaceName, _countof(metrics.lfStatusFont.lfFaceName), fontFaces8[3].c_str());
 	metrics.lfStatusFont.lfHeight = -MulDiv(fontSizes8[3], dpiY, 72);
 	metrics.lfStatusFont.lfWeight = 400;
 	metrics.lfStatusFont.lfCharSet = fontCharset8[3];
 	metrics.lfStatusFont.lfQuality = 5;
 
 	memset(&metrics.lfMessageFont, 0, sizeof(LOGFONTW));
-	_tcscpy(metrics.lfMessageFont.lfFaceName, fontFaces8[4].c_str());
+	StringCchCopy(metrics.lfMessageFont.lfFaceName, _countof(metrics.lfMessageFont.lfFaceName), fontFaces8[4].c_str());
 	metrics.lfMessageFont.lfHeight = -MulDiv(fontSizes8[4], dpiY, 72);
 	metrics.lfMessageFont.lfWeight = 400;
 	metrics.lfMessageFont.lfCharSet = fontCharset8[4];
 	metrics.lfMessageFont.lfQuality = 5;
 
 	memset(&metrics.lfMenuFont, 0, sizeof(LOGFONTW));
-	_tcscpy(metrics.lfMenuFont.lfFaceName, fontFaces8[5].c_str());
+	StringCchCopy(metrics.lfMenuFont.lfFaceName, _countof(metrics.lfMenuFont.lfFaceName), fontFaces8[5].c_str());
 	metrics.lfMenuFont.lfHeight = -MulDiv(fontSizes8[5], dpiY, 72);
 	metrics.lfMenuFont.lfWeight = 400;
 	metrics.lfMenuFont.lfCharSet = fontCharset8[5];
@@ -1900,42 +1902,42 @@ void NoMeiryoUI::OnSet10(void)
 		0);
 
 	memset(&metrics.lfCaptionFont, 0, sizeof(LOGFONTW));
-	_tcscpy(metrics.lfCaptionFont.lfFaceName, fontFaces10[0].c_str());
+	StringCchCopy(metrics.lfCaptionFont.lfFaceName, _countof(metrics.lfCaptionFont.lfFaceName), fontFaces10[0].c_str());
 	metrics.lfCaptionFont.lfHeight = -MulDiv(fontSizes10[0], dpiY, 72);
 	metrics.lfCaptionFont.lfWeight = 400;
 	metrics.lfCaptionFont.lfCharSet = fontCharset10[0];
 	metrics.lfCaptionFont.lfQuality = 5;
 
 	memset(&iconFont, 0, sizeof(LOGFONTW));
-	_tcscpy(iconFont.lfFaceName, fontFaces10[1].c_str());
+	StringCchCopy(iconFont.lfFaceName, _countof(iconFont.lfFaceName), fontFaces10[1].c_str());
 	iconFont.lfHeight = -MulDiv(fontSizes10[1], dpiY, 72);
 	iconFont.lfWeight = 400;
 	iconFont.lfCharSet = fontCharset10[1];
 	iconFont.lfQuality = 5;
 
 	memset(&metrics.lfSmCaptionFont, 0, sizeof(LOGFONTW));
-	_tcscpy(metrics.lfSmCaptionFont.lfFaceName, fontFaces10[2].c_str());
+	StringCchCopy(metrics.lfSmCaptionFont.lfFaceName, _countof(metrics.lfSmCaptionFont.lfFaceName), fontFaces10[2].c_str());
 	metrics.lfSmCaptionFont.lfHeight = -MulDiv(fontSizes10[2], dpiY, 72);
 	metrics.lfSmCaptionFont.lfWeight = 400;
 	metrics.lfSmCaptionFont.lfCharSet = fontCharset10[2];
 	metrics.lfSmCaptionFont.lfQuality = 5;
 
 	memset(&metrics.lfStatusFont, 0, sizeof(LOGFONTW));
-	_tcscpy(metrics.lfStatusFont.lfFaceName, fontFaces10[3].c_str());
+	StringCchCopy(metrics.lfStatusFont.lfFaceName, _countof(metrics.lfStatusFont.lfFaceName), fontFaces10[3].c_str());
 	metrics.lfStatusFont.lfHeight = -MulDiv(fontSizes10[3], dpiY, 72);
 	metrics.lfStatusFont.lfWeight = 400;
 	metrics.lfStatusFont.lfCharSet = fontCharset10[3];
 	metrics.lfStatusFont.lfQuality = 5;
 
 	memset(&metrics.lfMessageFont, 0, sizeof(LOGFONTW));
-	_tcscpy(metrics.lfMessageFont.lfFaceName, fontFaces10[4].c_str());
+	StringCchCopy(metrics.lfMessageFont.lfFaceName, _countof(metrics.lfMessageFont.lfFaceName), fontFaces10[4].c_str());
 	metrics.lfMessageFont.lfHeight = -MulDiv(fontSizes10[4], dpiY, 72);
 	metrics.lfMessageFont.lfWeight = 400;
 	metrics.lfMessageFont.lfCharSet = fontCharset10[4];
 	metrics.lfMessageFont.lfQuality = 5;
 
 	memset(&metrics.lfMenuFont, 0, sizeof(LOGFONTW));
-	_tcscpy(metrics.lfMenuFont.lfFaceName, fontFaces10[5].c_str());
+	StringCchCopy(metrics.lfMenuFont.lfFaceName, _countof(metrics.lfMenuFont.lfFaceName), fontFaces10[5].c_str());
 	metrics.lfMenuFont.lfHeight = -MulDiv(fontSizes10[5], dpiY, 72);
 	metrics.lfMenuFont.lfWeight = 400;
 	metrics.lfMenuFont.lfCharSet = fontCharset10[5];
@@ -1958,8 +1960,8 @@ NONCLIENTMETRICS *s_fontMetrics;
  */
 unsigned _stdcall setOnThread(void *p)
 {
-	DWORD_PTR ptr;
-	LRESULT messageResult;
+	//DWORD_PTR ptr;
+	//LRESULT messageResult;
 
 	SystemParametersInfo(SPI_SETNONCLIENTMETRICS,
 		sizeof(NONCLIENTMETRICS),
@@ -2094,24 +2096,16 @@ void NoMeiryoUI::SetWinVer(void)
 		case 5:
 			switch (minor) {
 				case 0:
-					_stprintf(buf,
-						_T("Windows Version:Windows 2000 (%d.%d)"),
-						major,minor);
+					StringCchPrintf(buf, _countof(buf), _T("Windows Version: Windows 2000 (%d.%d)"), major, minor);
 					break;
 				case 1:
-					_stprintf(buf,
-						_T("Windows Version:Windows XP (%d.%d)"),
-						major,minor);
+					StringCchPrintf(buf, _countof(buf), _T("Windows Version: Windows XP (%d.%d)"), major, minor);
 					break;
 				case 2:
 					if (infoEx.wProductType == VER_NT_WORKSTATION) {
-						_stprintf(buf,
-							_T("Windows Version:Windows XP 64bit (%d.%d)"),
-							major,minor);
+						StringCchPrintf(buf, _countof(buf), _T("Windows Version: Windows XP 64bit (%d.%d)"), major, minor);
 					} else {
-						_stprintf(buf,
-							_T("Windows Version:Windows Server 2003 (%d.%d)"),
-							major,minor);
+						StringCchPrintf(buf, _countof(buf), _T("Windows Version: Windows Server 2003 (%d.%d)"), major, minor);
 					}
 					break;
 			}
@@ -2120,79 +2114,53 @@ void NoMeiryoUI::SetWinVer(void)
 			switch (minor) {
 				case 0:
 					if (infoEx.wProductType == VER_NT_WORKSTATION) {
-						_stprintf(buf,
-							_T("Windows Version:Windows Vista (%d.%d)"),
-							major,minor);
+						StringCchPrintf(buf, _countof(buf), _T("Windows Version: Windows Vista (%d.%d)"), major, minor);
 					} else {
-						_stprintf(buf,
-							_T("Windows Version:Windows Server 2008 (%d.%d)"),
-							major,minor);
+						StringCchPrintf(buf, _countof(buf), _T("Windows Version: Windows Server 2008 (%d.%d)"), major, minor);
 					}
 					break;
 				case 1:
 					if (infoEx.wProductType == VER_NT_WORKSTATION) {
-						_stprintf(buf,
-							_T("Windows Version:Windows 7 (%d.%d)"),
-							major,minor);
+						StringCchPrintf(buf, _countof(buf), _T("Windows Version: Windows 7 (%d.%d)"), major, minor);
 					} else {
-						_stprintf(buf,
-							_T("Windows Version:Windows Server 2008 R2 (%d.%d)"),
-							major,minor);
+						StringCchPrintf(buf, _countof(buf), _T("Windows Version: Windows Server 2008 R2 (%d.%d)"), major, minor);
 					}
 					break;
 				case 2:
 					if (infoEx.wProductType == VER_NT_WORKSTATION) {
-						_stprintf(buf,
-							_T("Windows Version:Windows 8 (%d.%d)"),
-							major,minor);
+						StringCchPrintf(buf, _countof(buf), _T("Windows Version: Windows 8 (%d.%d)"), major, minor);
 					} else {
-						_stprintf(buf,
-							_T("Windows Version:Windows Server 2012 (%d.%d)"),
-							major,minor);
+						StringCchPrintf(buf, _countof(buf), _T("Windows Version: Windows Server 2012 (%d.%d)"), major, minor);
 					}
 					break;
 				case 3:
 					if (infoEx.wProductType == VER_NT_WORKSTATION) {
-						_stprintf(buf,
-							_T("Windows Version:Windows 8.1 (%d.%d)"),
-							major,minor);
+						StringCchPrintf(buf, _countof(buf), _T("Windows Version: Windows 8.1 (%d.%d)"), major, minor);
 					} else {
-						_stprintf(buf,
-							_T("Windows Version:Windows Server 2012 R2 (%d.%d)"),
-							major,minor);
+						StringCchPrintf(buf, _countof(buf), _T("Windows Version: Windows Server 2012 R2 (%d.%d)"), major, minor);
 					}
 					break;
 				default:
 					if (infoEx.wProductType == VER_NT_WORKSTATION) {
-						_stprintf(buf,
-							_T("Windows Version:Future Windows Client (%d.%d)"),
-							major,minor);
+						StringCchPrintf(buf, _countof(buf), _T("Windows Version: Future Windows Client (%d.%d)"), major, minor);
 					} else {
-						_stprintf(buf,
-							_T("Windows Version:Future Windows Server (%d.%d)"),
-							major,minor);
+						StringCchPrintf(buf, _countof(buf), _T("Windows Version: Future Windows Server (%d.%d)"), major, minor);
 					}
 					break;
 			}
 			break;
 		case 10:
 			if (infoEx.wProductType == VER_NT_WORKSTATION) {
-				getWin10Ver(buf, major, minor);
+				getWin10Ver(buf, _countof(buf), major, minor);
 			} else {
-				_stprintf(buf,
-					_T("Windows Version:Windows Server 2016 (%d.%d)"),
-					major,minor);
+				StringCchPrintf(buf, _countof(buf), _T("Windows Version: Windows Server 2016 (%d.%d)"), major, minor);
 			}
 			break;
 		default:
 			if (infoEx.wProductType == VER_NT_WORKSTATION) {
-				_stprintf(buf,
-					_T("Windows Version:Future Windows Client (%d.%d)"),
-					major,minor);
+				StringCchPrintf(buf, _countof(buf), _T("Windows Version: Future Windows Client (%d.%d)"), major, minor);
 			} else {
-				_stprintf(buf,
-					_T("Windows Version:Future Windows Server (%d.%d)"),
-					major,minor);
+				StringCchPrintf(buf, _countof(buf), _T("Windows Version: Future Windows Server (%d.%d)"), major, minor);
 			}
 			break;
 	}
@@ -2208,7 +2176,7 @@ void NoMeiryoUI::SetWinVer(void)
  * @param major メジャーバージョン
  * @param minor マイナーバージョン
  */
-void NoMeiryoUI::getWin10Ver(TCHAR *buf, DWORD major, DWORD minor)
+void NoMeiryoUI::getWin10Ver(TCHAR *buf, size_t len, DWORD major, DWORD minor)
 {
 	TCHAR release[8];
 	TCHAR build[8];
@@ -2218,8 +2186,8 @@ void NoMeiryoUI::getWin10Ver(TCHAR *buf, DWORD major, DWORD minor)
 	LONG result;
 	DWORD size;
 
-	_tcscpy(release, _T("????"));
-	_tcscpy(build, _T("?"));
+	StringCchCopy(release, _countof(release), _T("????"));
+	StringCchCopy(build, _countof(build), _T("?"));
 
 	result = RegOpenKeyEx(HKEY_LOCAL_MACHINE,
 		_T("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion"),
@@ -2234,9 +2202,7 @@ void NoMeiryoUI::getWin10Ver(TCHAR *buf, DWORD major, DWORD minor)
 		RegCloseKey(key);
 	}
 
-	_stprintf(buf,
-		_T("Windows Version:Windows 10 (%d.%d) Version %s Build %s.%d"),
-		major, minor, release, build, ubr);
+	StringCchPrintf(buf, len, _T("Windows Version: Windows 10 (%d.%d) Version %s Build %s.%d"), major, minor, release, build, ubr);
 
 }
 
@@ -2251,8 +2217,8 @@ void NoMeiryoUI::showHelp(void)
 
 	// 実行ファイルのあるところのBShelp.htmlのパス名を生成する。
 	::GetModuleFileName(NULL,path,_MAX_PATH);
-	::_tsplitpath(path,drive,dir,NULL,NULL);
-	::_stprintf(commandLine, _T("hh.exe \"%s%s%s\""), drive, dir, helpFileName);
+	::_tsplitpath_s(commandLine, drive, _countof(drive), dir, _countof(dir), NULL, 0, NULL, 0);
+	StringCchPrintf(commandLine, _countof(commandLine), _T("hh.exe \"%s%s%s\""), drive, dir, helpFileName);
 	
 	// 関連付けられたアプリでドキュメントファイルを表示する。
 	// ShellExecute(hWnd,_T("open"),helpFile,NULL,NULL,SW_SHOW);
@@ -2381,18 +2347,17 @@ void NoMeiryoUI::showVersion(void)
 
 	if (useResource) {
 		appName = langResource[1].c_str();
-		_stprintf(title, _T("%s"),
-			langResource[64].c_str());
-		_tcscpy(transAuthor, langResource[69].c_str());
+		StringCchPrintf(title, _countof(title), _T("%s"), langResource[64].c_str());
+		StringCchCopy(transAuthor, _countof(transAuthor), langResource[69].c_str());
 	} else {
 		appName = _T("Meiryo UIも大っきらい!!");
-		_stprintf(title, _T("Meiryo UIも大っきらい!!について"));
-		_tcscpy(transAuthor, _T("Tatsuhiko Syoji(Tatsu)"));
+		StringCchPrintf(title, _countof(title), _T("Meiryo UIも大っきらい!!について"));
+		StringCchCopy(transAuthor, _countof(transAuthor), _T("Tatsuhiko Syoji(Tatsu)"));
 	}
 	LoadString(hInst, IDS_VERSION, verString, 32);
 
-	_stprintf(version, verString, appName);
-	_stprintf(aboutContent,
+	StringCchPrintf(version, _countof(version), verString, appName);
+	StringCchPrintf(aboutContent, _countof(aboutContent),
 		_T("%s\n\nProgrammed By Tatsuhiko Syoji(Tatsu) 2005,2012-2018\nTranslated by %s"),
 		version, transAuthor);
 

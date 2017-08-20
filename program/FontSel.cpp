@@ -61,7 +61,7 @@ int CALLBACK EnumFontFamExProc(
 		}
 	}
 
-	fonts = fontList.size();
+	fonts = static_cast<int>(fontList.size());
 
 	for (int i = 0; i < fonts; i++) {
 		// 同じ名前の文字セット違い
@@ -167,7 +167,7 @@ INT_PTR FontSel::OnInitDialog()
 
 	int fonts;
 
-	fonts = fontList.size();
+	fonts = static_cast<int>(fontList.size());
 	for (int i = 0; i < fonts; i++) {
 		m_fontNameList->addItem(fontList[i].dispName);
 	}
@@ -220,7 +220,7 @@ INT_PTR FontSel::OnInitDialog()
 
 				// フォントに合った文字コードセットを設定する。
 				setCharset();
-				int charsetCount = fontList[i].charsetList.size();
+				int charsetCount = static_cast<int>(fontList[i].charsetList.size());
 				for (int j = 0; j < charsetCount; j++) {
 					if (fontList[i].charsetList[j] == previousFont->lfCharSet) {
 						m_ChersetList->setSelectedIndex(j);
@@ -366,7 +366,7 @@ void FontSel::setCharset(void)
 
 	if (selected > -1) {
 		m_ChersetList->clear();
-		int charsetCount = fontList[selected].charsetList.size();
+		int charsetCount = static_cast<int>(fontList[selected].charsetList.size());
 		for (int i = 0; i < charsetCount; i++) {
 			switch (fontList[selected].charsetList[i]) {
 				case ANSI_CHARSET:

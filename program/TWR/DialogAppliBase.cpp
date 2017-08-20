@@ -57,7 +57,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	appObj->OnAppliStart(lpCmdLine);
 
 	// ダイアログを表示する。
-	result = DialogBox(hInstance,MAKEINTRESOURCE(IDD_MAIN_DIALOG),NULL,(DLGPROC)MainDialogProc);
+	result = static_cast<int>(DialogBox(hInstance,MAKEINTRESOURCE(IDD_MAIN_DIALOG),NULL,(DLGPROC)MainDialogProc));
 
 	// アプリケーションの後始末を行う。
 	appObj->OnAppliEnd();

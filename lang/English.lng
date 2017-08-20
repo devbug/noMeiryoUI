@@ -4,7 +4,7 @@
 ;In RESOURCE section,
 ;FONT_FACE key is dialog font name, other key is message.
 [RESOURCE]
-FONT_FACE=System
+FONT_FACE=Arial
 FONT_CHARSET=1
 TITLE=No!! Meiryo UI
 MENU_FILE=&File

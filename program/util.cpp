@@ -130,7 +130,7 @@ void readResourceItem(TCHAR *file, TCHAR *key, TCHAR *fallback)
 void readResourceFile(TCHAR *file)
 {
 	readResourceItem(file, _T("FONT_FACE"),
-		_T("System")
+		_T("Arial")
 	);
 	readResourceItem(file, _T("TITLE"),
 		_T("No!! Meiryo UI")

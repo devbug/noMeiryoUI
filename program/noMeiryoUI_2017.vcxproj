@@ -68,22 +68,28 @@
     <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
-    <IntDir>$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(Configuration)\$(Platform)\obj\</IntDir>
     <LinkIncremental>true</LinkIncremental>
+    <TargetName>noMeiryoUI_32</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(Configuration)\$(Platform)\obj\</IntDir>
     <LinkIncremental>true</LinkIncremental>
-    <TargetName>noMeiryoUI</TargetName>
+    <TargetName>noMeiryoUI_64</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
-    <IntDir>$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(Configuration)\$(Platform)\obj\</IntDir>
     <LinkIncremental>false</LinkIncremental>
+    <TargetName>noMeiryoUI_32</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(Configuration)\$(Platform)\obj\</IntDir>
     <LinkIncremental>false</LinkIncremental>
-    <TargetName>noMeiryoUI</TargetName>
+    <TargetName>noMeiryoUI_64</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -194,6 +200,7 @@
     <ClCompile Include="TWR\TwrMenu.cpp" />
     <ClCompile Include="TWR\TwrWnd.cpp" />
     <ClCompile Include="util.cpp" />
+    <ClCompile Include="iniReader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FontSel.h" />
@@ -214,6 +221,7 @@
     <ClInclude Include="TWR\TwrMenu.h" />
     <ClInclude Include="TWR\TwrWnd.h" />
     <ClInclude Include="util.h" />
+    <ClCompile Include="iniReader.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="noMeiryoUI.ico" />

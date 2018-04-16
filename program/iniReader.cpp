@@ -86,7 +86,7 @@ DWORD GetPrivateProfileStringExT(
 	UINT codePage)
 {
 
-	FILE *fp = nullptr;
+	FILE *fp = NULL;
 	char key[64];
 	
 	inSection = false;

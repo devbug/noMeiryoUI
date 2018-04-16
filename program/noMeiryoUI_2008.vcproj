@@ -153,6 +153,7 @@
 			/>
 			<Tool
 				Name="VCManifestTool"
+				AdditionalManifestFiles="noMeiryoUI.exe.manifest"
 			/>
 			<Tool
 				Name="VCXDCMakeTool"

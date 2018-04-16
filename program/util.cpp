@@ -5,6 +5,7 @@ The sources for noMeiryoUI are distributed under the MIT open source license
 
 #include "util.h"
 #include "iniReader.h"
+#include <strsafe.h>
 
 /** Windows 8のフォントサイズ算出式を使用するか？ */
 bool WIN8_SIZE = true;
@@ -663,42 +664,42 @@ void adjustCenter(RECT parentRect, HWND parentHWnd, HWND myHWnd)
 
 }
 
-void getKoreanFontName(TCHAR *dispBuf)
+void getKoreanFontName(TCHAR *dispBuf, size_t len)
 {
 	if (!_tcscmp(dispBuf, _T("Gulim"))) {
-		_tcscpy(dispBuf, _T("굴림"));
+		StringCchCopy(dispBuf, len, _T("굴림"));
 	}
 
 	if (!_tcscmp(dispBuf, _T("GulimChe"))) {
-		_tcscpy(dispBuf, _T("굴림체"));
+		StringCchCopy(dispBuf, len, _T("굴림체"));
 	}
 
 	if (!_tcscmp(dispBuf, _T("Gungsuh"))) {
-		_tcscpy(dispBuf, _T("궁서"));
+		StringCchCopy(dispBuf, len, _T("궁서"));
 	}
 
 	if (!_tcscmp(dispBuf, _T("GungsuhChe"))) {
-		_tcscpy(dispBuf, _T("궁서체"));
+		StringCchCopy(dispBuf, len, _T("궁서체"));
 	}
 
 	if (!_tcscmp(dispBuf, _T("Dotum"))) {
-		_tcscpy(dispBuf, _T("돋움"));
+		StringCchCopy(dispBuf, len, _T("돋움"));
 	}
 
 	if (!_tcscmp(dispBuf, _T("DotumChe"))) {
-		_tcscpy(dispBuf, _T("돋움체"));
+		StringCchCopy(dispBuf, len, _T("돋움체"));
 	}
 
 	if (!_tcscmp(dispBuf, _T("Malgun Gothic"))) {
-		_tcscpy(dispBuf, _T("맑은 고딕"));
+		StringCchCopy(dispBuf, len, _T("맑은 고딕"));
 	}
 
 	if (!_tcscmp(dispBuf, _T("Batang"))) {
-		_tcscpy(dispBuf, _T("바탕"));
+		StringCchCopy(dispBuf, len, _T("바탕"));
 	}
 
 	if (!_tcscmp(dispBuf, _T("BatangChe"))) {
-		_tcscpy(dispBuf, _T("바탕체"));
+		StringCchCopy(dispBuf, len, _T("바탕체"));
 	}
 
 }

@@ -4,6 +4,7 @@ The sources for noMeiryoUI are distributed under the MIT open source license
 */
 #include "FontSel.h"
 #include "util.h"
+#include <strsafe.h>
 
 #include <algorithm>
 #include <functional>
@@ -75,11 +76,11 @@ int CALLBACK EnumFontFamExProc(
 	fontInfo.logFont = lpelfe->elfLogFont;
 	fontInfo.charsetList.clear();
 	fontInfo.charsetList.push_back(lpelfe->elfLogFont.lfCharSet);
-	_tcscpy(dispBuf, lpelfe->elfLogFont.lfFaceName);
+	StringCchCopy(dispBuf, _countof(dispBuf), lpelfe->elfLogFont.lfFaceName);
 	if (isKorean) {
-		getKoreanFontName(dispBuf);
+		getKoreanFontName(dispBuf, _countof(dispBuf));
 	}
-	_tcscpy(fontInfo.dispName, dispBuf);
+	StringCchCopy(fontInfo.dispName, _countof(fontInfo.dispName), dispBuf);
 	fontList.push_back(fontInfo);
 
 	return 1;

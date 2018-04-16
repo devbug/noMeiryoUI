@@ -41,6 +41,6 @@ int readFontResource10(TCHAR *file);
 int setFontResourceJa8(void);
 int setFontResourceJa10(void);
 void adjustCenter(RECT parentRect, HWND parentHWnd, HWND myHWnd);
-void getKoreanFontName(TCHAR *dispBuf);
+void getKoreanFontName(TCHAR *dispBuf, size_t len);
 
 #endif

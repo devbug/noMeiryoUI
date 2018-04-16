@@ -6,6 +6,7 @@ The sources for noMeiryoUI are distributed under the MIT open source license
 #include <windows.h>
 #include <tchar.h>
 #include <string.h>
+#include <strsafe.h>
 
 // cl /D "UNICODE" /D "_UNICODE" iniReader.cpp
 
@@ -85,28 +86,29 @@ DWORD GetPrivateProfileStringExT(
 	UINT codePage)
 {
 
-	FILE *fp;
+	FILE *fp = nullptr;
 	char key[64];
 	
 	inSection = false;
 
 #if UNICODE
-	fp = _wfopen(iniFileName, L"r");
-	wcstombs(key, keyName, 64);
+	size_t keyLen = 0;
+	_wfopen_s(&fp, iniFileName, L"r");
+	wcstombs_s(&keyLen, key, 64, keyName, 64);
 #else
 	fp = fopen(iniFileName, "r");
 	strcpy(key, keyName);
 #endif
 	if (fp == NULL) {
-		_tcsncpy(returnString, defaultValue, returnSize - 1);
+		StringCchCopy(returnString, returnSize - 1, defaultValue);
 		returnString[returnSize - 1] = _T('\0');
-		return _tcslen(returnString);
+		return static_cast<DWORD>(_tcslen(returnString));
 	}
 	
 	while(fgets(valueBuf, 255, fp) != NULL) {
 		/* Skip comment */
 		char *firstChar;
-		char *currentChar;
+		// char *currentChar;
 		bool isComment = false;
 
 		firstChar = valueBuf;
@@ -164,7 +166,7 @@ DWORD GetPrivateProfileStringExT(
 					continue;
 				} else {
 					*p = '\0';
-					strcpy(currentSection, valueBuf + 1);
+					StringCchCopyA(currentSection, _ARRAYSIZE(currentSection), valueBuf + 1);
 					inSection = true;
 				}
 			}
@@ -172,8 +174,8 @@ DWORD GetPrivateProfileStringExT(
 	}
 
 	/* キーと値が見つからなかった */
-	_tcsncpy(returnString, defaultValue, returnSize - 1);
+	StringCchCopy(returnString, returnSize - 1, defaultValue);
 	returnString[returnSize - 1] = _T('\0');
-	return _tcslen(returnString);
+	return static_cast<DWORD>(_tcslen(returnString));
 
 }

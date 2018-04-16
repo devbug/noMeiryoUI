@@ -5,6 +5,7 @@ The sources for noMeiryoUI are distributed under the MIT open source license
 #ifndef INIREADER_H
 #define INIREADER_H
 
+#include <windows.h>
 #include <tchar.h>
 
 DWORD GetPrivateProfileStringExT(

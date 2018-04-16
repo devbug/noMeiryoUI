@@ -784,8 +784,8 @@ void NoMeiryoUI::updateDisplay(void)
 
 	allFontName = metricsAll.lfMenuFont.lfFaceName;
 	if (isKorean) {
-		_tcscpy(dispName, allFontName.c_str());
-		getKoreanFontName(dispName);
+		StringCchCopy(dispName, _countof(dispName), allFontName.c_str());
+		getKoreanFontName(dispName, _countof(dispName));
 		allFontName = dispName;
 	}
 	point = getFontPointInt(&(metricsAll.lfMenuFont), this->getHwnd());
@@ -794,8 +794,8 @@ void NoMeiryoUI::updateDisplay(void)
 
 	titleFontName = metrics.lfCaptionFont.lfFaceName;
 	if (isKorean) {
-		_tcscpy(dispName, titleFontName.c_str());
-		getKoreanFontName(dispName);
+		StringCchCopy(dispName, _countof(dispName), titleFontName.c_str());
+		getKoreanFontName(dispName, _countof(dispName));
 		titleFontName = dispName;
 	}
 	point = getFontPointInt(&(metrics.lfCaptionFont), this->getHwnd());
@@ -804,8 +804,8 @@ void NoMeiryoUI::updateDisplay(void)
 
 	iconFontName = iconFont.lfFaceName;
 	if (isKorean) {
-		_tcscpy(dispName, iconFontName.c_str());
-		getKoreanFontName(dispName);
+		StringCchCopy(dispName, _countof(dispName), iconFontName.c_str());
+		getKoreanFontName(dispName, _countof(dispName));
 		iconFontName = dispName;
 	}
 	point = getFontPointInt(&iconFont, this->getHwnd());
@@ -814,8 +814,8 @@ void NoMeiryoUI::updateDisplay(void)
 
 	paletteFontName = metrics.lfSmCaptionFont.lfFaceName;
 	if (isKorean) {
-		_tcscpy(dispName, paletteFontName.c_str());
-		getKoreanFontName(dispName);
+		StringCchCopy(dispName, _countof(dispName), paletteFontName.c_str());
+		getKoreanFontName(dispName, _countof(dispName));
 		paletteFontName = dispName;
 	}
 	point = getFontPointInt(&metrics.lfSmCaptionFont, this->getHwnd());
@@ -824,8 +824,8 @@ void NoMeiryoUI::updateDisplay(void)
 
 	hintFontName = metrics.lfStatusFont.lfFaceName;
 	if (isKorean) {
-		_tcscpy(dispName, hintFontName.c_str());
-		getKoreanFontName(dispName);
+		StringCchCopy(dispName, _countof(dispName), hintFontName.c_str());
+		getKoreanFontName(dispName, _countof(dispName));
 		hintFontName = dispName;
 	}
 	point = getFontPointInt(&metrics.lfStatusFont, this->getHwnd());
@@ -834,8 +834,8 @@ void NoMeiryoUI::updateDisplay(void)
 
 	messageFontName = metrics.lfMessageFont.lfFaceName;
 	if (isKorean) {
-		_tcscpy(dispName, messageFontName.c_str());
-		getKoreanFontName(dispName);
+		StringCchCopy(dispName, _countof(dispName), messageFontName.c_str());
+		getKoreanFontName(dispName, _countof(dispName));
 		messageFontName = dispName;
 	}
 	point = getFontPointInt(&metrics.lfMessageFont, this->getHwnd());
@@ -845,8 +845,8 @@ void NoMeiryoUI::updateDisplay(void)
 	// メニューと選択項目
 	menuFontName = metrics.lfMenuFont.lfFaceName;
 	if (isKorean) {
-		_tcscpy(dispName, menuFontName.c_str());
-		getKoreanFontName(dispName);
+		StringCchCopy(dispName, _countof(dispName), menuFontName.c_str());
+		getKoreanFontName(dispName, _countof(dispName));
 		menuFontName = dispName;
 	}
 	point = getFontPointInt(&metrics.lfMenuFont, this->getHwnd());

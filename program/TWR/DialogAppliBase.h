@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 noMeiryoUI (C) 2005,2012,2013 Tatsuhiko Shoji
 The sources for noMeiryoUI are distributed under the MIT open source license
 */
@@ -8,7 +8,7 @@ The sources for noMeiryoUI are distributed under the MIT open source license
 #include "BaseDialog.h"
 #include "../resource.h"
 
-extern HINSTANCE hInst;								// Œ»İ‚ÌƒCƒ“ƒ^[ƒtƒFƒCƒX
+extern HINSTANCE hInst;								// ç¾åœ¨ã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹
 
 void addModelessDialog(HWND dialog);
 void delModelessDialog(HWND dialog);
@@ -29,8 +29,8 @@ public:
 
 extern DialogAppliBase *createAppli();
 extern INT_PTR CALLBACK MainDialogProc(
-  HWND hwndDlg,  // ƒ_ƒCƒAƒƒOƒ{ƒbƒNƒX‚Ìƒnƒ“ƒhƒ‹
-  UINT uMsg,     // ƒƒbƒZ[ƒW
-  WPARAM wParam, // Å‰‚ÌƒƒbƒZ[ƒWƒpƒ‰ƒ[ƒ^
-  LPARAM lParam  // 2 ”Ô–Ú‚ÌƒƒbƒZ[ƒWƒpƒ‰ƒ[ƒ^
+  HWND hwndDlg,  // ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãƒœãƒƒã‚¯ã‚¹ã®ãƒãƒ³ãƒ‰ãƒ«
+  UINT uMsg,     // ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+  WPARAM wParam, // æœ€åˆã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
+  LPARAM lParam  // 2 ç•ªç›®ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
 );

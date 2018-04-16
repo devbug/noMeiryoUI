@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 noMeiryoUI (C) 2005,2012,2013 Tatsuhiko Shoji
 The sources for noMeiryoUI are distributed under the MIT open source license
 */
@@ -8,7 +8,7 @@ HWND modelessDialogHandle[10];
 int modelessDialogHandles;
 
 /**
- * ƒ‚[ƒhƒŒƒXƒ_ƒCƒAƒƒOŠÖ˜A‚Ì‰Šú‰»‚ğs‚¤B
+ * ãƒ¢ãƒ¼ãƒ‰ãƒ¬ã‚¹ãƒ€ã‚¤ã‚¢ãƒ­ã‚°é–¢é€£ã®åˆæœŸåŒ–ã‚’è¡Œã†ã€‚
  */
 void initModelessDialog(void)
 {
@@ -19,9 +19,9 @@ void initModelessDialog(void)
 }
 
 /**
- * ƒ‚[ƒhƒŒƒXƒ_ƒCƒAƒƒO‚ğ’Ç‰Á‚·‚éB
+ * ãƒ¢ãƒ¼ãƒ‰ãƒ¬ã‚¹ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’è¿½åŠ ã™ã‚‹ã€‚
  *
- * @param dialog ƒ_ƒCƒAƒƒO‚ÌƒEƒCƒ“ƒhƒEƒnƒ“ƒhƒ‹
+ * @param dialog ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«
  */
 void addModelessDialog(HWND dialog)
 {
@@ -45,9 +45,9 @@ void addModelessDialog(HWND dialog)
 }
 
 /**
- * ƒ‚[ƒhƒŒƒXƒ_ƒCƒAƒƒO‚ğƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚É‚æ‚é§Œä‚©‚çŠO‚·B
+ * ãƒ¢ãƒ¼ãƒ‰ãƒ¬ã‚¹ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã«ã‚ˆã‚‹åˆ¶å¾¡ã‹ã‚‰å¤–ã™ã€‚
  *
- * @param dialog ƒ_ƒCƒAƒƒO‚ÌƒEƒCƒ“ƒhƒEƒnƒ“ƒhƒ‹
+ * @param dialog ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«
  */
 void delModelessDialog(HWND dialog)
 {
@@ -63,10 +63,10 @@ void delModelessDialog(HWND dialog)
 }
 
 /**
- * ƒ‚[ƒhƒŒƒXƒ_ƒCƒAƒƒO‚Ìƒ_ƒCƒAƒƒOƒƒbƒZ[ƒWƒnƒ“ƒhƒ‰[
+ * ãƒ¢ãƒ¼ãƒ‰ãƒ¬ã‚¹ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒãƒ³ãƒ‰ãƒ©ãƒ¼
  *
- * @param lpMsg ƒ_ƒCƒAƒƒOƒƒbƒZ[ƒW
- * @return true:ƒƒbƒZ[ƒW‚ğˆ—‚µ‚½ false:ƒƒbƒZ[ƒW‚ğˆ—‚µ‚È‚¢
+ * @param lpMsg ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+ * @return true:ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å‡¦ç†ã—ãŸ false:ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å‡¦ç†ã—ãªã„
  */
 bool handleDialogMessage(LPMSG lpMsg)
 {

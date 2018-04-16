@@ -1,8 +1,8 @@
-/*
+ï»¿/*
 noMeiryoUI (C) 2005,2012-2018 Tatsuhiko Shoji
 The sources for noMeiryoUI are distributed under the MIT open source license
 */
-// noMeiryoUI.cpp : ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ÌƒGƒ“ƒgƒŠ ƒ|ƒCƒ“ƒg‚ğ’è‹`‚µ‚Ü‚·B
+// noMeiryoUI.cpp : ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®ã‚¨ãƒ³ãƒˆãƒª ãƒã‚¤ãƒ³ãƒˆã‚’å®šç¾©ã—ã¾ã™ã€‚
 //
 
 #include "stdafx.h"
@@ -24,11 +24,11 @@ The sources for noMeiryoUI are distributed under the MIT open source license
 #define MAX_LOADSTRING 100
 
 //
-// ƒ_ƒCƒAƒƒOƒx[ƒXƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒtƒŒ[ƒ€ƒ[ƒN‚Æ
-// ƒ†[ƒU[À‘•‚ÌƒuƒŠƒbƒWƒ‹[ƒ`ƒ“
+// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãƒ™ãƒ¼ã‚¹ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ã¨
+// ãƒ¦ãƒ¼ã‚¶ãƒ¼å®Ÿè£…ã®ãƒ–ãƒªãƒƒã‚¸ãƒ«ãƒ¼ãƒãƒ³
 //
 
-// ƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒIƒuƒWƒFƒNƒg
+// ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
 NoMeiryoUI *appObj;
 static bool use7Compat = true;
 bool useResource = false;
@@ -41,7 +41,7 @@ DWORD helpPid;
 bool helpMoved = false;
 
 /**
- * ƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒIƒuƒWƒFƒNƒg‚ğì¬‚µ‚Ü‚·B
+ * ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆã—ã¾ã™ã€‚
  */
 DialogAppliBase *createAppli()
 {
@@ -49,13 +49,13 @@ DialogAppliBase *createAppli()
 
 	initializeLocale();
 
-	// ‚±‚±‚Åƒ†[ƒU[‚ÌƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒIƒuƒWƒFƒNƒg‚ğì¬‚µ‚Ü‚·B
+	// ã“ã“ã§ãƒ¦ãƒ¼ã‚¶ãƒ¼ã®ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆã—ã¾ã™ã€‚
 	appObj = new NoMeiryoUI();
 	return appObj;
 }
 
 /**
- * Še‘Œê‚Ì”»’è‚ÆŠe‘Œê‚É‡‚í‚¹‚½‰Šú‰»‚ğs‚¢‚Ü‚·B
+ * å„å›½èªã®åˆ¤å®šã¨å„å›½èªã«åˆã‚ã›ãŸåˆæœŸåŒ–ã‚’è¡Œã„ã¾ã™ã€‚
  */
 void initializeLocale(void)
 {
@@ -70,7 +70,7 @@ void initializeLocale(void)
 		*(p + 1) = '\0';
 	}
 
-	// ƒƒP[ƒ‹‚Ì‰Šú‰»
+	// ãƒ­ã‚±ãƒ¼ãƒ«ã®åˆæœŸåŒ–
 	char *localeName = setlocale(LC_ALL, "");
 	char *codePageDelim = strchr(localeName, '.');
 	if (codePageDelim != NULL) {
@@ -108,7 +108,7 @@ void initializeLocale(void)
 		
 		HANDLE found = FindFirstFile(findPath, &fileInfo);
 		if (found != INVALID_HANDLE_VALUE) {
-			// Œ¾Œê_’nˆæŒ`®‚Ìƒtƒ@ƒCƒ‹‚ª‚ ‚éê‡
+			// è¨€èª_åœ°åŸŸå½¢å¼ã®ãƒ•ã‚¡ã‚¤ãƒ«ãŒã‚ã‚‹å ´åˆ
 			_tcscpy(iniPath, findPath);
 			_tcscpy(helpFileName, langWork);
 			_tcscat(helpFileName, _T(".chm"));
@@ -123,12 +123,12 @@ void initializeLocale(void)
 			_tcscat(findPath, _T(".lng"));
 			found = FindFirstFile(findPath, &fileInfo);
 			if (found != INVALID_HANDLE_VALUE) {
-				// Œ¾Œê‚Ìƒtƒ@ƒCƒ‹‚ª‚ ‚éê‡
+				// è¨€èªã®ãƒ•ã‚¡ã‚¤ãƒ«ãŒã‚ã‚‹å ´åˆ
 				_tcscpy(iniPath, findPath);
 				_tcscpy(helpFileName, langWork);
 				_tcscat(helpFileName, _T(".chm"));
 			} else {
-				// Œ¾Œêƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚È‚¢ê‡
+				// è¨€èªãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ãªã„å ´åˆ
 				_tcscat(iniPath, _T("Default.lng"));
 				_tcscpy(helpFileName, _T("English.chm"));
 			}
@@ -148,29 +148,29 @@ void initializeLocale(void)
 }
 
 /**
- * ƒ_ƒCƒAƒƒOƒvƒ[ƒVƒWƒƒ
+ * ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãƒ—ãƒ­ãƒ¼ã‚·ã‚¸ãƒ£
  *
- * @return TRUE:ˆ—‚µ‚½ FALSE:ˆ—‚µ‚È‚¢
+ * @return TRUE:å‡¦ç†ã—ãŸ FALSE:å‡¦ç†ã—ãªã„
  */
 INT_PTR CALLBACK MainDialogProc(
-  HWND hwndDlg,  // ƒ_ƒCƒAƒƒOƒ{ƒbƒNƒX‚Ìƒnƒ“ƒhƒ‹
-  UINT uMsg,     // ƒƒbƒZ[ƒW
-  WPARAM wParam, // Å‰‚ÌƒƒbƒZ[ƒWƒpƒ‰ƒ[ƒ^
-  LPARAM lParam  // 2 ”Ô–Ú‚ÌƒƒbƒZ[ƒWƒpƒ‰ƒ[ƒ^
+  HWND hwndDlg,  // ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãƒœãƒƒã‚¯ã‚¹ã®ãƒãƒ³ãƒ‰ãƒ«
+  UINT uMsg,     // ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+  WPARAM wParam, // æœ€åˆã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
+  LPARAM lParam  // 2 ç•ªç›®ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
   )
 {
-	// ƒ†[ƒU[ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚Ìƒ_ƒCƒAƒƒOƒvƒ[ƒVƒWƒƒ‚ÉŠÛ“Š‚°‚µ‚Ü‚·B
+	// ãƒ¦ãƒ¼ã‚¶ãƒ¼ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãƒ—ãƒ­ãƒ¼ã‚·ã‚¸ãƒ£ã«ä¸¸æŠ•ã’ã—ã¾ã™ã€‚
 	return appObj->dialogProc(hwndDlg, uMsg,wParam,lParam);
 }
 
 //
-// ƒ_ƒCƒAƒƒOƒx[ƒXƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒtƒŒ[ƒ€ƒ[ƒN‚ÌÀ‘••”
+// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãƒ™ãƒ¼ã‚¹ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ã®å®Ÿè£…éƒ¨
 //
 
 /**
- * ƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒEƒCƒ“ƒhƒEƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬‚µ‚Ü‚·B
+ * ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
  *
- * @return ƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒEƒCƒ“ƒhƒEƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX
+ * @return ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
  */
 BaseDialog *NoMeiryoUI::createBaseDialog()
 {
@@ -178,14 +178,14 @@ BaseDialog *NoMeiryoUI::createBaseDialog()
 }
 
 /**
- * ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ÌŠJnˆ—‚ğÀs‚µ‚Ü‚·B
+ * ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®é–‹å§‹å‡¦ç†ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
  *
- * @param lpCmdLine ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“
- * @return —\”õ
+ * @param lpCmdLine ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³
+ * @return äºˆå‚™
  */
 int NoMeiryoUI::OnAppliStart(TCHAR *lpCmdLine)
 {
-	// ƒAƒvƒŠŒÅ—L‚Ì‰Šú‰»‚ğs‚¢‚Ü‚·B
+	// ã‚¢ãƒ—ãƒªå›ºæœ‰ã®åˆæœŸåŒ–ã‚’è¡Œã„ã¾ã™ã€‚
 	noMeiryoUI = false;
 	noTahoma = false;
 	setOnStart = false;
@@ -233,20 +233,20 @@ int NoMeiryoUI::OnAppliStart(TCHAR *lpCmdLine)
 		use7Compat = false;
 	}
 
-	// ƒIƒvƒVƒ‡ƒ“‚ğæ“¾‚·‚éB
+	// ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’å–å¾—ã™ã‚‹ã€‚
 	getOption(lpCmdLine);
 
 	return 0;
 }
 
 /**
- * ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ÌI—¹ˆ—‚ğÀs‚µ‚Ü‚·B
+ * ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®çµ‚äº†å‡¦ç†ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
  *
- * @return —\”õ
+ * @return äºˆå‚™
  */
 int NoMeiryoUI::OnAppliEnd()
 {
-	// ‚±‚ÌŠÖ”‚ğƒI[ƒo[ƒ‰ƒCƒh‚µ‚ÄƒAƒvƒŠŒÅ—L‚ÌŒãˆ—‚ğs‚¢‚Ü‚·B
+	// ã“ã®é–¢æ•°ã‚’ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã—ã¦ã‚¢ãƒ—ãƒªå›ºæœ‰ã®å¾Œå‡¦ç†ã‚’è¡Œã„ã¾ã™ã€‚
 	if (verInfo != NULL) {
 		delete verInfo;
 	}
@@ -303,21 +303,21 @@ int NoMeiryoUI::OnAppliEnd()
 }
 
 //
-// ƒ_ƒCƒAƒƒOƒx[ƒXƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚Æ‚µ‚Ä‚Ì
-// ƒAƒvƒŠƒP[ƒVƒ‡ƒ“ŒÅ—Lˆ—‚ÌÀ‘••”•ª
+// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãƒ™ãƒ¼ã‚¹ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã¨ã—ã¦ã®
+// ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³å›ºæœ‰å‡¦ç†ã®å®Ÿè£…éƒ¨åˆ†
 //
 
 /**
- * ƒ_ƒCƒAƒƒO‰Šú‰»ˆ—
+ * ãƒ€ã‚¤ã‚¢ãƒ­ã‚°åˆæœŸåŒ–å‡¦ç†
  *
- * @return TRUE:ƒtƒH[ƒJƒX‚ğİ’è‚µ‚½ FALSE:ƒtƒH[ƒJƒX‚ğİ’è‚µ‚È‚¢
+ * @return TRUE:ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãŸ FALSE:ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’è¨­å®šã—ãªã„
  */
 INT_PTR NoMeiryoUI::OnInitDialog()
 {
-	// eƒNƒ‰ƒX‚Ìƒ_ƒCƒAƒƒO‰Šú‰»ˆ—‚ğŒÄ‚ÔB
+	// è¦ªã‚¯ãƒ©ã‚¹ã®ãƒ€ã‚¤ã‚¢ãƒ­ã‚°åˆæœŸåŒ–å‡¦ç†ã‚’å‘¼ã¶ã€‚
 	DialogAppliBase::OnInitDialog();
 
-	// ƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒAƒCƒRƒ“‚Ìİ’è
+	// ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚¢ã‚¤ã‚³ãƒ³ã®è¨­å®š
 	HICON hIcon;
 
     hIcon = (HICON)LoadImage(hInst, MAKEINTRESOURCE(IDC_MYICON), IMAGE_ICON, 16, 16, 0);
@@ -326,20 +326,20 @@ INT_PTR NoMeiryoUI::OnInitDialog()
 	appMenu = new TwrMenu(this->hWnd);
 
 	if (!use7Compat) {
-		// Windows 7ˆÈ‘O‚Ìê‡‚ÍƒtƒHƒ“ƒgƒTƒCƒY‚Ìæ‚èˆµ‚¢ƒ‚[ƒh‚ğ•ÏX‚Å‚«‚È‚­‚·‚éB
+		// Windows 7ä»¥å‰ã®å ´åˆã¯ãƒ•ã‚©ãƒ³ãƒˆã‚µã‚¤ã‚ºã®å–ã‚Šæ‰±ã„ãƒ¢ãƒ¼ãƒ‰ã‚’å¤‰æ›´ã§ããªãã™ã‚‹ã€‚
 		appMenu->setEnabled(IDM_COMPAT7, false);
 	}
 	appMenu->CheckMenuItem(IDM_ANOTHER, true);
 
 	if (useResource) {
-		// ŠCŠO”Å‚Í‰Šúİ’è‚ÌƒtƒHƒ“ƒg‚ªˆÙ‚È‚é‚Ì‚ÅƒvƒŠƒZƒbƒgƒƒjƒ…[î•ñ‚ª
-		// ‚ ‚éê‡‚Ì‚İƒvƒŠƒZƒbƒg‚ğ—LŒø‚É‚·‚éB
+		// æµ·å¤–ç‰ˆã¯åˆæœŸè¨­å®šã®ãƒ•ã‚©ãƒ³ãƒˆãŒç•°ãªã‚‹ã®ã§ãƒ—ãƒªã‚»ãƒƒãƒˆãƒ¡ãƒ‹ãƒ¥ãƒ¼æƒ…å ±ãŒ
+		// ã‚ã‚‹å ´åˆã®ã¿ãƒ—ãƒªã‚»ãƒƒãƒˆã‚’æœ‰åŠ¹ã«ã™ã‚‹ã€‚
 		appMenu->setEnabled(IDM_SET_8, has8Preset);
 		appMenu->setEnabled(IDM_SET_10, has10Preset);
 	}
 
-	// Windows 8.1ˆÈ‘O‚Å‚ÍWindows 10‚É‚ ‚éƒtƒHƒ“ƒg‚ª‚È‚¢ê‡‚ª‚ ‚é‚Ì‚Å
-	// Windows 10—p‚ÌƒvƒŠƒZƒbƒg‚ğg—p•s‰Â‚Æ‚·‚éB
+	// Windows 8.1ä»¥å‰ã§ã¯Windows 10ã«ã‚ã‚‹ãƒ•ã‚©ãƒ³ãƒˆãŒãªã„å ´åˆãŒã‚ã‚‹ã®ã§
+	// Windows 10ç”¨ã®ãƒ—ãƒªã‚»ãƒƒãƒˆã‚’ä½¿ç”¨ä¸å¯ã¨ã™ã‚‹ã€‚
 	DWORD dwVersion = GetVersion();
 
 	DWORD major = (DWORD)(LOBYTE(LOWORD(dwVersion)));
@@ -349,29 +349,29 @@ INT_PTR NoMeiryoUI::OnInitDialog()
 	}
 
 
-	// ƒtƒHƒ“ƒgî•ñæ“¾—p\‘¢‘Ì‚Ì‰Šú‰»
+	// ãƒ•ã‚©ãƒ³ãƒˆæƒ…å ±å–å¾—ç”¨æ§‹é€ ä½“ã®åˆæœŸåŒ–
 	FillMemory(&metrics, sizeof(NONCLIENTMETRICS), 0x00);
 	FillMemory(&metricsAll, sizeof(NONCLIENTMETRICS), 0x00);
 	FillMemory(&iconFont, sizeof(LOGFONT), 0x00);
 	FillMemory(&iconFontAll, sizeof(LOGFONT), 0x00);
 
-	// Œ»İ‚ÌƒtƒHƒ“ƒg‚ğæ“¾‚·‚éB
+	// ç¾åœ¨ã®ãƒ•ã‚©ãƒ³ãƒˆã‚’å–å¾—ã™ã‚‹ã€‚
 	if (settingFile[0] == _T('\0')) {
 		getActualFont();
 	} else {
-		// Œ»İ‚ÌƒtƒHƒ“ƒg‚Æ•t‚·‚é‰æ–ÊŠe•”‚Ì•“™‚Ìî•ñ‚ğæ“¾‚µ‚Ä‚¨‚­B
+		// ç¾åœ¨ã®ãƒ•ã‚©ãƒ³ãƒˆã¨ä»˜éšã™ã‚‹ç”»é¢å„éƒ¨ã®å¹…ç­‰ã®æƒ…å ±ã‚’å–å¾—ã—ã¦ãŠãã€‚
 		getActualFont();
 
 		BOOL loadResult = loadFontInfo(settingFile);
 		if (loadResult) {
 			if (setOnStart) {
-				// -setƒIƒvƒVƒ‡ƒ“‚ªw’è‚³‚ê‚½ê‡‚ÍƒtƒHƒ“ƒg‚ğİ’è‚µ‚Äƒ_ƒCƒAƒƒO‚ğ•Â‚¶‚éB
+				// -setã‚ªãƒ—ã‚·ãƒ§ãƒ³ãŒæŒ‡å®šã•ã‚ŒãŸå ´åˆã¯ãƒ•ã‚©ãƒ³ãƒˆã‚’è¨­å®šã—ã¦ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’é–‰ã˜ã‚‹ã€‚
 				OnBnClickedOk();
 				EndDialog(hWnd, 0);
 
 				return (INT_PTR)FALSE;
 			} else {
-				// ƒƒjƒ…[ƒtƒHƒ“ƒg‚Ìî•ñ‚ğ‚·‚×‚Ä‚ÌƒtƒHƒ“ƒg‚ÌŠeƒtƒHƒ“ƒg‚Ìî•ñ‚É‚ ‚Ä‚éB
+				// ãƒ¡ãƒ‹ãƒ¥ãƒ¼ãƒ•ã‚©ãƒ³ãƒˆã®æƒ…å ±ã‚’ã™ã¹ã¦ã®ãƒ•ã‚©ãƒ³ãƒˆã®å„ãƒ•ã‚©ãƒ³ãƒˆã®æƒ…å ±ã«ã‚ã¦ã‚‹ã€‚
 				metricsAll.lfMenuFont = metrics.lfMenuFont;
 				metricsAll.lfStatusFont = metricsAll.lfMenuFont;
 				metricsAll.lfMessageFont = metricsAll.lfMenuFont;
@@ -380,18 +380,18 @@ INT_PTR NoMeiryoUI::OnInitDialog()
 				iconFontAll = metricsAll.lfMenuFont;
 			}
 		} else {
-			// “Ç‚İ‚İ¸”s‚Í”O‚Ì‚½‚ßÄ“xŒ»İ‚ÌƒtƒHƒ“ƒg“™‚Ìî•ñ‚ğ
-			// æ“¾‚µ‚Ä‚¨‚­B
+			// èª­ã¿è¾¼ã¿å¤±æ•—æ™‚ã¯å¿µã®ãŸã‚å†åº¦ç¾åœ¨ã®ãƒ•ã‚©ãƒ³ãƒˆç­‰ã®æƒ…å ±ã‚’
+			// å–å¾—ã—ã¦ãŠãã€‚
 			getActualFont();
 		}
 	}
 
 	if (useResource) {
-		// “ú–{ŒêˆÈŠO‚ÌOS‚Å‹N“®‚µ‚Ä‚¢‚éê‡‚Í
-		// UI•¶š—ñ‚ğƒŠƒ\[ƒX‚É‡‚í‚¹‚Ä•ÏX‚·‚éB
+		// æ—¥æœ¬èªä»¥å¤–ã®OSã§èµ·å‹•ã—ã¦ã„ã‚‹å ´åˆã¯
+		// UIæ–‡å­—åˆ—ã‚’ãƒªã‚½ãƒ¼ã‚¹ã«åˆã‚ã›ã¦å¤‰æ›´ã™ã‚‹ã€‚
 		applyResource();
 	}
-	// ƒƒCƒ“ƒ_ƒCƒAƒƒO‚Ìƒo[ƒWƒ‡ƒ“•\‹Lİ’è
+	// ãƒ¡ã‚¤ãƒ³ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³è¡¨è¨˜è¨­å®š
 	TCHAR buf[64];
 	TCHAR verString[32];
 	const TCHAR *appName;
@@ -399,13 +399,13 @@ INT_PTR NoMeiryoUI::OnInitDialog()
 	if (useResource) {
 		appName = langResource[1].c_str();
 	} else {
-		appName = _T("Meiryo UI‚à‘å‚Á‚«‚ç‚¢!!");
+		appName = _T("Meiryo UIã‚‚å¤§ã£ãã‚‰ã„!!");
 	}
 	_stprintf(buf, verString, appName);
 	setChildText(IDC_STATIC_APP_TITLE, buf);
 
 
-	// ƒtƒHƒ“ƒg–¼•\¦‚ğXV‚·‚éB
+	// ãƒ•ã‚©ãƒ³ãƒˆåè¡¨ç¤ºã‚’æ›´æ–°ã™ã‚‹ã€‚
 	updateDisplay();
 
 	EnumDisplayMonitors(NULL, NULL, MonitorNearMouseCallback, 0);
@@ -416,13 +416,13 @@ INT_PTR NoMeiryoUI::OnInitDialog()
 }
 
 /**
- * ƒJ[ƒ\ƒ‹‚Ì‚¢‚éƒ‚ƒjƒ^[‚ğ”»’è‚·‚é‚½‚ß‚ÌEnumDisplayMonitors‚ÌƒR[ƒ‹ƒoƒbƒN
+ * ã‚«ãƒ¼ã‚½ãƒ«ã®ã„ã‚‹ãƒ¢ãƒ‹ã‚¿ãƒ¼ã‚’åˆ¤å®šã™ã‚‹ãŸã‚ã®EnumDisplayMonitorsã®ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯
  *
- * @param hMonitor ƒ‚ƒjƒ^[‚Ìƒnƒ“ƒhƒ‹
- * @param hdcMonitor ƒ‚ƒjƒ^[‚ÌƒfƒBƒXƒvƒŒƒCƒRƒ“ƒeƒLƒXƒg
- * @param lprcMonitor ƒ‚ƒjƒ^[‚ÌÀ•Wî•ñ
+ * @param hMonitor ãƒ¢ãƒ‹ã‚¿ãƒ¼ã®ãƒãƒ³ãƒ‰ãƒ«
+ * @param hdcMonitor ãƒ¢ãƒ‹ã‚¿ãƒ¼ã®ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ
+ * @param lprcMonitor ãƒ¢ãƒ‹ã‚¿ãƒ¼ã®åº§æ¨™æƒ…å ±
  * @param dwData EnumDisplayMonitors
- * @return TRUE:—ñ‹“‚ğ‘±‚¯‚é FALSE:—ñ‹“‚ğ‚â‚ßAƒ‚ƒjƒ^[‚ÌÀ•Wî•ñ‚ğŠm’è‚³‚¹‚é
+ * @return TRUE:åˆ—æŒ™ã‚’ç¶šã‘ã‚‹ FALSE:åˆ—æŒ™ã‚’ã‚„ã‚ã€ãƒ¢ãƒ‹ã‚¿ãƒ¼ã®åº§æ¨™æƒ…å ±ã‚’ç¢ºå®šã•ã›ã‚‹
  */
 BOOL CALLBACK MonitorNearMouseCallback(
 	HMONITOR hMonitor,
@@ -432,7 +432,7 @@ BOOL CALLBACK MonitorNearMouseCallback(
 )
 {
 	if (!firstMonitor) {
-		// ƒfƒBƒXƒvƒŒƒC‚Ìî•ñ‚ª‰½‚à‚È‚¢ó‘Ô‚Í”ğ‚¯‚éB
+		// ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ã®æƒ…å ±ãŒä½•ã‚‚ãªã„çŠ¶æ…‹ã¯é¿ã‘ã‚‹ã€‚
 		myMonitorLect = *lprcMonitor;
 		firstMonitor = true;
 	}
@@ -441,8 +441,8 @@ BOOL CALLBACK MonitorNearMouseCallback(
 	cursofInfo.cbSize = sizeof(CURSORINFO);
 	BOOL result = GetCursorInfo(&cursofInfo);
 	if (result == 0) {
-		// ƒJ[ƒ\ƒ‹‚Ìî•ñ‚ğ—˜—p‚Å‚«‚È‚¢‚Æ‚«‚Íƒvƒ‰ƒCƒ}ƒŠƒ‚ƒjƒ^‚ğ
-		// ƒJ[ƒ\ƒ‹‚Ì‚¢‚éƒ‚ƒjƒ^ˆµ‚¢‚Æ‚·‚éB
+		// ã‚«ãƒ¼ã‚½ãƒ«ã®æƒ…å ±ã‚’åˆ©ç”¨ã§ããªã„ã¨ãã¯ãƒ—ãƒ©ã‚¤ãƒãƒªãƒ¢ãƒ‹ã‚¿ã‚’
+		// ã‚«ãƒ¼ã‚½ãƒ«ã®ã„ã‚‹ãƒ¢ãƒ‹ã‚¿æ‰±ã„ã¨ã™ã‚‹ã€‚
 		if ((myMonitorLect.left == 0) && (myMonitorLect.top == 0)) {
 			myMonitorLect = *lprcMonitor;
 			return FALSE;
@@ -451,7 +451,7 @@ BOOL CALLBACK MonitorNearMouseCallback(
 		}
 	}
 
-	// ƒJ[ƒ\ƒ‹‚Ì‚¢‚éƒ‚ƒjƒ^‚©‚Ç‚¤‚©”»’è‚·‚éB
+	// ã‚«ãƒ¼ã‚½ãƒ«ã®ã„ã‚‹ãƒ¢ãƒ‹ã‚¿ã‹ã©ã†ã‹åˆ¤å®šã™ã‚‹ã€‚
 	int x = cursofInfo.ptScreenPos.x;
 	int y = cursofInfo.ptScreenPos.y;
 	if ((x >= lprcMonitor->left) && (x <= lprcMonitor->right)) {
@@ -465,21 +465,21 @@ BOOL CALLBACK MonitorNearMouseCallback(
 }
 
 /**
- * ƒEƒCƒ“ƒhƒE‚ª•\¦‚³‚ê‚½‚Æ‚«‚Ìˆ—‚ğÀs‚µ‚Ü‚·B<br>
- * ƒEƒCƒ“ƒhƒEƒx[ƒXƒAƒvƒŠ‚ÆƒCƒ“ƒ^ƒtƒF[ƒX‚ğ‡‚í‚¹‚é‚½‚ß‚É—pˆÓ‚µ‚Ä‚¢‚Ü‚·B
+ * ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãŒè¡¨ç¤ºã•ã‚ŒãŸã¨ãã®å‡¦ç†ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚<br>
+ * ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒ™ãƒ¼ã‚¹ã‚¢ãƒ—ãƒªã¨ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’åˆã‚ã›ã‚‹ãŸã‚ã«ç”¨æ„ã—ã¦ã„ã¾ã™ã€‚
  *
- * @return —\”õ
+ * @return äºˆå‚™
  */
 int NoMeiryoUI::OnWindowShow()
 {
 
-	// ‚±‚ÌŠÖ”‚ğƒI[ƒo[ƒ‰ƒCƒh‚µ‚ÄA‰‰ñ‚Ì•\¦‚Ìˆ—‚ğs‚¢‚Ü‚·B
-	// ‚±‚Ìƒ^ƒCƒ~ƒ“ƒO‚Åƒ_ƒCƒAƒƒO‚ª‘¶İ‚·‚é‚Ì‚ÅA‚±‚±‚Éˆ—‚ğ“ü‚ê‚é‚±‚Æ‚Å
-	// ƒ_ƒCƒAƒƒO‚ª‚ ‚éó‘Ô‚Å‹N“®‚Ì‰Šú‰»ˆ—‚ğs‚¤‚±‚Æ‚ª‚Å‚«‚Ü‚·B
+	// ã“ã®é–¢æ•°ã‚’ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰ã—ã¦ã€åˆå›ã®è¡¨ç¤ºæ™‚ã®å‡¦ç†ã‚’è¡Œã„ã¾ã™ã€‚
+	// ã“ã®ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã§ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãŒå­˜åœ¨ã™ã‚‹ã®ã§ã€ã“ã“ã«å‡¦ç†ã‚’å…¥ã‚Œã‚‹ã“ã¨ã§
+	// ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ãŒã‚ã‚‹çŠ¶æ…‹ã§èµ·å‹•æ™‚ã®åˆæœŸåŒ–å‡¦ç†ã‚’è¡Œã†ã“ã¨ãŒã§ãã¾ã™ã€‚
 
 	SetWinVer();
 
-	// ƒeƒLƒXƒgƒ{ƒbƒNƒX§Œä—p‚Éƒ_ƒCƒAƒƒO‚ÌŠeƒeƒLƒXƒgƒ{ƒbƒNƒX‚ğæ“¾‚·‚éB
+	// ãƒ†ã‚­ã‚¹ãƒˆãƒœãƒƒã‚¯ã‚¹åˆ¶å¾¡ç”¨ã«ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®å„ãƒ†ã‚­ã‚¹ãƒˆãƒœãƒƒã‚¯ã‚¹ã‚’å–å¾—ã™ã‚‹ã€‚
 	allFontTextBox = GetDlgItem(IDC_EDIT_ALL);
 	titleFontTextBox = GetDlgItem(IDC_EDIT_TITLE);
 	iconFontTextBox = GetDlgItem(IDC_EDIT_ICON);
@@ -492,9 +492,9 @@ int NoMeiryoUI::OnWindowShow()
 }
 
 /**
- * ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“ƒIƒvƒVƒ‡ƒ“‚ğæ“¾‚·‚éB
+ * ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’å–å¾—ã™ã‚‹ã€‚
  *
- * @param lpCmdLine ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“
+ * @param lpCmdLine ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³
  */
 void NoMeiryoUI::getOption(TCHAR *lpCmdLine)
 {
@@ -511,35 +511,35 @@ void NoMeiryoUI::getOption(TCHAR *lpCmdLine)
 			if (!capturing) {
 				capturing = true;
 				delimiter = _T('\"');
-				// Ÿ‚Ì•¶š‚©‚çƒpƒ‰ƒ[ƒ^ŠJn
+				// æ¬¡ã®æ–‡å­—ã‹ã‚‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿é–‹å§‹
 				paramStart = p + 1;
 			} else {
 				if (delimiter == _T('\"')) {
-					// ‰ğÍ’†‚Å‹æØ‚è•¶š‚ªƒ_ƒuƒ‹ƒNƒH[ƒe[ƒVƒ‡ƒ“‚Ìê‡
-					// ƒpƒ‰ƒ[ƒ^I—¹‚Æ‚·‚éB
+					// è§£æä¸­ã§åŒºåˆ‡ã‚Šæ–‡å­—ãŒãƒ€ãƒ–ãƒ«ã‚¯ã‚©ãƒ¼ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã®å ´åˆ
+					// ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿çµ‚äº†ã¨ã™ã‚‹ã€‚
 					capturing = false;
 					*p = _T('\0');
 					argCount++;
-					// ‚±‚±‚Åƒpƒ‰ƒ[ƒ^‚ÌŒÂ”‚É‰‚¶‚½ˆ—‚ğs‚¤B
+					// ã“ã“ã§ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å€‹æ•°ã«å¿œã˜ãŸå‡¦ç†ã‚’è¡Œã†ã€‚
 					parseOption(paramStart, argCount);
 				}
 			}
 		} else if (_istspace(*p)) {
-			// ‹ó”’‚Ìê‡
+			// ç©ºç™½ã®å ´åˆ
 			if (capturing) {
 				if (delimiter != _T('\"')) {
-					// ‰ğÍ’†‚Å‹æØ‚è•¶š‚ªƒ_ƒuƒ‹ƒNƒH[ƒe[ƒVƒ‡ƒ“‚Å‚È‚¢ê‡
-					// ƒpƒ‰ƒ[ƒ^I—¹‚Æ‚·‚éB
+					// è§£æä¸­ã§åŒºåˆ‡ã‚Šæ–‡å­—ãŒãƒ€ãƒ–ãƒ«ã‚¯ã‚©ãƒ¼ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã§ãªã„å ´åˆ
+					// ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿çµ‚äº†ã¨ã™ã‚‹ã€‚
 					capturing = false;
 					*p = _T('\0');
 					argCount++;
-					// ‚±‚±‚Åƒpƒ‰ƒ[ƒ^‚ÌŒÂ”‚É‰‚¶‚½ˆ—‚ğs‚¤B
+					// ã“ã“ã§ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å€‹æ•°ã«å¿œã˜ãŸå‡¦ç†ã‚’è¡Œã†ã€‚
 					parseOption(paramStart, argCount);
 				}
 			}
 		} else {
 			if (!capturing) {
-				// ƒpƒ‰ƒ[ƒ^ŠJn
+				// ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿é–‹å§‹
 				capturing = true;
 				paramStart = p;
 				delimiter = _T(' ');
@@ -548,25 +548,25 @@ void NoMeiryoUI::getOption(TCHAR *lpCmdLine)
 		p++;
 	}
 	if (capturing) {
-		// ‚Ü‚¾ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‰ğÍ‚ª‘±‚¢‚Ä‚¢‚½‚ç‚±‚±‚Ü‚Å‚ğƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‚Æ‚·‚éB
+		// ã¾ã ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³è§£æãŒç¶šã„ã¦ã„ãŸã‚‰ã“ã“ã¾ã§ã‚’ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ã¨ã™ã‚‹ã€‚
 		argCount++;
-		// ‚±‚±‚Åƒpƒ‰ƒ[ƒ^‚ÌŒÂ”‚É‰‚¶‚½ˆ—‚ğs‚¤B
+		// ã“ã“ã§ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å€‹æ•°ã«å¿œã˜ãŸå‡¦ç†ã‚’è¡Œã†ã€‚
 		parseOption(paramStart, argCount);
 	}
 
 }
 
 /**
- * ƒIƒvƒVƒ‡ƒ“‚ÌˆÊ’u‚É‰‚¶‚½‰ğÍ‚ğs‚¤B
+ * ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã®ä½ç½®ã«å¿œã˜ãŸè§£æã‚’è¡Œã†ã€‚
  *
- * @param param ƒpƒ‰ƒ[ƒ^
- * @param argCount ƒIƒvƒVƒ‡ƒ“‚ÌŒÂ”
+ * @param param ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
+ * @param argCount ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã®å€‹æ•°
  */
 void NoMeiryoUI::parseOption(TCHAR *param, int argCount)
 {
 	switch (argCount) {
 		case 1:
-			// İ’èƒtƒ@ƒCƒ‹–¼
+			// è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«å
 			if (_tcscmp(_T("--"), param)) {
 				_tcscpy(settingFile, param);
 			}
@@ -585,45 +585,45 @@ void NoMeiryoUI::parseOption(TCHAR *param, int argCount)
 }
 
 /**
- * Œ»İİ’è‚³‚ê‚Ä‚¢‚éƒtƒHƒ“ƒg‚ğæ“¾‚·‚éB
+ * ç¾åœ¨è¨­å®šã•ã‚Œã¦ã„ã‚‹ãƒ•ã‚©ãƒ³ãƒˆã‚’å–å¾—ã™ã‚‹ã€‚
  */
 void NoMeiryoUI::getActualFont(void)
 {
 	//
-	// ŒÂ•Ê‚ÌƒtƒHƒ“ƒg—p‚Ìî•ñæ“¾
+	// å€‹åˆ¥ã®ãƒ•ã‚©ãƒ³ãƒˆç”¨ã®æƒ…å ±å–å¾—
 	//
 
-	// ƒAƒCƒRƒ“ˆÈŠO‚ÌƒtƒHƒ“ƒgî•ñ‚ğæ“¾‚·‚éB
+	// ã‚¢ã‚¤ã‚³ãƒ³ä»¥å¤–ã®ãƒ•ã‚©ãƒ³ãƒˆæƒ…å ±ã‚’å–å¾—ã™ã‚‹ã€‚
 	metrics.cbSize = sizeof(NONCLIENTMETRICS);
 	SystemParametersInfo(SPI_GETNONCLIENTMETRICS,
 		sizeof(NONCLIENTMETRICS),
 		&metrics,
 		0);
 
-	// ƒAƒCƒRƒ“‚ÌƒtƒHƒ“ƒgî•ñ‚ğæ“¾‚·‚éB
+	// ã‚¢ã‚¤ã‚³ãƒ³ã®ãƒ•ã‚©ãƒ³ãƒˆæƒ…å ±ã‚’å–å¾—ã™ã‚‹ã€‚
 	SystemParametersInfo(SPI_GETICONTITLELOGFONT,
 		sizeof(LOGFONT),
 		&iconFont,
 		0);
 
 	//
-	// ‚·‚×‚Ä‚ÌƒtƒHƒ“ƒg—p‚Ìî•ñæ“¾
+	// ã™ã¹ã¦ã®ãƒ•ã‚©ãƒ³ãƒˆç”¨ã®æƒ…å ±å–å¾—
 	//
 
-	// ƒAƒCƒRƒ“ˆÈŠO‚ÌƒtƒHƒ“ƒgî•ñ‚ğæ“¾‚·‚éB
+	// ã‚¢ã‚¤ã‚³ãƒ³ä»¥å¤–ã®ãƒ•ã‚©ãƒ³ãƒˆæƒ…å ±ã‚’å–å¾—ã™ã‚‹ã€‚
 	metricsAll.cbSize = sizeof(NONCLIENTMETRICS);
 	SystemParametersInfo(SPI_GETNONCLIENTMETRICS,
 		sizeof(NONCLIENTMETRICS),
 		&metricsAll,
 		0);
 
-	// ƒAƒCƒRƒ“‚ÌƒtƒHƒ“ƒgî•ñ‚ğæ“¾‚·‚éB
+	// ã‚¢ã‚¤ã‚³ãƒ³ã®ãƒ•ã‚©ãƒ³ãƒˆæƒ…å ±ã‚’å–å¾—ã™ã‚‹ã€‚
 	SystemParametersInfo(SPI_GETICONTITLELOGFONT,
 		sizeof(LOGFONT),
 		&iconFontAll,
 		0);
 
-	// ƒƒjƒ…[ƒtƒHƒ“ƒg‚Ìî•ñ‚ğ‘¼‚ÌƒtƒHƒ“ƒg‚Ìî•ñ‚É‚ ‚Ä‚éB
+	// ãƒ¡ãƒ‹ãƒ¥ãƒ¼ãƒ•ã‚©ãƒ³ãƒˆã®æƒ…å ±ã‚’ä»–ã®ãƒ•ã‚©ãƒ³ãƒˆã®æƒ…å ±ã«ã‚ã¦ã‚‹ã€‚
 	metricsAll.lfStatusFont = metricsAll.lfMenuFont;
 	metricsAll.lfMessageFont = metricsAll.lfMenuFont;
 	metricsAll.lfCaptionFont = metricsAll.lfMenuFont;
@@ -632,10 +632,10 @@ void NoMeiryoUI::getActualFont(void)
 }
 
 /**
- * ƒtƒHƒ“ƒgî•ñ‚©‚çƒtƒHƒ“ƒg‚Ìƒnƒ“ƒhƒ‹‚ğì¬‚·‚éB
+ * ãƒ•ã‚©ãƒ³ãƒˆæƒ…å ±ã‹ã‚‰ãƒ•ã‚©ãƒ³ãƒˆã®ãƒãƒ³ãƒ‰ãƒ«ã‚’ä½œæˆã™ã‚‹ã€‚
  *
- * @param font ƒtƒHƒ“ƒg‚Ìî•ñ
- * @return ƒtƒHƒ“ƒgƒnƒ“ƒhƒ‹
+ * @param font ãƒ•ã‚©ãƒ³ãƒˆã®æƒ…å ±
+ * @return ãƒ•ã‚©ãƒ³ãƒˆãƒãƒ³ãƒ‰ãƒ«
  */
 HFONT NoMeiryoUI::createFont(LOGFONT *font)
 {
@@ -663,13 +663,13 @@ HFONT NoMeiryoUI::createFont(LOGFONT *font)
 }
 
 /**
- * ƒ_ƒCƒAƒƒOƒRƒ“ƒgƒ[ƒ‹‚ÆƒIƒuƒWƒFƒNƒg‚Ì“à—e‚Ì“¯Šú‚ğæ‚éB
+ * ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã¨ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å†…å®¹ã®åŒæœŸã‚’å–ã‚‹ã€‚
  *
- * @param toObj true:ƒRƒ“ƒgƒ[ƒ‹¨ƒIƒuƒWƒFƒNƒg false:ƒIƒuƒWƒFƒNƒg¨ƒRƒ“ƒgƒ[ƒ‹
+ * @param toObj true:ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«â†’ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ false:ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆâ†’ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«
  */
 void NoMeiryoUI::UpdateData(bool toObj)
 {
-	// ‚±‚±‚Éƒ_ƒCƒAƒƒO‚ÌƒRƒ“ƒgƒ[ƒ‹‚Æ“¯Šú‚ğæ‚éƒƒ“ƒo•Ï”‚ğ‹Lq‚µ‚Ü‚·B
+	// ã“ã“ã«ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã¨åŒæœŸã‚’å–ã‚‹ãƒ¡ãƒ³ãƒå¤‰æ•°ã‚’è¨˜è¿°ã—ã¾ã™ã€‚
 	DDX_Text(toObj,IDC_EDIT_ALL, allFontName);
 	DDX_Text(toObj,IDC_EDIT_TITLE, titleFontName);
 	DDX_Text(toObj,IDC_EDIT_ICON, iconFontName);
@@ -680,7 +680,7 @@ void NoMeiryoUI::UpdateData(bool toObj)
 }
 
 /**
- * ƒŠƒ\[ƒX‚ğŠe€–Ú‚Éİ’è‚·‚éB
+ * ãƒªã‚½ãƒ¼ã‚¹ã‚’å„é …ç›®ã«è¨­å®šã™ã‚‹ã€‚
  */
 void NoMeiryoUI::applyResource()
 {
@@ -705,10 +705,10 @@ void NoMeiryoUI::applyResource()
 	ReleaseDC(this->hWnd, hDC);
 
 
-	// ƒAƒvƒŠƒ^ƒCƒgƒ‹
+	// ã‚¢ãƒ—ãƒªã‚¿ã‚¤ãƒˆãƒ«
 	setText(langResource[1].c_str());
 
-	// ƒƒjƒ…[•¶š—ñ•ÏX
+	// ãƒ¡ãƒ‹ãƒ¥ãƒ¼æ–‡å­—åˆ—å¤‰æ›´
 	appMenu->setText(0, langResource[2].c_str(), TRUE);
 	appMenu->setText(IDM_OPEN, langResource[3].c_str(), FALSE);
 	appMenu->setText(IDM_SAVE, langResource[4].c_str(), FALSE);
@@ -771,11 +771,11 @@ void NoMeiryoUI::applyResource()
 
 
 /**
- * ƒtƒHƒ“ƒg•\¦‚ğXV‚·‚éB
+ * ãƒ•ã‚©ãƒ³ãƒˆè¡¨ç¤ºã‚’æ›´æ–°ã™ã‚‹ã€‚
  */
 void NoMeiryoUI::updateDisplay(void)
 {
-	// ƒtƒHƒ“ƒg–¼Aƒ|ƒCƒ“ƒg”•\¦•¶š—ñ‚ğì¬‚·‚éB
+	// ãƒ•ã‚©ãƒ³ãƒˆåã€ãƒã‚¤ãƒ³ãƒˆæ•°è¡¨ç¤ºæ–‡å­—åˆ—ã‚’ä½œæˆã™ã‚‹ã€‚
 	int point;
 	TCHAR buf[16];
 	TCHAR dispName[32];
@@ -840,7 +840,7 @@ void NoMeiryoUI::updateDisplay(void)
 	_stprintf(buf, _T(" %3dpt"), point);
 	messageFontName = messageFontName + buf;
 
-	// ƒƒjƒ…[‚Æ‘I‘ğ€–Ú
+	// ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã¨é¸æŠé …ç›®
 	menuFontName = metrics.lfMenuFont.lfFaceName;
 	if (isKorean) {
 		_tcscpy(dispName, menuFontName.c_str());
@@ -854,7 +854,7 @@ void NoMeiryoUI::updateDisplay(void)
 	UpdateData(false);
 
 
-	// ‘I‘ğ‚µ‚½ƒtƒHƒ“ƒg‚ğƒeƒLƒXƒgƒ{ƒbƒNƒX‚Éİ’è‚·‚éB
+	// é¸æŠã—ãŸãƒ•ã‚©ãƒ³ãƒˆã‚’ãƒ†ã‚­ã‚¹ãƒˆãƒœãƒƒã‚¯ã‚¹ã«è¨­å®šã™ã‚‹ã€‚
 	if (allFont != NULL) {
 		DeleteObject(allFont);
 	}
@@ -900,10 +900,10 @@ void NoMeiryoUI::updateDisplay(void)
 }
 
 /**
- * Še‘€ì‚É‘Î‚·‚éˆ—‚Ì•ªŠò
+ * å„æ“ä½œã«å¯¾ã™ã‚‹å‡¦ç†ã®åˆ†å²
  *
  * @param wParam WPARAM
- * @return 0:ƒƒbƒZ[ƒW‚ğˆ—‚µ‚½B 0ˆÈŠO:ƒƒbƒZ[ƒW‚ğˆ—‚µ‚È‚©‚Á‚½B
+ * @return 0:ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å‡¦ç†ã—ãŸã€‚ 0ä»¥å¤–:ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å‡¦ç†ã—ãªã‹ã£ãŸã€‚
  */
 INT_PTR NoMeiryoUI::OnCommand(WPARAM wParam)
 {
@@ -985,15 +985,15 @@ INT_PTR NoMeiryoUI::OnCommand(WPARAM wParam)
 }
 
 /**
- * ƒtƒHƒ“ƒg‚ğ‘I‘ğ‚·‚éB
+ * ãƒ•ã‚©ãƒ³ãƒˆã‚’é¸æŠã™ã‚‹ã€‚
  *
- * @param type İ’è‚·‚éƒtƒHƒ“ƒg‚Ìí—Ş
+ * @param type è¨­å®šã™ã‚‹ãƒ•ã‚©ãƒ³ãƒˆã®ç¨®é¡
  */
 void NoMeiryoUI::selectFont(enum fontType type)
 {
 
 	INT_PTR result;
-	LOGFONT logfont;	// æ“¾‚µ‚½ƒtƒHƒ“ƒg‚Ìî•ñ‚ğ“ü‚ê‚é\‘¢‘Ì
+	LOGFONT logfont;	// å–å¾—ã—ãŸãƒ•ã‚©ãƒ³ãƒˆã®æƒ…å ±ã‚’å…¥ã‚Œã‚‹æ§‹é€ ä½“
 
 	FillMemory(&logfont,sizeof(LOGFONT),0x00);
 	
@@ -1025,7 +1025,7 @@ void NoMeiryoUI::selectFont(enum fontType type)
 				break;
 
 			case menu:
-				// ƒƒjƒ…[‚Æ‘I‘ğ€–Ú
+				// ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã¨é¸æŠé …ç›®
 				target = &metrics.lfMenuFont;
 				break;
 		}
@@ -1037,7 +1037,7 @@ void NoMeiryoUI::selectFont(enum fontType type)
 		if (noTahoma) {
 			selector->setNoTahoma();
 		}
-		// ‘I‘ğ‚µ‚Ä‚¢‚½ƒtƒHƒ“ƒg‚ğƒtƒHƒ“ƒg‘I‘ğƒ_ƒCƒAƒƒO‚Éİ’è‚·‚éB
+		// é¸æŠã—ã¦ã„ãŸãƒ•ã‚©ãƒ³ãƒˆã‚’ãƒ•ã‚©ãƒ³ãƒˆé¸æŠãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã«è¨­å®šã™ã‚‹ã€‚
 		selector->setPreviousFont(target);
 
 		result = selector->showModal();
@@ -1123,7 +1123,7 @@ void NoMeiryoUI::selectFont(enum fontType type)
 			break;
 
 		case menu:
-			// ƒƒjƒ…[‚Æ‘I‘ğ€–Ú
+			// ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã¨é¸æŠé …ç›®
 			metrics.lfMenuFont = logfont;
 			menuFontName = logfont.lfFaceName;
 
@@ -1133,18 +1133,18 @@ void NoMeiryoUI::selectFont(enum fontType type)
 			break;
 	}
 
-	// •\¦‚ğXV‚·‚éB
+	// è¡¨ç¤ºã‚’æ›´æ–°ã™ã‚‹ã€‚
 	updateDisplay();
 }
 
 /**
- * ƒtƒ@ƒCƒ‹ƒ_ƒCƒAƒƒO—p‚Ìƒtƒ@ƒCƒ‹ƒ}ƒXƒN•¶š—ñì¬
+ * ãƒ•ã‚¡ã‚¤ãƒ«ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ç”¨ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒã‚¹ã‚¯æ–‡å­—åˆ—ä½œæˆ
  *
- * @param ƒtƒ@ƒCƒ‹ƒ}ƒXƒN•¶š—ñƒoƒbƒtƒ@
- * @param ƒtƒ@ƒCƒ‹‚Ìí—Ş–¼
- * @param ƒtƒ@ƒCƒ‹‚Ìƒ}ƒXƒN
- * @param ‚·‚×‚Ä‚Ìƒtƒ@ƒCƒ‹‚Ìí—Ş–¼
- * @param ‚·‚×‚Ä‚Ìƒtƒ@ƒCƒ‹‚Ìƒ}ƒXƒN
+ * @param ãƒ•ã‚¡ã‚¤ãƒ«ãƒã‚¹ã‚¯æ–‡å­—åˆ—ãƒãƒƒãƒ•ã‚¡
+ * @param ãƒ•ã‚¡ã‚¤ãƒ«ã®ç¨®é¡å
+ * @param ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒã‚¹ã‚¯
+ * @param ã™ã¹ã¦ã®ãƒ•ã‚¡ã‚¤ãƒ«ã®ç¨®é¡å
+ * @param ã™ã¹ã¦ã®ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒã‚¹ã‚¯
  */
 void setFileMask(
 	TCHAR *buf,
@@ -1194,7 +1194,7 @@ void setFileMask(
 
 
 /**
- * ƒtƒHƒ“ƒgİ’è‚ğ•Û‘¶‚·‚é‚ğ‘I‘ğ‚µ‚½‚Ì“®ì
+ * ãƒ•ã‚©ãƒ³ãƒˆè¨­å®šã‚’ä¿å­˜ã™ã‚‹ã‚’é¸æŠã—ãŸæ™‚ã®å‹•ä½œ
  */
 void NoMeiryoUI::OnLoad()
 {
@@ -1211,9 +1211,9 @@ void NoMeiryoUI::OnLoad()
 	} else {
 		setFileMask(
 			buf,
-			_T("İ’èƒtƒ@ƒCƒ‹"),
+			_T("è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«"),
 			_T("*.ini"),
-			_T("‚·‚×‚Ä‚Ìƒtƒ@ƒCƒ‹"),
+			_T("ã™ã¹ã¦ã®ãƒ•ã‚¡ã‚¤ãƒ«"),
 			_T("*.*")
 		);
 	}
@@ -1243,8 +1243,8 @@ void NoMeiryoUI::OnLoad()
 			message = langResource[61].c_str();
 			title = langResource[63].c_str();
 		} else {
-			message = _T("ƒtƒHƒ“ƒgİ’è‚Ì“Ç‚İ‚İ‚É¸”s‚µ‚Ü‚µ‚½B");
-			title = _T("ƒGƒ‰[");
+			message = _T("ãƒ•ã‚©ãƒ³ãƒˆè¨­å®šã®èª­ã¿è¾¼ã¿ã«å¤±æ•—ã—ã¾ã—ãŸã€‚");
+			title = _T("ã‚¨ãƒ©ãƒ¼");
 		}
 		MessageBox(
 			this->getHwnd(),
@@ -1252,7 +1252,7 @@ void NoMeiryoUI::OnLoad()
 			title,
 			MB_OK | MB_ICONEXCLAMATION);
 	} else {
-		// ƒtƒHƒ“ƒgİ’è‚Ì“Ç‚İ‚İ‚É¬Œ÷‚µ‚½‚çƒeƒLƒXƒgƒ{ƒbƒNƒX‚Éİ’è‚·‚éB
+		// ãƒ•ã‚©ãƒ³ãƒˆè¨­å®šã®èª­ã¿è¾¼ã¿ã«æˆåŠŸã—ãŸã‚‰ãƒ†ã‚­ã‚¹ãƒˆãƒœãƒƒã‚¯ã‚¹ã«è¨­å®šã™ã‚‹ã€‚
 		updateDisplay();
 	}
 
@@ -1261,10 +1261,10 @@ void NoMeiryoUI::OnLoad()
 }
 
 /**
- * ƒtƒHƒ“ƒgî•ñ‚ğ“Ç‚İ‚ŞB
+ * ãƒ•ã‚©ãƒ³ãƒˆæƒ…å ±ã‚’èª­ã¿è¾¼ã‚€ã€‚
  *
- * @param filename iniƒtƒ@ƒCƒ‹–¼
- * @result TRUE:•Û‘¶¬Œ÷ FALSE:•Û‘¶¸”s
+ * @param filename iniãƒ•ã‚¡ã‚¤ãƒ«å
+ * @result TRUE:ä¿å­˜æˆåŠŸ FALSE:ä¿å­˜å¤±æ•—
  */
 BOOL NoMeiryoUI::loadFontInfo(TCHAR *filename)
 {
@@ -1312,12 +1312,12 @@ BOOL NoMeiryoUI::loadFontInfo(TCHAR *filename)
 }
 
 /**
- * ƒtƒHƒ“ƒgî•ñ‚ğ“Ç‚İ‚ŞB
+ * ãƒ•ã‚©ãƒ³ãƒˆæƒ…å ±ã‚’èª­ã¿è¾¼ã‚€ã€‚
  *
- * @param filename iniƒtƒ@ƒCƒ‹–¼
- * @param category “Ç‚İ‚İ‘ÎÛƒtƒHƒ“ƒg‚Ìiniƒtƒ@ƒCƒ‹ƒZƒNƒVƒ‡ƒ“–¼
- * @param font “Ç‚İ‚İ‘ÎÛƒtƒHƒ“ƒg‚ÌLOGFONT\‘¢‘Ì
- * @result TRUE:“Ç‚İ‚İ¬Œ÷ FALSE:“Ç‚İ‚İ¸”s
+ * @param filename iniãƒ•ã‚¡ã‚¤ãƒ«å
+ * @param category èª­ã¿è¾¼ã¿å¯¾è±¡ãƒ•ã‚©ãƒ³ãƒˆã®iniãƒ•ã‚¡ã‚¤ãƒ«ã‚»ã‚¯ã‚·ãƒ§ãƒ³å
+ * @param font èª­ã¿è¾¼ã¿å¯¾è±¡ãƒ•ã‚©ãƒ³ãƒˆã®LOGFONTæ§‹é€ ä½“
+ * @result TRUE:èª­ã¿è¾¼ã¿æˆåŠŸ FALSE:èª­ã¿è¾¼ã¿å¤±æ•—
  */
 BOOL NoMeiryoUI::loadFont(TCHAR *filename, TCHAR *section, LOGFONT *font)
 {
@@ -1482,7 +1482,7 @@ BOOL NoMeiryoUI::loadFont(TCHAR *filename, TCHAR *section, LOGFONT *font)
 
 
 /**
- * ƒtƒHƒ“ƒgİ’è‚ğ•Û‘¶‚·‚é‚ğ‘I‘ğ‚µ‚½‚Ì“®ì
+ * ãƒ•ã‚©ãƒ³ãƒˆè¨­å®šã‚’ä¿å­˜ã™ã‚‹ã‚’é¸æŠã—ãŸæ™‚ã®å‹•ä½œ
  */
 void NoMeiryoUI::OnSave()
 {
@@ -1499,9 +1499,9 @@ void NoMeiryoUI::OnSave()
 	} else {
 		setFileMask(
 			buf,
-			_T("İ’èƒtƒ@ƒCƒ‹"),
+			_T("è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«"),
 			_T("*.ini"),
-			_T("‚·‚×‚Ä‚Ìƒtƒ@ƒCƒ‹"),
+			_T("ã™ã¹ã¦ã®ãƒ•ã‚¡ã‚¤ãƒ«"),
 			_T("*.*")
 		);
 	}
@@ -1531,8 +1531,8 @@ void NoMeiryoUI::OnSave()
 			message = langResource[62].c_str();
 			title = langResource[63].c_str();
 		} else {
-			message = _T("ƒtƒHƒ“ƒgİ’è‚Ì•Û‘¶‚É¸”s‚µ‚Ü‚µ‚½B");
-			title = _T("ƒGƒ‰[");
+			message = _T("ãƒ•ã‚©ãƒ³ãƒˆè¨­å®šã®ä¿å­˜ã«å¤±æ•—ã—ã¾ã—ãŸã€‚");
+			title = _T("ã‚¨ãƒ©ãƒ¼");
 		}
 		MessageBox(
 			this->getHwnd(),
@@ -1546,10 +1546,10 @@ void NoMeiryoUI::OnSave()
 }
 
 /**
- * ƒtƒHƒ“ƒgî•ñ•Û‘¶‚ğŠJn‚·‚éB
+ * ãƒ•ã‚©ãƒ³ãƒˆæƒ…å ±ä¿å­˜ã‚’é–‹å§‹ã™ã‚‹ã€‚
  *
- * @param filename iniƒtƒ@ƒCƒ‹–¼
- * @result TRUE:•Û‘¶¬Œ÷ FALSE:•Û‘¶¸”s
+ * @param filename iniãƒ•ã‚¡ã‚¤ãƒ«å
+ * @result TRUE:ä¿å­˜æˆåŠŸ FALSE:ä¿å­˜å¤±æ•—
  */
 BOOL NoMeiryoUI::startSaveFont(TCHAR *filename)
 {
@@ -1584,12 +1584,12 @@ BOOL NoMeiryoUI::startSaveFont(TCHAR *filename)
 }
 
 /**
- * ƒtƒHƒ“ƒgî•ñ‚ğ•Û‘¶‚·‚éB
+ * ãƒ•ã‚©ãƒ³ãƒˆæƒ…å ±ã‚’ä¿å­˜ã™ã‚‹ã€‚
  *
- * @param filename iniƒtƒ@ƒCƒ‹–¼
- * @param category •Û‘¶‘ÎÛƒtƒHƒ“ƒg‚Ìiniƒtƒ@ƒCƒ‹ƒZƒNƒVƒ‡ƒ“–¼
- * @param font •Û‘¶‘ÎÛƒtƒHƒ“ƒg‚ÌLOGFONT\‘¢‘Ì
- * @result TRUE:•Û‘¶¬Œ÷ FALSE:•Û‘¶¸”s
+ * @param filename iniãƒ•ã‚¡ã‚¤ãƒ«å
+ * @param category ä¿å­˜å¯¾è±¡ãƒ•ã‚©ãƒ³ãƒˆã®iniãƒ•ã‚¡ã‚¤ãƒ«ã‚»ã‚¯ã‚·ãƒ§ãƒ³å
+ * @param font ä¿å­˜å¯¾è±¡ãƒ•ã‚©ãƒ³ãƒˆã®LOGFONTæ§‹é€ ä½“
+ * @result TRUE:ä¿å­˜æˆåŠŸ FALSE:ä¿å­˜å¤±æ•—
  */
 BOOL NoMeiryoUI::saveFont(TCHAR *filename, TCHAR *section, LOGFONT *font)
 {
@@ -1725,14 +1725,14 @@ BOOL NoMeiryoUI::saveFont(TCHAR *filename, TCHAR *section, LOGFONT *font)
 }
 
 /**
- * OKƒ{ƒ^ƒ“‰Ÿ‰º‚Ì“®ì(‘I‘ğ‚µ‚½ƒtƒHƒ“ƒg‚ğİ’è‚·‚éB)
+ * OKãƒœã‚¿ãƒ³æŠ¼ä¸‹æ™‚ã®å‹•ä½œ(é¸æŠã—ãŸãƒ•ã‚©ãƒ³ãƒˆã‚’è¨­å®šã™ã‚‹ã€‚)
  *
- * @return TRUE:ƒtƒHƒ“ƒg‚ğİ’è‚µ‚½‚Æ‚« FALSE:ƒtƒHƒ“ƒgİ’è‚ğƒLƒƒƒ“ƒZƒ‹‚µ‚½‚Æ‚«
+ * @return TRUE:ãƒ•ã‚©ãƒ³ãƒˆã‚’è¨­å®šã—ãŸã¨ã FALSE:ãƒ•ã‚©ãƒ³ãƒˆè¨­å®šã‚’ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã—ãŸã¨ã
  */
 INT_PTR NoMeiryoUI::OnBnClickedOk()
 {
 #if 0
-	// Œë‚Á‚Äc‘‚«—pƒtƒHƒ“ƒg‚ğw’è‚µ‚È‚¢‚æ‚¤–â‚¢‡‚í‚¹‚ğs‚¤B
+	// èª¤ã£ã¦ç¸¦æ›¸ãç”¨ãƒ•ã‚©ãƒ³ãƒˆã‚’æŒ‡å®šã—ãªã„ã‚ˆã†å•ã„åˆã‚ã›ã‚’è¡Œã†ã€‚
 	bool hasVerticalFont = false;
 	if (metrics.lfCaptionFont.lfFaceName[0] == _T('@')) {
 		hasVerticalFont = true;
@@ -1755,8 +1755,8 @@ INT_PTR NoMeiryoUI::OnBnClickedOk()
 
 	if (hasVerticalFont) {
 		int answer = MessageBox(hWnd,
-			_T("c‘‚«—pƒtƒHƒ“ƒg(–¼‘O‚ª@‚Ån‚Ü‚éƒtƒHƒ“ƒg)‚ª\nw’è‚³‚ê‚Ä‚¢‚Ü‚·‚ª‚æ‚ë‚µ‚¢‚Å‚·‚©H"),
-			_T("Šm”F"),
+			_T("ç¸¦æ›¸ãç”¨ãƒ•ã‚©ãƒ³ãƒˆ(åå‰ãŒ@ã§å§‹ã¾ã‚‹ãƒ•ã‚©ãƒ³ãƒˆ)ãŒ\næŒ‡å®šã•ã‚Œã¦ã„ã¾ã™ãŒã‚ˆã‚ã—ã„ã§ã™ã‹ï¼Ÿ"),
+			_T("ç¢ºèª"),
 			MB_ICONQUESTION | MB_YESNO);
 		if (answer != IDYES) {
 			return (INT_PTR)FALSE;
@@ -1764,24 +1764,24 @@ INT_PTR NoMeiryoUI::OnBnClickedOk()
 	}
 #endif
 
-	// ƒtƒHƒ“ƒg•ÏX‚ğÀ{‚·‚éB
+	// ãƒ•ã‚©ãƒ³ãƒˆå¤‰æ›´ã‚’å®Ÿæ–½ã™ã‚‹ã€‚
 	setFont(&metrics, &iconFont);
 
 	return (INT_PTR)TRUE;
 }
 
 /**
- * ˆêŠ‡İ’èƒ{ƒ^ƒ“‰Ÿ‰º‚Ì“®ì(‚·‚×‚Ä‚ÌƒtƒHƒ“ƒg‚Å‘I‘ğ‚µ‚½ƒtƒHƒ“ƒg‚ğİ’è‚·‚éB)
+ * ä¸€æ‹¬è¨­å®šãƒœã‚¿ãƒ³æŠ¼ä¸‹æ™‚ã®å‹•ä½œ(ã™ã¹ã¦ã®ãƒ•ã‚©ãƒ³ãƒˆã§é¸æŠã—ãŸãƒ•ã‚©ãƒ³ãƒˆã‚’è¨­å®šã™ã‚‹ã€‚)
  *
  */
 void NoMeiryoUI::OnBnClickedAll()
 {
 #if 0
-	// Œë‚Á‚Äc‘‚«—pƒtƒHƒ“ƒg‚ğw’è‚µ‚È‚¢‚æ‚¤–â‚¢‡‚í‚¹‚ğs‚¤B
+	// èª¤ã£ã¦ç¸¦æ›¸ãç”¨ãƒ•ã‚©ãƒ³ãƒˆã‚’æŒ‡å®šã—ãªã„ã‚ˆã†å•ã„åˆã‚ã›ã‚’è¡Œã†ã€‚
 	if (metricsAll.lfMenuFont.lfFaceName[0] == _T('@')) {
 		int answer = MessageBox(hWnd,
-			_T("c‘‚«—pƒtƒHƒ“ƒg(–¼‘O‚ª@‚Ån‚Ü‚éƒtƒHƒ“ƒg)‚ª\nw’è‚³‚ê‚Ä‚¢‚Ü‚·‚ª‚æ‚ë‚µ‚¢‚Å‚·‚©H"),
-			_T("Šm”F"),
+			_T("ç¸¦æ›¸ãç”¨ãƒ•ã‚©ãƒ³ãƒˆ(åå‰ãŒ@ã§å§‹ã¾ã‚‹ãƒ•ã‚©ãƒ³ãƒˆ)ãŒ\næŒ‡å®šã•ã‚Œã¦ã„ã¾ã™ãŒã‚ˆã‚ã—ã„ã§ã™ã‹ï¼Ÿ"),
+			_T("ç¢ºèª"),
 			MB_ICONQUESTION | MB_YESNO);
 		if (answer != IDYES) {
 			return;
@@ -1789,24 +1789,24 @@ void NoMeiryoUI::OnBnClickedAll()
 	}
 #endif
 
-	// ƒtƒHƒ“ƒg•ÏX‚ğÀ{‚·‚éB
+	// ãƒ•ã‚©ãƒ³ãƒˆå¤‰æ›´ã‚’å®Ÿæ–½ã™ã‚‹ã€‚
 	setFont(&metricsAll, &iconFontAll);
 
 	memcpy(&metrics, &metricsAll,sizeof(NONCLIENTMETRICS));
 	memcpy(&iconFont, &iconFontAll,sizeof(LOGFONT));
 
-	// •\¦‚ğXV‚·‚éB
+	// è¡¨ç¤ºã‚’æ›´æ–°ã™ã‚‹ã€‚
 	updateDisplay();
 }
 
 /**
- * ƒVƒXƒeƒ€‚ÌDPI‚ğæ“¾‚·‚éB
+ * ã‚·ã‚¹ãƒ†ãƒ ã®DPIã‚’å–å¾—ã™ã‚‹ã€‚
  *
- * @return æ“¾‚µ‚½DPI
+ * @return å–å¾—ã—ãŸDPI
  */
 int NoMeiryoUI::getDPI(void)
 {
-	// DPI‚ğæ“¾‚·‚éB
+	// DPIã‚’å–å¾—ã™ã‚‹ã€‚
 	int dpiY = 96;
 	HDC hdc = GetDC(NULL);
 
@@ -1819,15 +1819,15 @@ int NoMeiryoUI::getDPI(void)
 }
 
 /**
- * Windows 8/8.1‚Ìê‡‚ÌƒvƒŠƒZƒbƒg’l‚ğİ’è‚·‚éB
+ * Windows 8/8.1ã®å ´åˆã®ãƒ—ãƒªã‚»ãƒƒãƒˆå€¤ã‚’è¨­å®šã™ã‚‹ã€‚
  */
 void NoMeiryoUI::OnSet8(void)
 {
-	// DPI‚ğæ“¾‚·‚éB
+	// DPIã‚’å–å¾—ã™ã‚‹ã€‚
 	int dpiY = getDPI();
 
-	// ƒtƒHƒ“ƒgˆÈŠO‚ÌNONCLIENTMETRICS‚ÌŒ»İ’l‚ğ•Û‚·‚é‚½‚ßA
-	// NONCLIENTMETRICS‚Ì“à—e‚ğæ“¾‚µ‚È‚¨‚·B
+	// ãƒ•ã‚©ãƒ³ãƒˆä»¥å¤–ã®NONCLIENTMETRICSã®ç¾åœ¨å€¤ã‚’ä¿æŒã™ã‚‹ãŸã‚ã€
+	// NONCLIENTMETRICSã®å†…å®¹ã‚’å–å¾—ã—ãªãŠã™ã€‚
 	FillMemory(&metrics,sizeof(NONCLIENTMETRICS),0x00);
 	metrics.cbSize = sizeof(NONCLIENTMETRICS);
 	SystemParametersInfo(SPI_GETNONCLIENTMETRICS,
@@ -1877,21 +1877,21 @@ void NoMeiryoUI::OnSet8(void)
 	metrics.lfMenuFont.lfCharSet = fontCharset8[5];
 	metrics.lfMenuFont.lfQuality = 5;
 
-	// •\¦‚ğXV‚·‚éB
+	// è¡¨ç¤ºã‚’æ›´æ–°ã™ã‚‹ã€‚
 	updateDisplay();
 
 }
 
 /**
- * Windows 10‚Ìê‡‚ÌƒvƒŠƒZƒbƒg’l‚ğİ’è‚·‚éB
+ * Windows 10ã®å ´åˆã®ãƒ—ãƒªã‚»ãƒƒãƒˆå€¤ã‚’è¨­å®šã™ã‚‹ã€‚
  */
 void NoMeiryoUI::OnSet10(void)
 {
-	// DPI‚ğæ“¾‚·‚éB
+	// DPIã‚’å–å¾—ã™ã‚‹ã€‚
 	int dpiY = getDPI();
 
-	// ƒtƒHƒ“ƒgˆÈŠO‚ÌNONCLIENTMETRICS‚ÌŒ»İ’l‚ğ•Û‚·‚é‚½‚ßA
-	// NONCLIENTMETRICS‚Ì“à—e‚ğæ“¾‚µ‚È‚¨‚·B
+	// ãƒ•ã‚©ãƒ³ãƒˆä»¥å¤–ã®NONCLIENTMETRICSã®ç¾åœ¨å€¤ã‚’ä¿æŒã™ã‚‹ãŸã‚ã€
+	// NONCLIENTMETRICSã®å†…å®¹ã‚’å–å¾—ã—ãªãŠã™ã€‚
 	FillMemory(&metrics, sizeof(NONCLIENTMETRICS), 0x00);
 	metrics.cbSize = sizeof(NONCLIENTMETRICS);
 	SystemParametersInfo(SPI_GETNONCLIENTMETRICS,
@@ -1941,19 +1941,19 @@ void NoMeiryoUI::OnSet10(void)
 	metrics.lfMenuFont.lfCharSet = fontCharset10[5];
 	metrics.lfMenuFont.lfQuality = 5;
 
-	// •\¦‚ğXV‚·‚éB
+	// è¡¨ç¤ºã‚’æ›´æ–°ã™ã‚‹ã€‚
 	updateDisplay();
 
 }
 
-// İ’è‚·‚éƒVƒXƒeƒ€ƒtƒHƒ“ƒg‚Ìî•ñŠi”[—p\‘¢‘Ì
-// ƒVƒXƒeƒ€ƒtƒHƒ“ƒgİ’èƒXƒŒƒbƒh‚Åg—p‚·‚éB
+// è¨­å®šã™ã‚‹ã‚·ã‚¹ãƒ†ãƒ ãƒ•ã‚©ãƒ³ãƒˆã®æƒ…å ±æ ¼ç´ç”¨æ§‹é€ ä½“
+// ã‚·ã‚¹ãƒ†ãƒ ãƒ•ã‚©ãƒ³ãƒˆè¨­å®šã‚¹ãƒ¬ãƒƒãƒ‰ã§ä½¿ç”¨ã™ã‚‹ã€‚
 NONCLIENTMETRICS *s_fontMetrics;
 
 /**
- * ƒXƒŒƒbƒh‚ÅƒAƒCƒRƒ“ˆÈŠO‚ÌƒtƒHƒ“ƒg‚ğİ’è‚·‚éB
+ * ã‚¹ãƒ¬ãƒƒãƒ‰ã§ã‚¢ã‚¤ã‚³ãƒ³ä»¥å¤–ã®ãƒ•ã‚©ãƒ³ãƒˆã‚’è¨­å®šã™ã‚‹ã€‚
  *
- * @param p ƒXƒŒƒbƒh‚É“n‚·ƒpƒ‰ƒ[ƒ^(–¢g—p)
+ * @param p ã‚¹ãƒ¬ãƒƒãƒ‰ã«æ¸¡ã™ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿(æœªä½¿ç”¨)
  * @return 0
  */
 unsigned _stdcall setOnThread(void *p)
@@ -1971,10 +1971,10 @@ unsigned _stdcall setOnThread(void *p)
 
 
 /**
- * ‰æ–ÊŠe•”‚ÌƒtƒHƒ“ƒg‚ğİ’è‚·‚éB
+ * ç”»é¢å„éƒ¨ã®ãƒ•ã‚©ãƒ³ãƒˆã‚’è¨­å®šã™ã‚‹ã€‚
  *
- * @param fontMetrics ƒAƒCƒRƒ“ˆÈŠO‚ÌƒtƒHƒ“ƒgw’è—pNONCLIENTMETRICS
- * @param iconLogFont ƒAƒCƒRƒ“‚ÌƒtƒHƒ“ƒg
+ * @param fontMetrics ã‚¢ã‚¤ã‚³ãƒ³ä»¥å¤–ã®ãƒ•ã‚©ãƒ³ãƒˆæŒ‡å®šç”¨NONCLIENTMETRICS
+ * @param iconLogFont ã‚¢ã‚¤ã‚³ãƒ³ã®ãƒ•ã‚©ãƒ³ãƒˆ
  */
 void NoMeiryoUI::setFont(
 	NONCLIENTMETRICS *fontMetrics,
@@ -1984,7 +1984,7 @@ void NoMeiryoUI::setFont(
 	DWORD_PTR ptr;
 	LRESULT messageResult;
 
-	// ƒAƒCƒRƒ“‚ÌƒtƒHƒ“ƒgİ’è
+	// ã‚¢ã‚¤ã‚³ãƒ³ã®ãƒ•ã‚©ãƒ³ãƒˆè¨­å®š
 	SystemParametersInfo(SPI_SETICONTITLELOGFONT,
 		sizeof(LOGFONT),
 		iconLogFont,
@@ -2007,30 +2007,30 @@ void NoMeiryoUI::setFont(
 		}
 	}
 
-	// ƒAƒCƒRƒ“ˆÈŠO‚ÌƒtƒHƒ“ƒgİ’è
+	// ã‚¢ã‚¤ã‚³ãƒ³ä»¥å¤–ã®ãƒ•ã‚©ãƒ³ãƒˆè¨­å®š
 	if (appMenu->isChecked(IDM_ANOTHER)) {
-		// UI‚Æ•ÊƒXƒŒƒbƒh‚ÅSystemParametersInfo(SPI_SETNONCLIENTMETRICS‚ğ
-		// Às‚·‚éB
+		// UIã¨åˆ¥ã‚¹ãƒ¬ãƒƒãƒ‰ã§SystemParametersInfo(SPI_SETNONCLIENTMETRICSã‚’
+		// å®Ÿè¡Œã™ã‚‹ã€‚
 		s_fontMetrics = fontMetrics;
 
-		// ƒtƒHƒ“ƒgİ’è‚ğÀs‚·‚éƒXƒŒƒbƒh‚ğŠJn‚·‚éB
+		// ãƒ•ã‚©ãƒ³ãƒˆè¨­å®šã‚’å®Ÿè¡Œã™ã‚‹ã‚¹ãƒ¬ãƒƒãƒ‰ã‚’é–‹å§‹ã™ã‚‹ã€‚
 		uintptr_t startResult = _beginthreadex(NULL, 0, setOnThread, NULL, 0, NULL);
 		if (startResult != 0) {
-			// ³í‚ÉƒXƒŒƒbƒh‚ğŠJn‚µ‚½‚çƒXƒŒƒbƒhI—¹‚ğ‘Ò‹@‚·‚éB
+			// æ­£å¸¸ã«ã‚¹ãƒ¬ãƒƒãƒ‰ã‚’é–‹å§‹ã—ãŸã‚‰ã‚¹ãƒ¬ãƒƒãƒ‰çµ‚äº†ã‚’å¾…æ©Ÿã™ã‚‹ã€‚
 			HANDLE handle;
 			handle = (HANDLE)startResult;
 
-			// ˆê‰5•b‚Ù‚Ç‘Ò‚Â
+			// ä¸€å¿œ5ç§’ã»ã©å¾…ã¤
 			DWORD waitResult = WaitForSingleObject(handle, 5000);
 			if (waitResult == WAIT_TIMEOUT) {
-				// ƒXƒŒƒbƒh‚ªI—¹‚µ‚È‚¢ê‡‚Í‚Ç‚¤‚µ‚æ‚¤‚à‚È‚¢‚Ì‚ÅƒXƒŒƒbƒh‚ğI—¹‚·‚éB
+				// ã‚¹ãƒ¬ãƒƒãƒ‰ãŒçµ‚äº†ã—ãªã„å ´åˆã¯ã©ã†ã—ã‚ˆã†ã‚‚ãªã„ã®ã§ã‚¹ãƒ¬ãƒƒãƒ‰ã‚’çµ‚äº†ã™ã‚‹ã€‚
 				TerminateThread(handle, 0);
 			}
 			CloseHandle(handle);
 		}
 	} else {
-		// UI‚Æ“¯‚¶ƒXƒŒƒbƒh‚ÅSystemParametersInfo(SPI_SETNONCLIENTMETRICS‚ğ
-		// Às‚·‚éB
+		// UIã¨åŒã˜ã‚¹ãƒ¬ãƒƒãƒ‰ã§SystemParametersInfo(SPI_SETNONCLIENTMETRICSã‚’
+		// å®Ÿè¡Œã™ã‚‹ã€‚
 		SystemParametersInfo(SPI_SETNONCLIENTMETRICS,
 			sizeof(NONCLIENTMETRICS),
 			fontMetrics,
@@ -2054,9 +2054,9 @@ void NoMeiryoUI::setFont(
 		}
 	}
 
-	// F‚ğÄİ’è‚·‚é‚±‚Æ‚Å‰æ–Ê‚ğƒŠƒtƒŒƒbƒVƒ…‚·‚éB
-	// ‚Ì‚¾‚ªAIObit StartMenu 8‚ª‹N“®‚µ‚Ä‚¢‚é‚Æ‚«‚ÍSetSysColors‚ğ
-	// ŒÄ‚Ño‚·‚Æ‰“š‚ª‚È‚­‚È‚é‚Ì‚ÅŒÄ‚Ño‚µ‚ğs‚í‚È‚¢‚±‚Æ‚É‚µ‚½B
+	// è‰²ã‚’å†è¨­å®šã™ã‚‹ã“ã¨ã§ç”»é¢ã‚’ãƒªãƒ•ãƒ¬ãƒƒã‚·ãƒ¥ã™ã‚‹ã€‚
+	// ã®ã ãŒã€IObit StartMenu 8ãŒèµ·å‹•ã—ã¦ã„ã‚‹ã¨ãã¯SetSysColorsã‚’
+	// å‘¼ã³å‡ºã™ã¨å¿œç­”ãŒãªããªã‚‹ã®ã§å‘¼ã³å‡ºã—ã‚’è¡Œã‚ãªã„ã“ã¨ã«ã—ãŸã€‚
 #if 0
 	DWORD btnColor;
 	btnColor = GetSysColor(COLOR_BTNTEXT);
@@ -2071,20 +2071,20 @@ void NoMeiryoUI::setFont(
 }
 
 /**
- * Windows‚Ìƒo[ƒWƒ‡ƒ“‚ğæ“¾‚µ‚ÄA‰æ–Ê‚Éİ’è‚·‚éB
+ * Windowsã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã‚’å–å¾—ã—ã¦ã€ç”»é¢ã«è¨­å®šã™ã‚‹ã€‚
  */
 void NoMeiryoUI::SetWinVer(void)
 {
-	// Windows‚Ì“à•”ƒo[ƒWƒ‡ƒ“‚ğ’²‚×‚éB
+	// Windowsã®å†…éƒ¨ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã‚’èª¿ã¹ã‚‹ã€‚
 	DWORD dwVersion = GetVersion();
 	TCHAR buf[128];
 
 	DWORD major = (DWORD)(LOBYTE(LOWORD(dwVersion)));
 	DWORD minor = (DWORD)(HIBYTE(LOWORD(dwVersion)));
 
-	// ƒT[ƒo[‚©‚Ç‚¤‚©‚Ì’Ç‰Áî•ñ‚ğæ“¾‚·‚é‚½‚ß
-	// GetVersionEx‚ğOSVERSIONINFOEX‚ğ“n‚µ‚ÄŒÄ‚Ño‚·B
-	// Windows 98/Me,NT4ˆÈ‘O‚Íl—¶‚µ‚È‚¢‚Ì‚ÅŒÄ‚Ñ•ª‚¯‚Í‚È‚µB
+	// ã‚µãƒ¼ãƒãƒ¼ã‹ã©ã†ã‹ã®è¿½åŠ æƒ…å ±ã‚’å–å¾—ã™ã‚‹ãŸã‚
+	// GetVersionExã‚’OSVERSIONINFOEXã‚’æ¸¡ã—ã¦å‘¼ã³å‡ºã™ã€‚
+	// Windows 98/Me,NT4ä»¥å‰ã¯è€ƒæ…®ã—ãªã„ã®ã§å‘¼ã³åˆ†ã‘ã¯ãªã—ã€‚
 	OSVERSIONINFOEX infoEx;
 	memset(&infoEx, 0, sizeof(OSVERSIONINFOEX));
 	infoEx.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
@@ -2202,11 +2202,11 @@ void NoMeiryoUI::SetWinVer(void)
 }
 
 /**
- * Windows 10‚Ìƒo[ƒWƒ‡ƒ“‚ğæ“¾‚·‚éB
+ * Windows 10ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã‚’å–å¾—ã™ã‚‹ã€‚
  *
- * @param buf ƒo[ƒWƒ‡ƒ“”Ô†Ši”[æ
- * @param major ƒƒWƒƒ[ƒo[ƒWƒ‡ƒ“
- * @param minor ƒ}ƒCƒi[ƒo[ƒWƒ‡ƒ“
+ * @param buf ãƒãƒ¼ã‚¸ãƒ§ãƒ³ç•ªå·æ ¼ç´å…ˆ
+ * @param major ãƒ¡ã‚¸ãƒ£ãƒ¼ãƒãƒ¼ã‚¸ãƒ§ãƒ³
+ * @param minor ãƒã‚¤ãƒŠãƒ¼ãƒãƒ¼ã‚¸ãƒ§ãƒ³
  */
 void NoMeiryoUI::getWin10Ver(TCHAR *buf, DWORD major, DWORD minor)
 {
@@ -2241,23 +2241,23 @@ void NoMeiryoUI::getWin10Ver(TCHAR *buf, DWORD major, DWORD minor)
 }
 
 /**
- * ƒhƒLƒ…ƒƒ“ƒgƒtƒ@ƒCƒ‹‚ğ•\¦‚·‚éB
+ * ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã‚’è¡¨ç¤ºã™ã‚‹ã€‚
  *
  */
 void NoMeiryoUI::showHelp(void)
 {
-	// Àsƒtƒ@ƒCƒ‹‚Ìî•ñ‚ğ“¾‚é‚½‚ß‚Ìƒoƒbƒtƒ@ŒQ
+	// å®Ÿè¡Œãƒ•ã‚¡ã‚¤ãƒ«ã®æƒ…å ±ã‚’å¾—ã‚‹ãŸã‚ã®ãƒãƒƒãƒ•ã‚¡ç¾¤
 	TCHAR path[_MAX_PATH+1],drive[_MAX_DRIVE+1],dir[_MAX_DIR+1],commandLine[_MAX_PATH+32];
 
-	// Àsƒtƒ@ƒCƒ‹‚Ì‚ ‚é‚Æ‚±‚ë‚ÌBShelp.html‚ÌƒpƒX–¼‚ğ¶¬‚·‚éB
+	// å®Ÿè¡Œãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚ã‚‹ã¨ã“ã‚ã®BShelp.htmlã®ãƒ‘ã‚¹åã‚’ç”Ÿæˆã™ã‚‹ã€‚
 	::GetModuleFileName(NULL,path,_MAX_PATH);
 	::_tsplitpath(path,drive,dir,NULL,NULL);
 	::_stprintf(commandLine, _T("hh.exe \"%s%s%s\""), drive, dir, helpFileName);
 	
-	// ŠÖ˜A•t‚¯‚ç‚ê‚½ƒAƒvƒŠ‚ÅƒhƒLƒ…ƒƒ“ƒgƒtƒ@ƒCƒ‹‚ğ•\¦‚·‚éB
+	// é–¢é€£ä»˜ã‘ã‚‰ã‚ŒãŸã‚¢ãƒ—ãƒªã§ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã‚’è¡¨ç¤ºã™ã‚‹ã€‚
 	// ShellExecute(hWnd,_T("open"),helpFile,NULL,NULL,SW_SHOW);
 
-	// ƒEƒCƒ“ƒhƒEˆÊ’u‚ğ§Œä‚·‚é‚½‚ßCreateProcess‚Åƒwƒ‹ƒvƒtƒ@ƒCƒ‹‚ğ•\¦‚·‚é
+	// ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ä½ç½®ã‚’åˆ¶å¾¡ã™ã‚‹ãŸã‚CreateProcessã§ãƒ˜ãƒ«ãƒ—ãƒ•ã‚¡ã‚¤ãƒ«ã‚’è¡¨ç¤ºã™ã‚‹
 	STARTUPINFO info;
 	PROCESS_INFORMATION procInfo;
 	BOOL startResult;
@@ -2283,12 +2283,12 @@ void NoMeiryoUI::showHelp(void)
 	helpPid = procInfo.dwProcessId;
 	helpMoved = false;
 
-	// ƒƒCƒ“ƒEƒCƒ“ƒhƒE‚Ì‚ ‚éƒfƒBƒXƒvƒŒƒC‚ÌÀ•WŒn‚ğæ“¾‚·‚éB
+	// ãƒ¡ã‚¤ãƒ³ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ã‚ã‚‹ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ã®åº§æ¨™ç³»ã‚’å–å¾—ã™ã‚‹ã€‚
 	EnumDisplayMonitors(NULL, NULL, MonitorNearWindowCallback, (LPARAM)this->hWnd);
 
 	for (int i = 0; helpMoved == false && i < 25; i++) {
-		// ‹N“®‚µ‚½ƒwƒ‹ƒv‚ÌƒEƒCƒ“ƒhƒE‚ğŒŸõ‚µAƒƒCƒ“ƒEƒCƒ“ƒhƒE‚Ì‚ ‚éƒfƒBƒXƒvƒŒƒC‚Ì
-		// ’†‰›‚É‚à‚Á‚Ä‚¢‚­B
+		// èµ·å‹•ã—ãŸãƒ˜ãƒ«ãƒ—ã®ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã‚’æ¤œç´¢ã—ã€ãƒ¡ã‚¤ãƒ³ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ã‚ã‚‹ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ã®
+		// ä¸­å¤®ã«ã‚‚ã£ã¦ã„ãã€‚
 		EnumWindows(setWindowSize, 0);
 		Sleep(200);
 	}
@@ -2296,11 +2296,11 @@ void NoMeiryoUI::showHelp(void)
 }
 
 /**
- * ŠeƒEƒCƒ“ƒhƒE‚É‘Î‚·‚éƒ`ƒFƒbƒNˆ—‚ğs‚¤ƒR[ƒ‹ƒoƒbƒN
+ * å„ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã«å¯¾ã™ã‚‹ãƒã‚§ãƒƒã‚¯å‡¦ç†ã‚’è¡Œã†ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯
  *
- * @param hWnd Œ©‚Â‚©‚Á‚½ƒEƒCƒ“ƒhƒE‚Ìƒnƒ“ƒhƒ‹
- * @param lparam EnumWindows‚ÌLPARAM(–¢g—p)
- * @return TRUE:—ñ‹“‚ğ‘±‚¯‚é FALSE:—ñ‹“‚ğI‚¦‚éB
+ * @param hWnd è¦‹ã¤ã‹ã£ãŸã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ãƒãƒ³ãƒ‰ãƒ«
+ * @param lparam EnumWindowsã®LPARAM(æœªä½¿ç”¨)
+ * @return TRUE:åˆ—æŒ™ã‚’ç¶šã‘ã‚‹ FALSE:åˆ—æŒ™ã‚’çµ‚ãˆã‚‹ã€‚
  */
 BOOL CALLBACK setWindowSize(HWND hWnd, LPARAM lparam)
 {
@@ -2308,13 +2308,13 @@ BOOL CALLBACK setWindowSize(HWND hWnd, LPARAM lparam)
 	WINDOWPLACEMENT place;
 	place.length = sizeof(WINDOWPLACEMENT);
 
-	// ‹N“®‚µ‚½ƒvƒƒOƒ‰ƒ€‚ÌƒEƒCƒ“ƒhƒE‚ğ’T‚·
+	// èµ·å‹•ã—ãŸãƒ—ãƒ­ã‚°ãƒ©ãƒ ã®ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã‚’æ¢ã™
 	GetWindowThreadProcessId(hWnd, &wndPid);
 	if (wndPid == helpPid) {
 		if (IsWindowVisible(hWnd)) {
 			if (IsWindow(hWnd)) {
-				// ƒƒCƒ“ƒEƒCƒ“ƒhƒE‚Ì‚ ‚éƒfƒBƒXƒvƒŒƒC‚Ì’†‰›‚É
-				// ƒwƒ‹ƒv‚ÌƒEƒCƒ“ƒhƒEˆÊ’u‚ğİ’è‚·‚éB
+				// ãƒ¡ã‚¤ãƒ³ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ã‚ã‚‹ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ã®ä¸­å¤®ã«
+				// ãƒ˜ãƒ«ãƒ—ã®ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ä½ç½®ã‚’è¨­å®šã™ã‚‹ã€‚
 				adjustCenter(myMonitorLect, HWND_TOP, hWnd);
 				helpMoved = true;
 
@@ -2326,13 +2326,13 @@ BOOL CALLBACK setWindowSize(HWND hWnd, LPARAM lparam)
 }
 
 /**
- * ƒEƒCƒ“ƒhƒE‚Ì‚¢‚éƒ‚ƒjƒ^[‚ğ”»’è‚·‚é‚½‚ß‚ÌEnumDisplayMonitors‚ÌƒR[ƒ‹ƒoƒbƒN
+ * ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ã„ã‚‹ãƒ¢ãƒ‹ã‚¿ãƒ¼ã‚’åˆ¤å®šã™ã‚‹ãŸã‚ã®EnumDisplayMonitorsã®ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯
  *
- * @param hMonitor ƒ‚ƒjƒ^[‚Ìƒnƒ“ƒhƒ‹
- * @param hdcMonitor ƒ‚ƒjƒ^[‚ÌƒfƒBƒXƒvƒŒƒCƒRƒ“ƒeƒLƒXƒg
- * @param lprcMonitor ƒ‚ƒjƒ^[‚ÌÀ•Wî•ñ
- * @param dwData EnumDisplayMonitors‚Ìƒpƒ‰ƒ[ƒ^(ƒƒCƒ“ƒEƒCƒ“ƒhƒE‚ÌƒEƒCƒ“ƒhƒEƒnƒ“ƒhƒ‹)
- * @return TRUE:—ñ‹“‚ğ‘±‚¯‚é FALSE:—ñ‹“‚ğ‚â‚ßAƒ‚ƒjƒ^[‚ÌÀ•Wî•ñ‚ğŠm’è‚³‚¹‚é
+ * @param hMonitor ãƒ¢ãƒ‹ã‚¿ãƒ¼ã®ãƒãƒ³ãƒ‰ãƒ«
+ * @param hdcMonitor ãƒ¢ãƒ‹ã‚¿ãƒ¼ã®ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆ
+ * @param lprcMonitor ãƒ¢ãƒ‹ã‚¿ãƒ¼ã®åº§æ¨™æƒ…å ±
+ * @param dwData EnumDisplayMonitorsã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿(ãƒ¡ã‚¤ãƒ³ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«)
+ * @return TRUE:åˆ—æŒ™ã‚’ç¶šã‘ã‚‹ FALSE:åˆ—æŒ™ã‚’ã‚„ã‚ã€ãƒ¢ãƒ‹ã‚¿ãƒ¼ã®åº§æ¨™æƒ…å ±ã‚’ç¢ºå®šã•ã›ã‚‹
  */
 BOOL CALLBACK MonitorNearWindowCallback(
 	HMONITOR hMonitor,
@@ -2343,7 +2343,7 @@ BOOL CALLBACK MonitorNearWindowCallback(
 {
 	HWND myHwnd = (HWND)dwData;
 	if (!firstMonitor) {
-		// ƒfƒBƒXƒvƒŒƒC‚Ìî•ñ‚ª‰½‚à‚È‚¢ó‘Ô‚Í”ğ‚¯‚éB
+		// ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ã®æƒ…å ±ãŒä½•ã‚‚ãªã„çŠ¶æ…‹ã¯é¿ã‘ã‚‹ã€‚
 		myMonitorLect = *lprcMonitor;
 		firstMonitor = true;
 	}
@@ -2351,7 +2351,7 @@ BOOL CALLBACK MonitorNearWindowCallback(
 	RECT rect;
 	GetWindowRect(myHwnd, &rect);
 
-	// ƒJ[ƒ\ƒ‹‚Ì‚¢‚éƒ‚ƒjƒ^‚©‚Ç‚¤‚©”»’è‚·‚éB
+	// ã‚«ãƒ¼ã‚½ãƒ«ã®ã„ã‚‹ãƒ¢ãƒ‹ã‚¿ã‹ã©ã†ã‹åˆ¤å®šã™ã‚‹ã€‚
 	int x = rect.left;
 	int y = rect.top;
 	if ((x >= lprcMonitor->left) && (x <= lprcMonitor->right)) {
@@ -2367,7 +2367,7 @@ BOOL CALLBACK MonitorNearWindowCallback(
 
 
 /**
- * ƒo[ƒWƒ‡ƒ“”Ô†‚ğ•\¦‚·‚éB
+ * ãƒãƒ¼ã‚¸ãƒ§ãƒ³ç•ªå·ã‚’è¡¨ç¤ºã™ã‚‹ã€‚
  *
  */
 void NoMeiryoUI::showVersion(void)
@@ -2385,8 +2385,8 @@ void NoMeiryoUI::showVersion(void)
 			langResource[64].c_str());
 		_tcscpy(transAuthor, langResource[69].c_str());
 	} else {
-		appName = _T("Meiryo UI‚à‘å‚Á‚«‚ç‚¢!!");
-		_stprintf(title, _T("Meiryo UI‚à‘å‚Á‚«‚ç‚¢!!‚É‚Â‚¢‚Ä"));
+		appName = _T("Meiryo UIã‚‚å¤§ã£ãã‚‰ã„!!");
+		_stprintf(title, _T("Meiryo UIã‚‚å¤§ã£ãã‚‰ã„!!ã«ã¤ã„ã¦"));
 		_tcscpy(transAuthor, _T("Tatsuhiko Syoji(Tatsu)"));
 	}
 	LoadString(hInst, IDS_VERSION, verString, 32);

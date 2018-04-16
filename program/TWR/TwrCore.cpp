@@ -1,8 +1,8 @@
-/*
+ï»¿/*
 noMeiryoUI (C) 2005,2012,2013 Tatsuhiko Shoji
 The sources for noMeiryoUI are distributed under the MIT open source license
 */
 #include "TwrCore.h"
 
-/** ƒCƒ“ƒXƒ^ƒ“ƒXƒnƒ“ƒhƒ‹ */
+/** ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãƒãƒ³ãƒ‰ãƒ« */
 HINSTANCE hInst;

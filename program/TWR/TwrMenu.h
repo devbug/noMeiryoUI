@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 noMeiryoUI (C) 2005,2012-2016 Tatsuhiko Shoji
 The sources for noMeiryoUI are distributed under the MIT open source license
 */
@@ -20,10 +20,10 @@ public:
 	void setText(int id, const TCHAR *message, BOOL byPosition = TRUE);
 
 	/**
-	 * ƒTƒuƒƒjƒ…[‚ğæ“¾‚·‚éB
+	 * ã‚µãƒ–ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’å–å¾—ã™ã‚‹ã€‚
 	 *
-	 * @param pos ƒƒjƒ…[ã‚ÌˆÊ’u(0`)
-	 * @return ƒTƒuƒƒjƒ…[‚ÌƒIƒuƒWƒFƒNƒg
+	 * @param pos ãƒ¡ãƒ‹ãƒ¥ãƒ¼ä¸Šã®ä½ç½®(0ã€œ)
+	 * @return ã‚µãƒ–ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
 	 */
 	TwrMenu *getSubMenu(int pos) {
 		HMENU hMenu = GetSubMenu(menuHandle, pos);

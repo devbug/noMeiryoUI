@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 noMeiryoUI (C) 2005,2012,2013 Tatsuhiko Shoji
 The sources for noMeiryoUI are distributed under the MIT open source license
 */
@@ -6,7 +6,7 @@ The sources for noMeiryoUI are distributed under the MIT open source license
 #include "TwrWnd.h"
 
 /**
- * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+ * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
  */
 TwrWnd::TwrWnd()
 {
@@ -19,9 +19,9 @@ TwrWnd::TwrWnd()
 }
 
 /**
- * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+ * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
  *
- * @param newHwnd ƒIƒuƒWƒFƒNƒg‚ÉŒ‹‚Ñ•t‚¯‚éƒEƒCƒ“ƒhƒEƒnƒ“ƒhƒ‹
+ * @param newHwnd ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«çµã³ä»˜ã‘ã‚‹ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ãƒãƒ³ãƒ‰ãƒ«
  */
 TwrWnd::TwrWnd(HWND newWnd)
 {
@@ -34,9 +34,9 @@ TwrWnd::TwrWnd(HWND newWnd)
 }
 
 /**
- * ƒfƒXƒgƒ‰ƒNƒ^<br>
+ * ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿<br>
  * <br>
- * Windows‚ÌƒEƒCƒ“ƒhƒE‚à”jŠü‚µ‚Ü‚·B
+ * Windowsã®ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã‚‚ç ´æ£„ã—ã¾ã™ã€‚
  */
 TwrWnd::~TwrWnd()
 {
@@ -46,9 +46,9 @@ TwrWnd::~TwrWnd()
 }
 
 /**
- * ƒEƒCƒ“ƒhƒE‚ğXV‚µ‚Ü‚·B
+ * ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã‚’æ›´æ–°ã—ã¾ã™ã€‚
  *
- * @return XVŒ‹‰Ê
+ * @return æ›´æ–°çµæœ
  */
 BOOL TwrWnd::UpdateWindow()
 {
@@ -56,9 +56,9 @@ BOOL TwrWnd::UpdateWindow()
 }
 
 /**
- * ƒEƒCƒ“ƒhƒE‚Ì•\¦ó‘Ô‚ğ•ÏX‚µ‚Ü‚·B
+ * ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®è¡¨ç¤ºçŠ¶æ…‹ã‚’å¤‰æ›´ã—ã¾ã™ã€‚
  *
- * @return •ÏXŒ‹‰Ê
+ * @return å¤‰æ›´çµæœ
  */
 BOOL TwrWnd::ShowWindow(int nCmdShow)
 {
@@ -66,9 +66,9 @@ BOOL TwrWnd::ShowWindow(int nCmdShow)
 }
 
 /**
- * ƒEƒCƒ“ƒhƒE‚Ì—˜—p‰Â”\ó‘Ô‚ğ•ÏX‚µ‚Ü‚·B
+ * ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®åˆ©ç”¨å¯èƒ½çŠ¶æ…‹ã‚’å¤‰æ›´ã—ã¾ã™ã€‚
  *
- * @param enabled true:g—p‰Â”\ false:g—p•s‰Â”\
+ * @param enabled true:ä½¿ç”¨å¯èƒ½ false:ä½¿ç”¨ä¸å¯èƒ½
  */
 void TwrWnd::EnableWindow(BOOL enabled)
 {
@@ -76,9 +76,9 @@ void TwrWnd::EnableWindow(BOOL enabled)
 }
 
 /**
- * ƒEƒCƒ“ƒhƒE‚Ìƒ^ƒCƒgƒ‹•¶š—ñ‚ğ•ÏX‚µ‚Ü‚·B
+ * ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ã‚¿ã‚¤ãƒˆãƒ«æ–‡å­—åˆ—ã‚’å¤‰æ›´ã—ã¾ã™ã€‚
  *
- * @param text İ’è‚·‚é•¶š—ñ
+ * @param text è¨­å®šã™ã‚‹æ–‡å­—åˆ—
  */
 void TwrWnd::setText(const TCHAR *text)
 {
@@ -89,10 +89,10 @@ void TwrWnd::setText(const TCHAR *text)
 }
 
 /**
- * ƒEƒCƒ“ƒhƒE‚Ìƒ^ƒCƒgƒ‹•¶š—ñ‚ğ•ÏX‚µ‚Ü‚·B
+ * ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ã‚¿ã‚¤ãƒˆãƒ«æ–‡å­—åˆ—ã‚’å¤‰æ›´ã—ã¾ã™ã€‚
  *
- * @param x xÀ•W
- * @param y yÀ•W
+ * @param x xåº§æ¨™
+ * @param y yåº§æ¨™
  */
 void TwrWnd::setPoint(int x, int y)
 {
@@ -105,10 +105,10 @@ void TwrWnd::setPoint(int x, int y)
 }
 
 /**
- * ƒEƒCƒ“ƒhƒE‚ÌƒTƒCƒY‚ğ•ÏX‚µ‚Ü‚·B
+ * ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ã‚µã‚¤ã‚ºã‚’å¤‰æ›´ã—ã¾ã™ã€‚
  *
- * @param w •
- * @param h ‚‚³
+ * @param w å¹…
+ * @param h é«˜ã•
  */
 void TwrWnd::setSize(int w, int h)
 {
@@ -121,9 +121,9 @@ void TwrWnd::setSize(int w, int h)
 }
 
 /**
- * ƒEƒCƒ“ƒhƒE‚ÌƒtƒHƒ“ƒg‚ğ•ÏX‚µ‚Ü‚·B
+ * ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ãƒ•ã‚©ãƒ³ãƒˆã‚’å¤‰æ›´ã—ã¾ã™ã€‚
  *
- * @param font ƒtƒHƒ“ƒg‚Ìƒnƒ“ƒhƒ‹
+ * @param font ãƒ•ã‚©ãƒ³ãƒˆã®ãƒãƒ³ãƒ‰ãƒ«
  */
 void TwrWnd::setFont(HFONT font)
 {
